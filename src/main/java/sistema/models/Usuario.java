@@ -9,7 +9,7 @@ public class Usuario {
 	private String email;
 	private String nome;
 	private Date dataNascimento;
-	private List<Esquipe> equipes;
+	private List<Equipe> equipes;
 	private List<Inscrito> inscricoes;
 	private List<Campeonato> campeonatos;
 	private Tipo tipo;

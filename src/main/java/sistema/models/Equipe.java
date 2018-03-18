@@ -3,28 +3,26 @@ package sistema.models;
 import java.util.Date;
 import java.util.List;
 
+//TODO: Implementar ToString() para a classe de Equipe.
+
 public class Equipe {
-	//Atributos
-	private String nome;
-	private Date dataFundacao;
-	private String cidade;
-	private List<Usuario> diretores;
-	
-	//Construtores
+	String nome;
+	Date dataFundacao;
+	String cidade;
+	List<Usuario> usuarios;
+
 	public Equipe() {
-		
+		super();
 	}
 
-	public Equipe(String nome, Date dataFundacao, String cidade, List<Usuario> diretores) {
+	public Equipe(String nome, Date dataFundacao, String cidade, List<Usuario> usuarios) {
 		super();
 		this.nome = nome;
 		this.dataFundacao = dataFundacao;
 		this.cidade = cidade;
-		this.diretores = diretores;
+		this.usuarios = usuarios;
 	}
-	
-	
-	//Getters and Setters
+
 	public String getNome() {
 		return nome;
 	}
@@ -49,19 +47,12 @@ public class Equipe {
 		this.cidade = cidade;
 	}
 
-	public List<Usuario> getDiretores() {
-		return diretores;
+	public List<Usuario> getUsuarios() {
+		return usuarios;
 	}
 
-	public void setDiretores(List<Usuario> diretores) {
-		this.diretores = diretores;
+	public void setUsuarios(List<Usuario> usuarios) {
+		this.usuarios = usuarios;
 	}
 
-	//TODO: Implementar Hash e Comparable
-	
-	@Override
-	public String toString() {
-		return "Equipe [nome=" + nome + ", dataFundacao=" + dataFundacao + ", cidade=" + cidade + ", diretores="
-				+ diretores + "]";
-	}
 }
