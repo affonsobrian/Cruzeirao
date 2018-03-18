@@ -2,7 +2,6 @@ package sistema.models;
 
 import java.util.List;
 
-//TODO: Implementar ToString() para a classe de Inscricao.
 
 public class Inscricao {
 	long numero;
@@ -85,4 +84,9 @@ public class Inscricao {
 		this.equipe = equipe;
 	}
 
+	@Override
+	public String toString() {
+		return "Inscricao [numero=" + numero + ", pagamento=" + pagamento + ", validada=" + validada + ", inscritos="
+				+ inscritos + ", categoria=" + categoria + ", partidas=" + partidas + ", equipe=" + equipe + "]";
+	}
 }

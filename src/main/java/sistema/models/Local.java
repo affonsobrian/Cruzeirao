@@ -1,6 +1,5 @@
 package sistema.models;
 
-//TODO: Implementar ToString() para a classe de Local.
 
 public class Local {
 	String endereco;
@@ -20,6 +19,11 @@ public class Local {
 
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+
+	@Override
+	public String toString() {
+		return "Local [endereco=" + endereco + "]";
 	}
 
 }

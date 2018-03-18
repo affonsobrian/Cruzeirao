@@ -1,7 +1,6 @@
 package sistema.models;
 
 //TODO: Criar Hash e Equals
-//TODO: Criar toString
 
 public class Juiz {
 	private Tipo tipo;
@@ -27,5 +26,10 @@ public class Juiz {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	@Override
+	public String toString() {
+		return "Juiz [tipo=" + tipo + ", usuario=" + usuario + "]";
+	}
+	
 	
 }

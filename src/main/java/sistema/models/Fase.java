@@ -5,7 +5,6 @@ import java.util.Date;
 import java.util.List;
 
 //TODO: Criar Hash e Equals
-//TODO: Criar toString
 
 public class Fase {
 	private Date datainicio;
@@ -56,5 +55,11 @@ public class Fase {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+	@Override
+	public String toString() {
+		return "Fase [datainicio=" + datainicio + ", formato=" + formato + ", categoria=" + categoria + ", grupo="
+				+ grupo + ", numero=" + numero + "]";
+	}
+	
 	
 }

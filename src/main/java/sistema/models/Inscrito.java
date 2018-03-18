@@ -62,8 +62,14 @@ public class Inscrito {
 	public void setInscricaoValida(boolean inscricaoValida) {
 		this.inscricaoValida = inscricaoValida;
 	}
+
+	@Override
+	public String toString() {
+		return "Inscrito [tipo=" + tipo + ", usuario=" + usuario + ", inscricao=" + inscricao + ", aceiteUsuario="
+				+ aceiteUsuario + ", suspensoJogos=" + suspensoJogos + ", inscricaoValida=" + inscricaoValida + "]";
+	}
 	
 	//TODO: Criar HashCode e Comparable
 	
-	//TODO>: Criar toString
+	
 }

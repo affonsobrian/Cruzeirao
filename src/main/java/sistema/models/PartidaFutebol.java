@@ -2,8 +2,6 @@ package sistema.models;
 
 import java.util.List;
 
-//TODO: Implementar ToString() para a classe de PartidaFutebol.
-
 public class PartidaFutebol {
 	List<Gol> golsMandantes;
 	List<Gol> golsVisitantes;
@@ -73,5 +71,14 @@ public class PartidaFutebol {
 
 	public void setCartoesVisitante(List<Cartao> cartoesVisitante) {
 		this.cartoesVisitante = cartoesVisitante;
+	}
+
+	@Override
+	public String toString() {
+		return "PartidaFutebol [golsMandantes=" + golsMandantes + ", golsVisitantes=" + golsVisitantes
+				+ ", golsPenaltesMandantes=" + golsPenaltesMandantes + ", golsPenaltesVisitantes="
+				+ golsPenaltesVisitantes + ", cartoesMandante=" + cartoesMandante + ", cartoesVisitante="
+				+ cartoesVisitante + "]";
 	}		
+	
 }

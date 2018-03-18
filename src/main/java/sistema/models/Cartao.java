@@ -2,8 +2,6 @@ package sistema.models;
 
 
 //TODO: Criar Hash e Equals
-//TODO: Criar toString
-
 
 public class Cartao {
 	private Inscrito inscrito;
@@ -38,6 +36,12 @@ public class Cartao {
 	public void setTempo(int tempo) {
 		this.tempo = tempo;
 	}
+	@Override
+	public String toString() {
+		return "Cartao [inscrito=" + inscrito + ", tipo=" + tipo + ", tempo=" + tempo + "]";
+	}
+	
+	
 	
 	
 }

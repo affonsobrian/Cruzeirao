@@ -2,8 +2,6 @@ package sistema.models;
 
 import java.util.List;
 
-//TODO: Implementar ToString() para a classe de Grupo.
-
 public class Grupo {
 	String nome;
 	Fase fase;
@@ -52,6 +50,11 @@ public class Grupo {
 
 	public void setNumero(int numero) {
 		this.numero = numero;
+	}
+
+	@Override
+	public String toString() {
+		return "Grupo [nome=" + nome + ", fase=" + fase + ", rodadas=" + rodadas + ", numero=" + numero + "]";
 	}
 
 }

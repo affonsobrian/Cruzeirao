@@ -87,9 +87,16 @@ public class Campeonato {
 	public void setValorTaxa(double valorTaxa) {
 		this.valorTaxa = valorTaxa;
 	}
+
+	@Override
+	public String toString() {
+		return "Campeonato [nome=" + nome + ", locais=" + locais + ", juizes=" + juizes + ", categorias=" + categorias
+				+ ", dataInicioInscricao=" + dataInicioInscricao + ", dataFimInscricao=" + dataFimInscricao
+				+ ", valorTaxa=" + valorTaxa + "]";
+	}
 	
 	//TODO: Criar HashCode e Comparable
 	
-	//TODO: Criar toString
+	
 	
 }

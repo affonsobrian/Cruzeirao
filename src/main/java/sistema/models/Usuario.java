@@ -163,6 +163,12 @@ public class Usuario {
 			return false;
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "Usuario [email=" + email + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", equipes="
+				+ equipes + ", inscricoes=" + inscricoes + ", campeonatos=" + campeonatos + ", tipo=" + tipo
+				+ ", telefoneFixo=" + telefoneFixo + ", telefoneModel=" + telefoneModel + ", endereco=" + endereco
+				+ ", rg=" + rg + ", cpf=" + cpf + ", cref=" + cref + ", sexo=" + sexo + ", foto=" + foto + "]";
+	}
 	
-	//TODO: Gerar toString
 }

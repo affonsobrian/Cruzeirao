@@ -2,8 +2,6 @@ package sistema.models;
 
 import java.util.List;
 
-//TODO: Implementar ToString() para a classe de Rodada.
-
 public class Rodada {
 	int numero;
 	Grupo grupo;
@@ -43,4 +41,11 @@ public class Rodada {
 	public void setPartidas(List<Partida> partidas) {
 		this.partidas = partidas;
 	}
+
+	@Override
+	public String toString() {
+		return "Rodada [numero=" + numero + ", grupo=" + grupo + ", partidas=" + partidas + "]";
+	}
+	
+	
 }

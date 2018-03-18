@@ -3,8 +3,6 @@ package sistema.models;
 import java.util.Date;
 import java.util.List;
 
-//TODO: Implementar ToString() para a classe de Partida.
-
 public class Partida {
 	int numero;
 	Inscricao equipeMandante;
@@ -105,4 +103,13 @@ public class Partida {
 	public void setRelatoJuiz(String relatoJuiz) {
 		this.relatoJuiz = relatoJuiz;
 	}
+
+	@Override
+	public String toString() {
+		return "Partida [numero=" + numero + ", equipeMandante=" + equipeMandante + ", equipeVisitante="
+				+ equipeVisitante + ", data=" + data + ", local=" + local + ", proxPartida=" + proxPartida + ", juizes="
+				+ juizes + ", grupo=" + grupo + ", relatoJuiz=" + relatoJuiz + "]";
+	}
+	
+	
 }

@@ -3,8 +3,6 @@ package sistema.models;
 import java.util.Date;
 import java.util.List;
 
-//TODO: Implementar ToString() para a classe de Equipe.
-
 public class Equipe {
 	String nome;
 	Date dataFundacao;
@@ -55,4 +53,11 @@ public class Equipe {
 		this.usuarios = usuarios;
 	}
 
+	@Override
+	public String toString() {
+		return "Equipe [nome=" + nome + ", dataFundacao=" + dataFundacao + ", cidade=" + cidade + ", usuarios="
+				+ usuarios + "]";
+	}
+
+	
 }

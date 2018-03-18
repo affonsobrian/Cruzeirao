@@ -1,6 +1,5 @@
 package sistema.models;
 
-//TODO: Implementar ToString() para a classe de Gol.
 
 public class Gol {
 	Inscrito inscrito;
@@ -41,4 +40,11 @@ public class Gol {
 	public void setPenalty(boolean penalty) {
 		this.penalty = penalty;
 	}
+
+	@Override
+	public String toString() {
+		return "Gol [inscrito=" + inscrito + ", tempo=" + tempo + ", penalty=" + penalty + "]";
+	}
+	
+	
 }
