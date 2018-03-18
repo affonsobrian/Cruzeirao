@@ -14,11 +14,9 @@ public class Categoria {
 	private int maxJogadores;
 	private Sexo sexo;
 	
-
 	public Categoria() {
 		super();
 	}
-	
 	
 	public Categoria(String nome, int nascidosApartirDe, List<Inscricao> incricoes, Campeonato campeonato,
 			List<Fase> fases, int minJogadores, int maxJogadores, Sexo sexo) {
@@ -87,7 +85,5 @@ public class Categoria {
 		return "Categoria [nome=" + nome + ", nascidosApartirDe=" + nascidosApartirDe + ", minJogadores=" + minJogadores
 				+ ", maxJogadores=" + maxJogadores + ", sexo=" + sexo + "]";
 	}
-	
-	
 	
 }
