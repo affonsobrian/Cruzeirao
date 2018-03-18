@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+<<<<<<< .settings/.jsdtscope
 <<<<<<< HEAD
 	<classpathentry kind="src" path="src/main/webapp"/>
 	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="target/m2e-wtp/web-resources"/>
@@ -7,6 +8,10 @@
 	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="src/main/webapp"/>
 	<classpathentry kind="src" path="target/m2e-wtp/web-resources"/>
 >>>>>>> refs/heads/leonardo
+=======
+	<classpathentry kind="src" path="src/main/webapp"/>
+	<classpathentry excluding="**/bower_components/*|**/node_modules/*|**/*.min.js" kind="src" path="target/m2e-wtp/web-resources"/>
+>>>>>>> .settings/.jsdtscope
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.wst.jsdt.launching.WebProject">
 		<attributes>
