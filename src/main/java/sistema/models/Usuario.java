@@ -26,7 +26,7 @@ public class Usuario {
 	public Usuario() {
 		
 	}
-	public Usuario(String email, String nome, Date dataNascimento, List<Esquipe> equipes, List<Inscrito> inscricoes,
+	public Usuario(String email, String nome, Date dataNascimento, List<Equipe> equipes, List<Inscrito> inscricoes,
 			List<Campeonato> campeonatos, Tipo tipo, String telefoneFixo, String telefoneModel, String endereco,
 			String rg, String cpf, String cref, Sexo sexo, String foto) {
 		super();
@@ -67,10 +67,10 @@ public class Usuario {
 	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
-	public List<Esquipe> getEquipes() {
+	public List<Equipe> getEquipes() {
 		return equipes;
 	}
-	public void setEquipes(List<Esquipe> equipes) {
+	public void setEquipes(List<Equipe> equipes) {
 		this.equipes = equipes;
 	}
 	public List<Inscrito> getInscricoes() {

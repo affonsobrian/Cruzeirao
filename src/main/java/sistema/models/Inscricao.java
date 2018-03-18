@@ -1,5 +1,7 @@
 package sistema.models;
 
+import java.util.List;
+
 //TODO: Implementar ToString() para a classe de Inscricao.
 
 public class Inscricao {
