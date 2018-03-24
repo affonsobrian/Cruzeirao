@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	lang="#{localeBean.language}">
+
+<f:view locale="#{localeBean.locale}">
+	<h:head>
+		<style> .ui-datagrid-no-border .ui-datagrid-content { border: none; } 
+				.ui-menu, .ui-menu .ui-menu-child { background: white; }
+				.ui-menu .ui-menu-list .ui-widget-header { background: #1E344B; }
+				.ui-widget-header { color: white; font-weight: 100; }
+		</style>
+	</h:head>
+	<h:body>
+		
+		<!-- Background Cruzeirão 2018 -->
+		<p:graphicImage library="sistema" name="imagens/background.png" />
+		
+		<!-- MegaMenu -->
+		<p:megaMenu orientation="horizontal" style="margin-top:-8px; background: white;">
+			<p:menuitem value="Home" url="/faces/dashboard.xhtml" icon="ui-icon-home"/>
+			<p:menuitem value="Usuário" url="/faces/dashboard.xhtml" icon="ui-icon-person"/>
+			
+			<p:submenu label="Equipe" icon="ui-icon-note">
+				<p:column style="background: white;">
+				<p:submenu label="Equipe">
+						<p:menuitem value="Inscrição" url="cadastro-produto.xhtml" />
+						<p:menuitem value="Equipes inscritas" url="table-produtos.xhtml" />
+					</p:submenu>
+				</p:column>
+			</p:submenu>
+			
+			<p:menuitem value="Campeonato" url="/faces/dashboard.xhtml" icon="ui-icon-flag"/>
+			<p:menuitem value="Local" url="/faces/dashboard.xhtml" icon="ui-icon-pin-s"/>
+			<p:menuitem value="Partidas" url="/faces/dashboard.xhtml" icon="ui-icon-circle-zoomout"/>
+			<p:menuitem value="Grupos" url="/faces/dashboard.xhtml" icon="ui-icon-info"/>
+		</p:megaMenu>
+		
+	</h:body>
+</f:view>
+</h:html>
+
+
+
+
+
+
+
