@@ -12,8 +12,10 @@
 				.ui-menu, .ui-menu .ui-menu-child { background: white; }
 				.ui-menu .ui-menu-list .ui-widget-header { background: #1E344B; }
 				.ui-widget-header { color: white; font-weight: 100; }
+				.ui-menuitem.ui-widget.ui-corner-all:last-child { float: right; }
+				.language-icon { width: 35px; margin-top: -10px; margin-bottom: -10px; }
 		</style>
-	</h:head>
+	</h:head>	
 	<h:body>
 		
 		<!-- Background Cruzeirão 2018 -->
@@ -21,22 +23,24 @@
 		
 		<!-- MegaMenu -->
 		<p:megaMenu orientation="horizontal" style="margin-top:-8px; background: white;">
-			<p:menuitem value="Home" url="/faces/dashboard.xhtml" icon="ui-icon-home"/>
-			<p:menuitem value="Usuário" url="/faces/dashboard.xhtml" icon="ui-icon-person"/>
+			<p:menuitem value="#{msg['pages.layout.templateMenu.home']}" url="Index.xhtml" icon="ui-icon-home"/>
 			
-			<p:submenu label="Equipe" icon="ui-icon-note">
+			<p:submenu label="#{msg['pages.layout.templateMenu.equipe']}" icon="ui-icon-note">
 				<p:column style="background: white;">
-				<p:submenu label="Equipe">
-						<p:menuitem value="Inscrição" url="cadastro-produto.xhtml" />
-						<p:menuitem value="Equipes inscritas" url="table-produtos.xhtml" />
+				<p:submenu label="#{msg['pages.layout.templateMenu.equipe']}">
+						<p:menuitem value="#{msg['pages.layout.templateMenu.equipe.inscricao']}" url="Index.xhtml" />
+						<p:menuitem value="#{msg['pages.layout.templateMenu.equipe.inscritos']}" url="Index.xhtml" />
 					</p:submenu>
 				</p:column>
 			</p:submenu>
 			
-			<p:menuitem value="Campeonato" url="/faces/dashboard.xhtml" icon="ui-icon-flag"/>
-			<p:menuitem value="Local" url="/faces/dashboard.xhtml" icon="ui-icon-pin-s"/>
-			<p:menuitem value="Partidas" url="/faces/dashboard.xhtml" icon="ui-icon-circle-zoomout"/>
-			<p:menuitem value="Grupos" url="/faces/dashboard.xhtml" icon="ui-icon-info"/>
+			<p:menuitem value="#{msg['pages.layout.templateMenu.campeonato']}" url="Index.xhtml" icon="ui-icon-flag"/>
+			<p:menuitem value="#{msg['pages.layout.templateMenu.local']}" url="Index.xhtml" icon="ui-icon-pin-s"/>
+			<p:menuitem value="#{msg['pages.layout.templateMenu.partidas']}" url="Index.xhtml" icon="ui-icon-circle-zoomout"/>
+			<p:menuitem value="#{msg['pages.layout.templateMenu.grupos']}" url="Index.xhtml" icon="ui-icon-info"/>
+			<p:menuitem url="Index.xhtml">
+				<p:graphicImage class="language-icon" id="language-icon" library="sistema" name="imagens/en-us.png" />
+			</p:menuitem>
 		</p:megaMenu>
 		
 	</h:body>
