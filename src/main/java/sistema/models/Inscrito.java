@@ -1,7 +1,12 @@
 package sistema.models;
 
+import javax.persistence.*;
+
+@Entity
 public class Inscrito {
 	//Atributos
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Tipo tipo;
 	private Usuario usuario;
 	private Inscricao inscricao;

@@ -2,12 +2,21 @@ package sistema.models;
 
 import java.util.Date;
 import java.util.List;
+import javax.persistence.*;
 
+@Entity
 public class Usuario {
 	
 	//Atributos
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int codUsuario;
+	@Column(nullable = false)
 	private String email;
+	@Column(nullable = false)
 	private String nome;
+	@Column(nullable = false)
+	private String senha;
 	private Date dataNascimento;
 	private List<Equipe> equipes;
 	private List<Inscrito> inscricoes;
@@ -16,7 +25,9 @@ public class Usuario {
 	private String telefoneFixo;
 	private	String telefoneModel;
 	private	String endereco;
+	@Column(unique = true)
 	private String rg;
+	@Column(unique = true)
 	private	String cpf;
 	private String cref;
 	private Sexo sexo;
@@ -49,6 +60,12 @@ public class Usuario {
 	
 	
 	//Getters and Setters
+	public int getCodUsuario() {
+		return codUsuario;
+	}
+	public void setCodUsuario(int codUsuario) {
+		this.codUsuario = codUsuario;
+	}
 	public String getEmail() {
 		return email;
 	}

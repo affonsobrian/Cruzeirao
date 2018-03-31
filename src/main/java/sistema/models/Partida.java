@@ -3,25 +3,30 @@ package sistema.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.*;
+
+@Entity
 public class Partida {
-	int numero;
-	Inscricao equipeMandante;
-	Inscricao equipeVisitante;
-	Date data;
-	Local local;
-	Partida proxPartida;
-	List<Juiz> juizes;
-	Grupo grupo;
-	String relatoJuiz;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codPartida;
+	private Inscricao equipeMandante;
+	private Inscricao equipeVisitante;
+	private Date data;
+	private Local local;
+	private Partida proxPartida;
+	private List<Juiz> juizes;
+	private Grupo grupo;
+	private String relatoJuiz;
 
 	public Partida() {
 		super();
 	}
 
-	public Partida(int numero, Inscricao equipeMandante, Inscricao equipeVisitante, Date data, Local local,
+	public Partida(int codPartida, Inscricao equipeMandante, Inscricao equipeVisitante, Date data, Local local,
 			Partida proxPartida, List<Juiz> juizes, Grupo grupo, String relatoJuiz) {
 		super();
-		this.numero = numero;
+		this.codPartida = codPartida;
 		this.equipeMandante = equipeMandante;
 		this.equipeVisitante = equipeVisitante;
 		this.data = data;
@@ -31,13 +36,14 @@ public class Partida {
 		this.grupo = grupo;
 		this.relatoJuiz = relatoJuiz;
 	}
-
-	public int getNumero() {
-		return numero;
+	
+	
+	public int getCodPartida() {
+		return codPartida;
 	}
 
-	public void setNumero(int numero) {
-		this.numero = numero;
+	public void setCodPartida(int codPartida) {
+		this.codPartida = codPartida;
 	}
 
 	public Inscricao getEquipeMandante() {
@@ -106,7 +112,7 @@ public class Partida {
 
 	@Override
 	public String toString() {
-		return "Partida [numero=" + numero + ", equipeMandante=" + equipeMandante + ", equipeVisitante="
+		return "Partida [codPartida=" + codPartida + ", equipeMandante=" + equipeMandante + ", equipeVisitante="
 				+ equipeVisitante + ", data=" + data + ", local=" + local + ", proxPartida=" + proxPartida + ", juizes="
 				+ juizes + ", grupo=" + grupo + ", relatoJuiz=" + relatoJuiz + "]";
 	}

@@ -2,16 +2,26 @@ package sistema.models;
 
 import java.util.List;
 
-//TODO: Criar Hash e Equals
+import javax.persistence.*;
 
+//TODO: Criar Hash e Equals
+@Entity
 public class Categoria {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codCategoria;
+	@Column(nullable = false)
 	private String nome;
+	@Column(nullable = false)
 	private int nascidosApartirDe;
 	private List<Inscricao> incricoes;
 	private Campeonato campeonato;
 	private List<Fase> fases;
+	@Column(nullable = false)
 	private int minJogadores;
+	@Column(nullable = false)
 	private int maxJogadores;
+	@Column(nullable = false)
 	private Sexo sexo;
 	
 	public Categoria() {

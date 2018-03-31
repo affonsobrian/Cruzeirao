@@ -2,7 +2,14 @@ package sistema.models;
 
 import java.util.List;
 
+import javax.persistence.*;
+
+@Entity
 public class Grupo {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codGrupo;
+	@Column(nullable = false)
 	String nome;
 	Fase fase;
 	List<Rodada> rodadas;

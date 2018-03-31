@@ -2,21 +2,29 @@ package sistema.models;
 
 import java.util.List;
 
+import javax.persistence.*;
+
+@Entity
 public class PartidaFutebol {
-	List<Gol> golsMandantes;
-	List<Gol> golsVisitantes;
-	List<Gol> golsPenaltesMandantes;
-	List<Gol> golsPenaltesVisitantes;
-	List<Cartao> cartoesMandante;
-	List<Cartao> cartoesVisitante;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codPartidaFutebol;
+	private List<Gol> golsMandantes;
+	private List<Gol> golsVisitantes;
+	private List<Gol> golsPenaltesMandantes;
+	private List<Gol> golsPenaltesVisitantes;
+	private List<Cartao> cartoesMandante;
+	private List<Cartao> cartoesVisitante;
 
 	public PartidaFutebol() {
 		super();
 	}
 	
-	public PartidaFutebol(List<Gol> golsMandantes, List<Gol> golsVisitantes, List<Gol> golsPenaltesMandantes,
-			List<Gol> golsPenaltesVisitantes, List<Cartao> cartoesMandante, List<Cartao> cartoesVisitante) {
+	public PartidaFutebol(int codPartidaFutebol, List<Gol> golsMandantes, List<Gol> golsVisitantes,
+			List<Gol> golsPenaltesMandantes, List<Gol> golsPenaltesVisitantes, List<Cartao> cartoesMandante,
+			List<Cartao> cartoesVisitante) {
 		super();
+		this.codPartidaFutebol = codPartidaFutebol;
 		this.golsMandantes = golsMandantes;
 		this.golsVisitantes = golsVisitantes;
 		this.golsPenaltesMandantes = golsPenaltesMandantes;
@@ -24,6 +32,20 @@ public class PartidaFutebol {
 		this.cartoesMandante = cartoesMandante;
 		this.cartoesVisitante = cartoesVisitante;
 	}
+
+
+
+	public int getCodPartidaFutebol() {
+		return codPartidaFutebol;
+	}
+
+
+
+	public void setCodPartidaFutebol(int codPartidaFutebol) {
+		this.codPartidaFutebol = codPartidaFutebol;
+	}
+
+
 
 	public List<Gol> getGolsMandantes() {
 		return golsMandantes;
