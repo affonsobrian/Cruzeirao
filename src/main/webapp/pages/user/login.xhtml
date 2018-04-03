@@ -1,0 +1,26 @@
+<ui:composition template="../layout/templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
+
+<h:form>           
+    <p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+ 
+    <p:dialog header="Login" widgetVar="dlg" resizable="false">
+        <h:panelGrid columns="2" cellpadding="5">
+            <h:outputLabel for="username" value="Username:" />
+            <p:inputText id="username" required="true" label="username" />
+ 
+            <h:outputLabel for="password" value="Password:" />
+            <p:password id="password" required="true" label="password" />
+ 
+            <f:facet name="footer">
+                <p:commandButton value="Login" update="growl" />
+            </f:facet>  
+        </h:panelGrid>
+    </p:dialog>
+</h:form>
+</ui:composition>
