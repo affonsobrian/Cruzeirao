@@ -14,8 +14,9 @@ public abstract class DAOImpl <T, I extends Serializable> {
     private EntityManager em;
     
      public DAOImpl() {
-    	
-    	emf = Persistence.createEntityManagerFactory("Cruzeirão");
+    	System.out.println("Connecting to database...");
+    	emf = Persistence.createEntityManagerFactory("Cruzeirao");
+    	System.out.println("Database Connected");
 
 	}
 

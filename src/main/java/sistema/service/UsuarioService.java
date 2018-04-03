@@ -11,8 +11,10 @@ public class UsuarioService {
 	
 	public Usuario salvar(Usuario usuario)
 	{
+		System.out.println("Saving user...");
 		usuario = usuarioDAO.save(usuario);
 		usuarioDAO.closeEntityManager();
+		System.out.println("User saved successfully");
 		return usuario;
 	}
 	
