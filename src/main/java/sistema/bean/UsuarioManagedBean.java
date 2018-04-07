@@ -78,7 +78,7 @@ public class UsuarioManagedBean {
 		for (Usuario u : usuarios) {
 			if(u.getSenha().equals(usuario.getSenha()))
 			{			
-				FacesContext.getCurrentInstance().getExternalContext().redirect("indexLogged.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("../indexes/indexLogged.xhtml");
 				System.out.println("Logged in");
 				usuario = u;
 				return true;
