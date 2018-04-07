@@ -3,8 +3,14 @@ package sistema.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.*;
+
+@Entity
 public class Campeonato {
 	//Atributos
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int codCampeonato;
 	private String nome;
 	private List<Local> locais;
 	private List<Juiz> juizes;

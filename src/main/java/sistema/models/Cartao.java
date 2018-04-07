@@ -1,18 +1,25 @@
 package sistema.models;
 
+import javax.persistence.*;
 
 //TODO: Criar Hash e Equals
-
+@Entity
 public class Cartao {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codCartao;
+	//@Column(nullable = false)
 	private Inscrito inscrito;
-	private Tipo tipo;
+	@Column(nullable = false)
+	private TipoCartao tipo;
+	@Column(nullable = false)
 	private int tempo;
 	
 	
 	public Cartao() {
 		super();
 	}
-	public Cartao(Inscrito inscrito, Tipo tipo, int tempo) {
+	public Cartao(Inscrito inscrito, TipoCartao tipo, int tempo) {
 		super();
 		this.inscrito = inscrito;
 		this.tipo = tipo;
@@ -24,10 +31,10 @@ public class Cartao {
 	public void setInscrito(Inscrito inscrito) {
 		this.inscrito = inscrito;
 	}
-	public Tipo getTipo() {
+	public TipoCartao getTipo() {
 		return tipo;
 	}
-	public void setTipo(Tipo tipo) {
+	public void setTipo(TipoCartao tipo) {
 		this.tipo = tipo;
 	}
 	public int getTempo() {

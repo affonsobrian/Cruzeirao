@@ -1,7 +1,13 @@
 package sistema.models;
 
+import javax.persistence.*;
 
+@Entity
 public class Local {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codLocal;
+	@Column(nullable = false)
 	String endereco;
 
 	public Local() {

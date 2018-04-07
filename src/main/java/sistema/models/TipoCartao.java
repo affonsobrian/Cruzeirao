@@ -1,5 +1,5 @@
 package sistema.models;
 
-public enum Formato {
+public enum TipoCartao {
 
 }
