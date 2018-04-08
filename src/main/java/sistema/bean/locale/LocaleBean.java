@@ -12,7 +12,6 @@ import javax.faces.context.FacesContext;
 public class LocaleBean {
 
     private Locale locale = Locale.ENGLISH;
-
   
     public Locale getLocale() {
         return locale;
