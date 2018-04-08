@@ -1,7 +1,5 @@
 package sistema.service;
 
-
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -16,8 +14,6 @@ public class TesteBanco {
 		EntityManager em;
 		factory = Persistence.createEntityManagerFactory("Cruzeirao");
 		em = factory.createEntityManager();
-		em.find(Grupo.class, 1);
-		
+		em.find(Grupo.class, 1);	
 	}
-
 }
