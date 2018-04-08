@@ -1,0 +1,111 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	lang="#{localeBean.language}">
+			
+			<h:head>
+				<style> .ui-datagrid-no-border .ui-datagrid-content { border: none; } 
+						.ui-menu, .ui-menu .ui-menu-child { background: white; }
+						.ui-menu .ui-menu-list .ui-widget-header { background: #1E344B; }
+						.ui-widget-header { color: white; font-weight: 100; }
+				</style>
+			</h:head>
+			<!-- MegaMenu -->
+			<p:megaMenu orientation="horizontal" style="margin-top:-8px; background: white;">
+				<p:menuitem value="Home" url=".../indexes/indexAdmin.xhtml" icon="ui-icon-home"/>
+				
+				<p:submenu label="Usuarios" icon="ui-icon-note">
+					<p:column style="background: white;">
+					<p:submenu label="Usuarios">
+							<p:menuitem value="Criar Usuário" url="cadastro-produto.xhtml" />
+							<p:menuitem value="Usuários inscritos" url="table-produtos.xhtml" />
+							<p:menuitem value="Aceite de Usuários" url="table-produtos.xhtml" />
+						</p:submenu>
+					</p:column>
+				</p:submenu>
+				
+				
+				<p:submenu label="Incrição" icon="ui-icon-note">
+					<p:column style="background: white;">
+					<p:submenu label="Jogadores">
+							<p:menuitem value="Inscrição em equipe" url="cadastro-produto.xhtml" />
+							<p:menuitem value="Aceite em Equipes" url="table-produtos.xhtml" />
+						</p:submenu>
+					</p:column>
+					<p:column style="background: white;">
+					<p:submenu label="Diretor">
+							<p:menuitem value="Inscrição em equipe" url="cadastro-produto.xhtml" />
+							<p:menuitem value="Aceite em Equipes" url="table-produtos.xhtml" />
+						</p:submenu>
+					</p:column>
+					<p:column style="background: white;">
+					<p:submenu label="Massagista">
+							<p:menuitem value="Inscrição em equipe" url="cadastro-produto.xhtml" />
+							<p:menuitem value="Aceite em Equipes" url="table-produtos.xhtml" />
+						</p:submenu>
+					</p:column>
+					<p:column style="background: white;">
+					<p:submenu label="Preparador Físico">
+							<p:menuitem value="Inscrição em equipe" url="cadastro-produto.xhtml" />
+							<p:menuitem value="Aceite em Equipes" url="table-produtos.xhtml" />
+						</p:submenu>
+					</p:column>
+				</p:submenu>
+				
+				<p:submenu label="Equipes" icon="ui-icon-note">
+					<p:column style="background: white;">
+					<p:submenu label="Equipes">
+							<p:menuitem value="Inscrição" url="cadastro-produto.xhtml" />
+							<p:menuitem value="Equipes inscritas" url="table-produtos.xhtml" />
+							<p:menuitem value="Aceite de Equipes" url="table-produtos.xhtml" />
+						</p:submenu>
+					</p:column>
+				</p:submenu>
+				
+				<p:submenu label="Campeonatos" icon="ui-icon-note">
+					<p:column style="background: white;">
+					<p:submenu label="Campeonatos">
+							<p:menuitem value="Criar Campeonato" url="cadastro-produto.xhtml" />
+							<p:menuitem value="Campeonatos Criados" url="table-produtos.xhtml" />
+							<p:menuitem value="Aceite de Campeonato" url="table-produtos.xhtml" />
+						</p:submenu>
+					</p:column>
+				</p:submenu>
+				
+				<p:submenu label="Locais" icon="ui-icon-note">
+					<p:column style="background: white;">
+					<p:submenu label="Locais">
+							<p:menuitem value="Cadastrar Local" url="cadastro-produto.xhtml" />
+							<p:menuitem value="Locais Cadastrados" url="table-produtos.xhtml" />
+						</p:submenu>
+					</p:column>
+				</p:submenu>
+				
+				<p:submenu label="Categorias" icon="ui-icon-note">
+					<p:column style="background: white;">
+					<p:submenu label="Categorias">
+							<p:menuitem value="Cadastrar Categoria" url="cadastro-produto.xhtml" />
+							<p:menuitem value="Categorias Cadastrados" url="table-produtos.xhtml" />
+						</p:submenu>
+					</p:column>
+				</p:submenu>
+				
+				<p:submenu label="Partidas" icon="ui-icon-note">
+					<p:column style="background: white;">
+					<p:submenu label="Partidas">
+							<p:menuitem value="Adicionar Partida" url="cadastro-produto.xhtml" />
+							<p:menuitem value="Partidas Adicionadas" url="table-produtos.xhtml" />
+						</p:submenu>
+					</p:column>
+				</p:submenu>
+				
+			</p:megaMenu>
+			
+</h:html>
+
+
+
+
+

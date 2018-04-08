@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <h:html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -9,9 +8,9 @@
 <f:view locale="#{localeBean.locale}">
 	<h:body>
 		<p:layout>
-		<ui:include src="logo.xhtml"></ui:include>
+		<ui:include src="../layout/logo.xhtml"></ui:include>
 		
-		<ui:include src="./menus/AdminMenu.xhtml"></ui:include>
+		<ui:include src="../layout/menus/AdminMenu.xhtml"></ui:include>
 		
 		<br/>
 		<ui:insert name="principal" />
@@ -20,10 +19,3 @@
 	</h:body>
 </f:view>
 </h:html>
-
-
-
-
-
-
-
