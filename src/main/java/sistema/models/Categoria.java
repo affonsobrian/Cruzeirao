@@ -42,6 +42,15 @@ public class Categoria {
 	}
 
 
+	
+	public int getCodCategoria() {
+		return codCategoria;
+	}
+
+	public void setCodCategoria(int codCategoria) {
+		this.codCategoria = codCategoria;
+	}
+
 	public String getNome() {
 		return nome;
 	}

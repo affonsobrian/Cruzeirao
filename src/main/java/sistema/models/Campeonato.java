@@ -38,8 +38,17 @@ public class Campeonato {
 	}
 	
 	//Getters and Setters
+	
 	public String getNome() {
 		return nome;
+	}
+
+	public int getCodCampeonato() {
+		return codCampeonato;
+	}
+
+	public void setCodCampeonato(int codCampeonato) {
+		this.codCampeonato = codCampeonato;
 	}
 
 	public void setNome(String nome) {
