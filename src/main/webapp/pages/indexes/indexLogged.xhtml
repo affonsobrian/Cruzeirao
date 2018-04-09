@@ -1,17 +1,21 @@
-<ui:composition template="../layout/templateMenu.xhtml"
-	xmlns="http://www.w3.org/1999/xhtml"
+<h:html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
-	
-	<ui:define name="title">
-		<h:outputText value="#{msg['pages.inicio.title']}" />
-	</ui:define>
+	lang="#{localeBean.language}">
 
-	<ui:define name="principal">
-	     <p:outputLabel value="#{msg['pages.inicio.welcome']}"/>      	
-	</ui:define>
-	
-</ui:composition>
+<f:view locale="#{localeBean.locale}">
+	<h:body>
+		<p:layout>
+		<ui:include src="../layout/banner.xhtml"></ui:include>
+		
+		<ui:include src="../layout/menus/loginMenu.xhtml"></ui:include>
+		
+		<br/>
+		<ui:insert name="principal" />
+		
+		</p:layout>
+	</h:body>
+</f:view>
+</h:html>

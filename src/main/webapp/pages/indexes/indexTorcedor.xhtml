@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	lang="#{localeBean.language}">
 
-</body>
-</html>
+<f:view locale="#{localeBean.locale}">
+	<h:body>
+		<p:layout>
+		<ui:include src="../layout/banner.xhtml"></ui:include>
+		
+		<ui:include src="../layout/menus/TorcedorMenu.xhtml"></ui:include>
+		
+		<br/>
+		<ui:insert name="principal" />
+		
+		</p:layout>
+	</h:body>
+</f:view>
+</h:html>
