@@ -27,6 +27,15 @@ public class Equipe {
 		this.cidade = cidade;
 		this.usuarios = usuarios;
 	}
+	
+	public int getCodEquipe() {
+		return codEquipe;
+	}
+
+	public void setCodEquipe(int codEquipe) {
+		this.codEquipe = codEquipe;
+	}
+
 
 	public String getNome() {
 		return nome;

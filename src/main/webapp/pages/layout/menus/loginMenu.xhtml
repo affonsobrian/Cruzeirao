@@ -1,0 +1,29 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	lang="#{localeBean.language}">
+			
+			<h:head>
+				<style> .ui-datagrid-no-border .ui-datagrid-content { border: none; } 
+						.ui-menu, .ui-menu .ui-menu-child { background: white; }
+						.ui-menu .ui-menu-list .ui-widget-header { background: #1E344B; }
+						.ui-widget-header { color: white; font-weight: 100; }
+				</style>
+			</h:head>
+			<!-- MegaMenu -->
+			<p:megaMenu orientation="horizontal" style="margin-top:-8px; background: white;">
+				<p:menuitem value="Home" url="./../indexes/index.xhtml" icon="ui-icon-home"/>
+				<p:menuitem value="Login" url="./../user/login.xhtml" icon="ui-icon-person"/>
+				<p:menuitem value="Cadastro" url="./../cadastros/cadastroUsuario.xhtml" icon="ui-icon-person"/>
+			</p:megaMenu>
+			
+</h:html>
+
+
+
+
+
+
+

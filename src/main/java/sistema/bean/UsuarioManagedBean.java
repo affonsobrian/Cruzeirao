@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.logging.ConsoleHandler;
 
+import sistema.models.Tipo;
 import sistema.models.Usuario;
 import sistema.service.UsuarioService;
 
@@ -65,22 +66,16 @@ public class UsuarioManagedBean {
 		return event.getNewStep();
 	}
 	
-	public boolean validate() throws Exception {
+	public boolean validate() throws IOException {
 		
 		usuarios = this.service.getUsuarios();
-		if(usuario.getEmail().isEmpty() || usuario.getSenha().isEmpty()) {
-			if(FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage() == "pt")
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warn", "Usuário ou senha vazio!"));
-			else
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Warn", "User or password is empty!"));
-			return false;
-		}
+		
 		for (Usuario u : usuarios) {
 			if(u.getSenha().equals(usuario.getSenha()))
 			{			
-				FacesContext.getCurrentInstance().getExternalContext().redirect("../indexes/indexLogged.xhtml");
 				System.out.println("Logged in");
 				usuario = u;
+				this.redirect();
 				return true;
 			}
 		}
@@ -91,6 +86,41 @@ public class UsuarioManagedBean {
 
 		System.out.println("Failed Logging in");
 		return false;
+	}
+	
+	private void redirect() throws IOException {
+		
+		switch(usuario.getTipo()) {
+		
+			case Admin:
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/indexAdmin.xhtml");
+				break;
+			case Diretor:
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/indexDiretor.xhtml");
+				break;
+			case Jogador:
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/indexJogador.xhtml");
+				break;
+			case Juiz:
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/indexJuiz.xhtml");
+				break;
+			case Massagista:
+				break;
+			case Organizador:
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/indexOrganizador.xhtml");
+				break;
+			case Tecnico:
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/indexTecnico.xhtml");
+				break;
+			case Torcedor:
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/index.xhtml");
+				break;
+			default:
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/index.xhtml");
+				break;
+		}
+		
+
 	}
 
 }
