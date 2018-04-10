@@ -1,4 +1,4 @@
-<ui:composition template="../../indexes/index.xhtml"
+<ui:composition template="../../indexes/indexTorcedor.xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -18,7 +18,8 @@
 				.ui-state-highlight, .ui-widget-content .ui-state-highlight { border: 1px solid #156090; background: #186ba0; color: #fff; }
 				.ui-panelgrid .ui-panelgrid-cell { background-color: #fff; padding: 4px 20px; } 
 				tr.ui-widget-content { height: 50px; }
-				td.ui-panelgrid-cell { width: 120px; } 
+				td.ui-panelgrid-cell { width: 120px; }
+				form { margin: 0 auto; width: 345px; } 
 			</style>
 
 		</h:head>
@@ -31,10 +32,13 @@
 			 
 			    <h:outputText value="Nome:" />
 			    <h:outputText value="Afunção Briano" />
+			    
+			    <h:outputText value="CPF: " />
+			    <h:outputText value="429.305.403-1" />
 			 
 			    <h:outputText value="Tipo:" />
-			    <p:selectOneMenu value="">
-		            <f:selectItem itemLabel="Selecione..." noSelectionOption="true" />
+			    <p:selectOneMenu value="" hideNoSelectionOption="true">
+		            <f:selectItem itemLabel="Selecione..." itemValue="#{null}" noSelectionOption="true" />
 		            <f:selectItem itemLabel="Massagista" itemValue="massagista" />
 		            <f:selectItem itemLabel="Preparador Físico" itemValue="preparadorFisico" />
 		            <f:selectItem itemLabel="Jogador" itemValue="jogador" />
@@ -45,18 +49,16 @@
 		            <f:selectItem itemLabel="Admin" itemValue="admin" />
 		        </p:selectOneMenu>
 			 
-			    <h:outputText value="Equipe:" />
-			   <p:selectOneMenu value="" style="width:80%">
-		            <f:selectItem itemLabel="Selecione..." noSelectionOption="true" />
+			   <h:outputText value="Equipe:" />
+			   <p:selectOneMenu value="" style="width:80%" hideNoSelectionOption="true">
+		            <f:selectItem itemLabel="Selecione..." itemValue="#{null}" noSelectionOption="true" />
 		            <f:selectItem itemLabel="Sou Paulo FC" itemValue="souPaulo" />
 		            <f:selectItem itemLabel="Sou Douglas FC" itemValue="souDouglas" />
 		            <f:selectItem itemLabel="Parmerinha FC" itemValue="parmerinha" />
 		            <f:selectItem itemLabel="Vai Curintia FC" itemValue="vaiCurintia" />
 		            <f:selectItem itemLabel="Marrone FC" itemValue="diretor" />
 		        </p:selectOneMenu>
-			 
-			    <h:outputText value="CPF: " />
-			    <h:outputText value="429.305.403-1" />
+
 			</p:panelGrid>
 		</h:form>
 		   	   
