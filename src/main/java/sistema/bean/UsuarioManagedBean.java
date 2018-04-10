@@ -4,18 +4,13 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.swing.JOptionPane;
 
 import org.primefaces.event.FlowEvent;
 import org.primefaces.event.RowEditEvent;
 
-import java.io.Console;
 import java.io.IOException;
 import java.util.List;
-import java.util.Locale;
-import java.util.logging.ConsoleHandler;
 
-import sistema.models.Tipo;
 import sistema.models.Usuario;
 import sistema.service.UsuarioService;
 
@@ -79,6 +74,7 @@ public class UsuarioManagedBean {
 				return true;
 			}
 		}
+		
 		if(FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage() == "pt")
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Usuário ou senha incorreto!"));
 		else
@@ -119,8 +115,5 @@ public class UsuarioManagedBean {
 				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/index.xhtml");
 				break;
 		}
-		
-
 	}
-
 }
