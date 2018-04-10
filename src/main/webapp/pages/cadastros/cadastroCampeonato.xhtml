@@ -23,9 +23,65 @@
 	background: #1E344B;
 }
 
+tr {
+	height: 40px;
+}
+
+.ui-state-default {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+.ui-panel .ui-panel-content {
+	font-size: 16px;
+}
+
 .ui-widget-header {
 	color: white;
 	font-weight: 100;
+}
+
+.ui-state-default {
+	border: 1px solid #d6d6d6;
+	background: #fff;
+	font-weight: normal;
+	color: #555;
+}
+
+.ui-state-highlight {
+	border: 1px solid #156090;
+	background: #186ba0;
+	color: #fff;
+}
+
+.ui-widget-header {
+	border: 1px solid #d9d9d9;
+	color: #1b1d1f;
+	background: -webkit-linear-gradient(top, #f6f7f9 0, #ebedf0 100%);
+	font-weight: bold;
+}
+
+.ui-inputfield, .ui-widget-content .ui-inputfield {
+	font-weight: normal;
+	background: #fff;
+	color: #222;
+	-webkit-box-shadow: none;
+}
+
+.ui-messages .ui-messages-error {
+	color: #fff;
+	background-color: #ef5350;
+	border-color: #ef5350;
+}
+
+.ui-state-error, .ui-widget-content .ui-state-error {
+	border-left: 4px solid #ef5350;
+}
+
+.submit {
+	border: 1px solid #1f89ce;
+	color: #fff;
+	background: #2399e5;
 }
 </style>
 		</h:head>
@@ -38,22 +94,20 @@
 					<p:panel header="Dados Iniciais">
 						<p:messages />
 						<h:panelGrid columns="2" columnClasses="label, value">
-							
+
 							<h:outputText value="Nome do Campeonato: *" />
 							<p:inputText value="#{usuarioManagedBean.usuario.nome}"
-							required="true" label="Nome do Campeonato" />
-								
+								required="true" label="Nome do Campeonato" />
+
 							<h:outputText value="Data de início: *" />
-		                    <p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
-           					pattern="dd/MM/yyyy"
-           					mask="true" />
-           					
-           					
+							<p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
+								pattern="dd/MM/yyyy" mask="true" />
+
+
 							<h:outputText value="Data de fim: *" />
-		                    <p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
-           					pattern="dd/MM/yyyy"
-           					mask="true" />
-							
+							<p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
+								pattern="dd/MM/yyyy" mask="true" />
+
 						</h:panelGrid>
 					</p:panel>
 				</p:tab>
@@ -62,35 +116,36 @@
 					<p:panel header="Periodo de Inscrição">
 						<p:messages />
 						<h:panelGrid columns="2" columnClasses="label, value">
-							
+
 							<h:outputText value="Início de Incrições: *" />
-		                    <p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
-           					pattern="dd/MM/yyyy"
-           					mask="true" />
-           					
-           					
+							<p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
+								pattern="dd/MM/yyyy" mask="true" />
+
+
 							<h:outputText value="Fim de Incrições: *" />
-		                    <p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
-           					pattern="dd/MM/yyyy"
-           					mask="true" />
-           					
+							<p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
+								pattern="dd/MM/yyyy" mask="true" />
+
 						</h:panelGrid>
 					</p:panel>
 				</p:tab>
 
 				<p:tab id="contact" title="Contact">
-					<p:panel header="Contact Information">
+					<p:panel header="Informações finais">
 						<p:messages />
 						<h:panelGrid columns="2" columnClasses="label, value">
-							<h:outputText value="Email: *" />
+							<h:outputText value="Taxa de inscrição: *" />
 							<p:inputText value="#{usuarioManagedBean.usuario.email}"
-								required="true" label="Email" />
+								required="true" label="Taxa de inscrição" />
 
-							<h:outputText value="Senha: *" />
+							<h:outputText value="Quantidade mínima de jogadores: *" />
 							<p:inputText value="#{usuarioManagedBean.usuario.senha}"
-								required="true" label="Email" />
+								required="true" label="Quantidade" />
 
-							<h:outputText value="Telefone: " />
+							<h:outputText value="Quantidade máxima de jogadores: *" />
+							<p:inputText value="#{usuarioManagedBean.usuario.telefoneFixo}" />
+
+							<h:outputText value="Quantidade mínima de times por categoria: *" />
 							<p:inputText value="#{usuarioManagedBean.usuario.telefoneFixo}" />
 
 						</h:panelGrid>
