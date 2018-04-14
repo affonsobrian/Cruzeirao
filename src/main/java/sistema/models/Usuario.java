@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
+@SequenceGenerator(name="USU_SEQ", sequenceName="codUsuarioSequence", initialValue=1, allocationSize=1, schema="APP")
 public class Usuario {
 	
 	//Atributos
@@ -61,9 +62,6 @@ public class Usuario {
 	//Getters and Setters
 	public int getCodUsuario() {
 		return codUsuario;
-	}
-	public void setCodUsuario(int codUsuario) {
-		this.codUsuario = codUsuario;
 	}
 	public String getEmail() {
 		return email;

@@ -43,7 +43,7 @@
 		                    <p:inputText value="#{usuarioManagedBean.usuario.email}" required="true" label="Email"/>
 		                    
 		                    <h:outputText value="Senha: *" />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.senha}" required="true" label="Email"/>
+		                    <p:password value="#{usuarioManagedBean.usuario.senha}" required="true" feedback="true" promptLabel="Digite uma senha" weakLabel="Senha fraca" goodLabel="Senha razoável" strongLabel="Senha boa" label="Senha"/>
 		 
 		                </h:panelGrid>
 		            </p:panel>

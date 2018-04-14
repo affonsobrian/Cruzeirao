@@ -7,6 +7,7 @@ import javax.persistence.*;
 
 @Entity
 public class Partida {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codPartida;

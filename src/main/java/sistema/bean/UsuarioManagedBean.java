@@ -112,7 +112,7 @@ public class UsuarioManagedBean {
 				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/index.xhtml");
 				break;
 			default:
-				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/index.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/indexAdmin.xhtml");
 				break;
 		}
 	}
