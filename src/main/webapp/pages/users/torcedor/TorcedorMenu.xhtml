@@ -27,16 +27,19 @@
 <!-- MegaMenu -->
 <p:megaMenu orientation="horizontal"
 	style="margin-top:-8px; background: white;">
-	<p:menuitem value="Home" url=".../indexes/indexAdmin.xhtml"
+	<p:menuitem value="Home" url="./indexTorcedor.xhtml"
 		icon="ui-icon-home" />
 
 	<p:submenu label="Partidas" icon="ui-icon-note">
 		<p:column style="background: white;">
 			<p:submenu label="Partidas">
-				<p:menuitem value="Chaveamento" url="table-produtos.xhtml" />
+				<p:menuitem value="Chaveamento" url="verChaves.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
+	
+	<p:menuitem value="Configurações" url="./info.xhtml" icon="ui-icon-home" />
+	<p:menuitem value="Sair" url="./../../index.xhtml" icon="ui-icon-home" />
 </p:megaMenu>
 
 </h:html>

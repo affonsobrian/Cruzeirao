@@ -1,0 +1,108 @@
+<ui:composition template="./indexDiretor.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
+
+	<ui:define name="principal">
+
+		<h:head>
+			<style>
+.ui-datagrid-no-border .ui-datagrid-content {
+	border: none;
+}
+
+.ui-menu, .ui-menu .ui-menu-child {
+	background: white;
+}
+
+.ui-menu .ui-menu-list .ui-widget-header {
+	background: #1E344B;
+}
+
+.ui-state-default {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	background-color: #fff;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight {
+	border: 1px solid #156090;
+	background: #186ba0;
+	color: #fff;
+}
+
+.ui-panelgrid .ui-panelgrid-cell {
+	background-color: #fff;
+	padding: 4px 20px;
+}
+
+tr.ui-widget-content {
+	height: 50px;
+}
+
+td.ui-panelgrid-cell {
+	width: 120px;
+}
+
+form {
+	margin: 0 auto;
+	width: 345px;
+}
+</style>
+
+		</h:head>
+
+		<h:form>
+
+			<p:growl id="msgs" showDetail="true" />
+
+			<p:panel style="margin-bottom:10px;">
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="user" value="Usuario: " />
+					<p:selectOneMenu id="user" value="0" style="width:150px">
+						<f:selectItem itemLabel="Selecione" itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{dropdownView.pendentes}" />
+					</p:selectOneMenu>
+				</h:panelGrid>
+				<p:commandButton value="Atualizar" update="msgs"
+					actionListener="#{dropdownView.displayLocation}"
+					icon="ui-icon-check" />
+			</p:panel>
+
+			<p:panelGrid columns="2">
+
+				<f:facet name="header">
+					<p:graphicImage style="max-width: 150px;" library="sistema"
+						name="imagens/user.png" />
+				</f:facet>
+
+				<h:outputText value="Nome:" />
+				<h:outputText value="xxxxxxx" />
+
+				<h:outputText value="CPF: " />
+				<h:outputText value="xxx.xxx.xxx-xx" />
+
+				<h:outputText value="Tipo:" />
+				<h:outputText value="xxxxxxx" />
+
+				<h:outputText value="Equipe:" />
+				<h:outputText value="xxxxxxx" />
+
+				<p:button value="Aceitar" icon="ui-icon-check">
+					<f:param name="productId" value="10" />
+				</p:button>
+
+				<p:button value="Recusar" icon="ui-icon-closethick">
+					<f:param name="productId" value="10" />
+				</p:button>
+
+			</p:panelGrid>
+		</h:form>
+
+	</ui:define>
+</ui:composition>

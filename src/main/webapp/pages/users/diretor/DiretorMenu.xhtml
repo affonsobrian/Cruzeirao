@@ -33,14 +33,13 @@
 <!-- MegaMenu -->
 <p:megaMenu orientation="horizontal"
 	style="margin-top:-8px; background: white;">
-	<p:menuitem value="Home" url="./../indexes/indexAdmin.xhtml"
-		icon="ui-icon-home" />
+	<p:menuitem value="Home" url="./indexDiretor.xhtml"	icon="ui-icon-home" />
 
 	<p:submenu label="Inscrição" icon="ui-icon-note">
 		<p:column style="background: white;">
 			<p:submenu label="Equipe">
 				<p:menuitem value="Inscrição em campeonato"
-					url="./../cadastros/cadastroEquipes.xhtml" />
+					url="./cadastroEquipes.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
@@ -48,20 +47,21 @@
 	<p:submenu label="Membros" icon="ui-icon-note">
 		<p:column style="background: white;">
 			<p:submenu label="Membros da equipe">
-				<p:menuitem value="Aceite de Membros" url="./../cadastros/cadastroCampeonato.xhtml" />
-				<p:menuitem value="Campeonatos Criados"
-					url="./../cadastros/cadastroCampeonato.xhtml" />
+				<p:menuitem value="Aceite de Membros" url="./AceiteUsuarios.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
 	
 	<p:submenu label="Partidas" icon="ui-icon-note">
 		<p:column style="background: white;">
-		<p:submenu label="Partidas">
-				<p:menuitem value="Chaveamento" url="table-produtos.xhtml" />
+			<p:submenu label="Partidas">
+				<p:menuitem value="Chaveamento" url="./verChaves.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
+	
+	<p:menuitem value="Configurações" url="./info.xhtml" icon="ui-icon-home" />
+	<p:menuitem value="Sair" url="./../../index.xhtml" icon="ui-icon-home" />
 
 </p:megaMenu>
 

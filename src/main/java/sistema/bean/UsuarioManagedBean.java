@@ -89,30 +89,28 @@ public class UsuarioManagedBean {
 		switch(usuario.getTipo()) {
 		
 			case Admin:
-				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/indexAdmin.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./users/admin/indexAdmin.xhtml");
 				break;
 			case Diretor:
-				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/indexDiretor.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./users/diretor/indexDiretor.xhtml");
 				break;
 			case Jogador:
-				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/indexJogador.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./users/jogador/indexJogador.xhtml");
 				break;
 			case Juiz:
-				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/indexJuiz.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./users/juiz/indexJuiz.xhtml");
 				break;
 			case Massagista:
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./users/massagista/indexMassagista.xhtml");
 				break;
 			case Organizador:
-				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/indexOrganizador.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./users/organizador/indexOrganizador.xhtml");
 				break;
 			case Tecnico:
-				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/indexTecnico.xhtml");
-				break;
-			case Torcedor:
-				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/index.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./users/tecnico/indexTecnico.xhtml");
 				break;
 			default:
-				FacesContext.getCurrentInstance().getExternalContext().redirect("./../indexes/indexAdmin.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./users/torcedor/indexTorcedor.xhtml");
 				break;
 		}
 	}

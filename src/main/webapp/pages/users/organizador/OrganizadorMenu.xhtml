@@ -27,13 +27,13 @@
 <!-- MegaMenu -->
 <p:megaMenu orientation="horizontal"
 	style="margin-top:-8px; background: white;">
-	<p:menuitem value="Home" url=".../indexes/indexAdmin.xhtml"
-		icon="ui-icon-home">
+	<p:menuitem value="Home" url="./indexOrganizador.xhtml"
+		icon="ui-icon-home" />
 
 		<p:submenu label="Equipes" icon="ui-icon-note">
 			<p:column style="background: white;">
 				<p:submenu label="Equipes">
-					<p:menuitem value="Aceite de Equipes" url="table-produtos.xhtml" />
+					<p:menuitem value="Aceite de Equipes" url="./indexOrganizador.xhtml" />
 				</p:submenu>
 			</p:column>
 		</p:submenu>
@@ -41,10 +41,8 @@
 		<p:submenu label="Membros" icon="ui-icon-note">
 			<p:column style="background: white;">
 				<p:submenu label="Membros da equipe">
-					<p:menuitem value="Aceite de Membros"
-						url="./../cadastros/cadastroCampeonato.xhtml" />
-					<p:menuitem value="Campeonatos Criados"
-						url="./../cadastros/cadastroCampeonato.xhtml" />
+					<p:menuitem value="Aceite de Membros" url="./usuarios.xhtml" />
+					<p:menuitem value="Campeonatos Criados"	url="./cadastroCampeonato.xhtml" />
 				</p:submenu>
 			</p:column>
 		</p:submenu>
@@ -52,11 +50,14 @@
 		<p:submenu label="Campeonatos" icon="ui-icon-note">
 			<p:column style="background: white;">
 				<p:submenu label="Campeonatos">
-					<p:menuitem value="Criar Campeonato" url="cadastro-produto.xhtml" />
-					<p:menuitem value="Grenciar Campeonatos" url="table-produtos.xhtml" />
+					<p:menuitem value="Criar Campeonato" url="./cadastroCampeonato.xhtml" />
+					<p:menuitem value="Grenciar Campeonatos" url="./cadastroCampeonato.xhtml" />
 				</p:submenu>
 			</p:column>
 		</p:submenu>
+		
+		<p:menuitem value="Configurações" url="./info.xhtml" icon="ui-icon-home" />
+		<p:menuitem value="Sair" url="./../../index.xhtml" icon="ui-icon-home" />
 </p:megaMenu>
 
 </h:html>
