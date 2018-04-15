@@ -36,7 +36,7 @@
 						<p:panel header="Informações">
 							<p:messages />
 							<h:panelGrid columns="2" columnClasses="label, value">
-								<h:outputText value="Nome: *" />
+								<h:outputText value="Nome da equipe: *" />
 								<p:inputText value="#{equipeMB.equipe.nome}"
 									required="true" label="Nome" />
 
@@ -58,10 +58,10 @@
 								columnClasses="grid,grid">
 								
 								<h:panelGrid columns="2" columnClasses="label, value">
-			                        <h:outputText value="Nome " />
+			                        <h:outputText value="Nome da equipe: " />
 			                        <h:outputText value="#{equipeMB.equipe.nome}" styleClass="outputLabel"/>
 			 						
-			 						<h:outputText value="Data de Fundação: " />
+			 						<h:outputText value="Data de fundação: " />
 			                        <h:outputText value="#{equipeMB.equipe.dataFundacao}" styleClass="outputLabel" >
 			                      		 <f:convertDateTime pattern="dd/MM/yyyy" />
 			 						</h:outputText>
@@ -70,7 +70,8 @@
 			                        <h:outputText value="#{equipeMB.equipe.cidade}" styleClass="outputLabel"/>
 			                    </h:panelGrid>					                 
 			                </h:panelGrid>
-			                 <p:commandButton value="Submit" actionListener="#{equipeMB.salvar}" update="growl" process="@this"/>
+			                 <p:commandButton value="Submit" style="background-color: white; float: right; font-weight: bold;" 
+			                 actionListener="#{equipeMB.salvar}" update="growl" process="@this"/>
 						</p:panel>
 					</p:tab>
 				</p:wizard>

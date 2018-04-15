@@ -14,7 +14,7 @@ public class Categoria {
 	private String nome;
 	@Column(nullable = false)
 	private int nascidosApartirDe;
-	private List<Inscricao> incricoes;
+	private List<Inscricao> inscricoes;
 	private Campeonato campeonato;
 	private List<Fase> fases;
 	@Column(nullable = false)
@@ -33,15 +33,13 @@ public class Categoria {
 		super();
 		this.nome = nome;
 		this.nascidosApartirDe = nascidosApartirDe;
-		this.incricoes = incricoes;
+		this.inscricoes = inscricoes;
 		this.campeonato = campeonato;
 		this.fases = fases;
 		this.minJogadores = minJogadores;
 		this.maxJogadores = maxJogadores;
 		this.sexo = sexo;
 	}
-
-
 	
 	public int getCodCategoria() {
 		return codCategoria;
@@ -64,10 +62,10 @@ public class Categoria {
 		this.nascidosApartirDe = nascidosApartirDe;
 	}
 	public List<Inscricao> getIncricoes() {
-		return incricoes;
+		return inscricoes;
 	}
 	public void setIncricoes(List<Inscricao> incricoes) {
-		this.incricoes = incricoes;
+		this.inscricoes = incricoes;
 	}
 	public Campeonato getCampeonato() {
 		return campeonato;

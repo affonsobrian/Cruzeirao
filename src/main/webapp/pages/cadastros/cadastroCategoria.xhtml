@@ -31,13 +31,13 @@
 		                 
 		    <p:growl id="growl" sticky="true" showDetail="true"/>
 		 
-		    <p:wizard flowListener="#{usuarioManagedBean.onFlowProcess}">
-		        <p:tab id="personal" title="Personal">
+		    <p:wizard flowListener="#{categoriaMB.onFlowProcess}">
+		        <p:tab id="" title="Personal">
 		            <p:panel header="Personal Details">
 		                <p:messages />
 		                <h:panelGrid columns="2" columnClasses="label, value">
 		                    <h:outputText value="Nome: *" />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.nome}" required="true" label="Nome Completo"/>
+		                    <p:inputText value="#{categoriaMB.categoria.nome}" required="true" label="Nome Completo"/>
 		 	 
 		                </h:panelGrid>
 		            </p:panel>

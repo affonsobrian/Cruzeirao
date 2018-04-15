@@ -11,7 +11,7 @@ import sistema.service.CampeonatoService;
 
 @ManagedBean
 @ViewScoped
-public class CampeonatoManagedBean {
+public class CampeonatoMB {
 	
 	private Campeonato campeonato;
 	private CampeonatoService service;
