@@ -22,59 +22,47 @@
 	color: white;
 	font-weight: 100;
 }
+
+.ui-megamenu .ui-widget-header span {
+	color: #fff;
+	font-weight: normal;
+	text-shadow: none;
+}
 </style>
 </h:head>
 <!-- MegaMenu -->
 <p:megaMenu orientation="horizontal"
 	style="margin-top:-8px; background: white;">
-	
-	<p:menuitem value="Home" url=".../indexes/indexAdmin.xhtml"
+	<p:menuitem value="Home" url="./../indexes/indexAdmin.xhtml"
 		icon="ui-icon-home" />
 
-	<p:submenu label="Incrição" icon="ui-icon-note">
+	<p:submenu label="Inscrição" icon="ui-icon-note">
 		<p:column style="background: white;">
-			<p:submenu label="Jogadores">
+			<p:submenu label="Equipe">
 				<p:menuitem value="Inscrição em campeonato"
-					url="cadastro-produto.xhtml" />
-				<p:menuitem value="Aceite de jogadores" url="table-produtos.xhtml" />
-			</p:submenu>
-		</p:column>
-		<p:column style="background: white;">
-			<p:submenu label="Diretor">
-				<p:menuitem value="Inscrição em equipe" url="cadastro-produto.xhtml" />
-				<p:menuitem value="Aceite em Equipes" url="table-produtos.xhtml" />
-			</p:submenu>
-		</p:column>
-		<p:column style="background: white;">
-			<p:submenu label="Massagista">
-				<p:menuitem value="Inscrição em equipe" url="cadastro-produto.xhtml" />
-				<p:menuitem value="Aceite em Equipes" url="table-produtos.xhtml" />
-			</p:submenu>
-		</p:column>
-		<p:column style="background: white;">
-			<p:submenu label="Preparador Físico">
-				<p:menuitem value="Inscrição em equipe" url="cadastro-produto.xhtml" />
-				<p:menuitem value="Aceite em Equipes" url="table-produtos.xhtml" />
+					url="./../cadastros/cadastroEquipes.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
 
-	<p:submenu label="Equipes" icon="ui-icon-note">
+	<p:submenu label="Membros" icon="ui-icon-note">
 		<p:column style="background: white;">
-			<p:submenu label="Equipes">
-				<p:menuitem value="Inscrição" url="cadastro-produto.xhtml" />
-				<p:menuitem value="Equipes inscritas" url="table-produtos.xhtml" />
-				<p:menuitem value="Aceite de Equipes" url="table-produtos.xhtml" />
+			<p:submenu label="Membros da equipe">
+				<p:menuitem value="Aceite de Membros" url="./../cadastros/cadastroCampeonato.xhtml" />
+				<p:menuitem value="Campeonatos Criados"
+					url="./../cadastros/cadastroCampeonato.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
-
+	
+	<p:submenu label="Partidas" icon="ui-icon-note">
+		<p:column style="background: white;">
+		<p:submenu label="Partidas">
+				<p:menuitem value="Chaveamento" url="table-produtos.xhtml" />
+			</p:submenu>
+		</p:column>
+	</p:submenu>
 
 </p:megaMenu>
 
 </h:html>
-
-
-
-
-
