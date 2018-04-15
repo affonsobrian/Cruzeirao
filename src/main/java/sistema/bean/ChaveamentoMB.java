@@ -17,21 +17,25 @@ public class ChaveamentoMB implements Serializable {
      
     @PostConstruct
     public void init() {
-        root = new DefaultTreeNode("Root", null);
-        TreeNode node0 = new DefaultTreeNode("Node 0", root);
-        TreeNode node1 = new DefaultTreeNode("Node 1", root);
+        root = new DefaultTreeNode("--", null);
+        TreeNode node0 = new DefaultTreeNode("--", root);
         
-        TreeNode node00 = new DefaultTreeNode("Node 0.0", node0);
-        TreeNode node01 = new DefaultTreeNode("Node 0.1", node0);
+        TreeNode node00 = new DefaultTreeNode("--", node0);
+        TreeNode node01 = new DefaultTreeNode("--", node0);
+        
+        TreeNode node000 = new DefaultTreeNode("--", node00);
+        TreeNode node001 = new DefaultTreeNode("--", node00);
+        TreeNode node010 = new DefaultTreeNode("--", node01);
+        TreeNode node011 = new DefaultTreeNode("--", node01);
          
-        TreeNode node10 = new DefaultTreeNode("Node 1.0", node1);
-         
-        node1.getChildren().add(new DefaultTreeNode("Node 1.1"));
-        node00.getChildren().add(new DefaultTreeNode("Node 0.0.0"));
-        node00.getChildren().add(new DefaultTreeNode("Node 0.0.1"));
-        node01.getChildren().add(new DefaultTreeNode("Node 0.1.0"));
-        node10.getChildren().add(new DefaultTreeNode("Node 1.0.0"));
-        root.getChildren().add(new DefaultTreeNode("Node 2"));
+        node000.getChildren().add(new DefaultTreeNode("Team A"));
+        node000.getChildren().add(new DefaultTreeNode("Team B"));
+        node001.getChildren().add(new DefaultTreeNode("Team C"));
+        node001.getChildren().add(new DefaultTreeNode("Team D"));
+        node010.getChildren().add(new DefaultTreeNode("Team E"));
+        node010.getChildren().add(new DefaultTreeNode("Team F"));
+        node011.getChildren().add(new DefaultTreeNode("Team G"));
+        node011.getChildren().add(new DefaultTreeNode("Team H"));
     }
     
     public TreeNode getRoot() {
