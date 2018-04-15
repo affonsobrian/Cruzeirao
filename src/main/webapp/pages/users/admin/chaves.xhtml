@@ -1,0 +1,37 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" lang="#{localeBean.language}">
+
+<f:view locale="#{localeBean.locale}">
+	<head>
+		<style>
+			.ui-treenode-content{ background-color : #fff;}
+		</style>
+	</head>
+	<h:body>
+		<p:layout>
+			<ui:include src="../../layout/banner.xhtml"></ui:include>
+
+			<ui:include src="./AdminMenu.xhtml"></ui:include>
+
+			<br />
+			<ui:insert name="principal" />
+
+		</p:layout>
+
+
+		<h:form>
+			<h1 style="margin-top: 0">Chaveamento</h1>
+			<p:tree value="#{treeBasicView.root}" var="node"
+				orientation="horizontal">
+				<p:treeNode>
+					<h:outputText value="#{node}" />
+				</p:treeNode>
+			</p:tree>
+		</h:form>
+
+	</h:body>
+</f:view>
+</h:html>
