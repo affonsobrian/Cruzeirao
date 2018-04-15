@@ -18,9 +18,8 @@ public class Campeonato {
 	private Date dataInicioInscricao;
 	private Date dataFimInscricao;
 	private double valorTaxa;
-	
-	
-	//Constutores
+
+	//Construtores
 	public Campeonato() {
 
 	}
@@ -38,17 +37,16 @@ public class Campeonato {
 	}
 	
 	//Getters and Setters
-	
-	public String getNome() {
-		return nome;
-	}
-
 	public int getCodCampeonato() {
 		return codCampeonato;
 	}
 
 	public void setCodCampeonato(int codCampeonato) {
 		this.codCampeonato = codCampeonato;
+	}
+
+	public String getNome() {
+		return nome;
 	}
 
 	public void setNome(String nome) {
@@ -101,6 +99,12 @@ public class Campeonato {
 
 	public void setValorTaxa(double valorTaxa) {
 		this.valorTaxa = valorTaxa;
+	}
+	
+	public void addLocal(Local local) {
+		if(!local.equals(null)) {
+			this.locais.add(local);
+		}
 	}
 
 	@Override

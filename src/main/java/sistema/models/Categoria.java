@@ -23,12 +23,14 @@ public class Categoria {
 	private int maxJogadores;
 	@Column(nullable = false)
 	private Sexo sexo;
+	@Column(nullable = false)
+	private int quantidadeMinimaTimes;
 	
 	public Categoria() {
 		super();
 	}
 	
-	public Categoria(String nome, int nascidosApartirDe, List<Inscricao> incricoes, Campeonato campeonato,
+	public Categoria(String nome, int nascidosApartirDe, List<Inscricao> inscricoes, Campeonato campeonato,
 			List<Fase> fases, int minJogadores, int maxJogadores, Sexo sexo) {
 		super();
 		this.nome = nome;
@@ -97,6 +99,13 @@ public class Categoria {
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
+	public int getQuantidadeMinimaTimes() {
+		return quantidadeMinimaTimes;
+	}
+	public void setQuantidadeMinimaTimes(int quantidadeMinimaTimes) {
+		this.quantidadeMinimaTimes = quantidadeMinimaTimes;
+	}
+
 	@Override
 	public String toString() {
 		return "Categoria [nome=" + nome + ", nascidosApartirDe=" + nascidosApartirDe + ", minJogadores=" + minJogadores

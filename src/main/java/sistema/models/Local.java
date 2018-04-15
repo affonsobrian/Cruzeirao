@@ -14,6 +14,7 @@ public class Local {
 		super();
 	}
 
+	//Getters and Setters
 	public Local(String endereco) {
 		super();
 		this.endereco = endereco;

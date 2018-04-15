@@ -7,14 +7,13 @@ import org.primefaces.event.FlowEvent;
 import org.primefaces.event.RowEditEvent;
 
 import sistema.models.Categoria;
-import sistema.models.Usuario;
 import sistema.service.CategoriaService;
 
 @ManagedBean
 @ViewScoped
 public class CategoriaMB {
 	
-	private Categoria categoria;
+	private Categoria categoria = new Categoria();
 	private CategoriaService service;
 
 	// Getters and Setters	
