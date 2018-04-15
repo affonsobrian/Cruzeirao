@@ -8,12 +8,13 @@
 <f:view locale="#{localeBean.locale}">
 	<h:body>
 		<p:layout>
-		<ui:include src="../layout/banner.xhtml"></ui:include>
+		<ui:include src="./layout/banner.xhtml"></ui:include>
 		
-		<ui:include src="../layout/menus/DiretorMenu.xhtml"></ui:include>
+		<ui:include src="./loginMenu.xhtml"></ui:include>
 		
 		<br/>
 		<ui:insert name="principal" />
+		
 		</p:layout>
 	</h:body>
 </f:view>
