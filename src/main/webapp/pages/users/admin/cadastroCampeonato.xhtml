@@ -31,109 +31,93 @@
 
 			<p:growl id="growl" sticky="true" showDetail="true" />
 
-			<p:wizard flowListener="#{usuarioManagedBean.onFlowProcess}">
-				<p:tab id="personal" title="Dados Iniciais">
-					<p:panel header="Dados Iniciais">
+			<p:wizard flowListener="#{campeonatoMB.onFlowProcess}">
+				<p:tab id="dados" title="Dados Iniciais">
+					<p:panel>
 						<p:messages />
-						<h:panelGrid columns="2" columnClasses="label, value">
+						<h:panelGrid columns="2" columnClasses="label, value" style="margin-bottom: -85px;">
 
 							<h:outputText value="Nome do Campeonato: *" />
-							<p:inputText value="#{usuarioManagedBean.usuario.nome}"
+							<p:inputText value="#{campeonatoMB.campeonato.nome}"
 								required="true" label="Nome do Campeonato" />
+								
+							<h:outputText value="Local: *" />
+							<p:commandButton value=" + " type="button" onclick="PF('local').show();" style="background-color: #fff;" />
 
-							<h:outputText value="Data de início: *" />
-							<p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
-								pattern="dd/MM/yyyy" mask="true" />
-
-
-							<h:outputText value="Data de fim: *" />
-							<p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
-								pattern="dd/MM/yyyy" mask="true" />
-
+							<p:dialog header="Defina um local" widgetVar="local" modal="true" width="400">
+							  		<ui:include src="./cadastroLocais.xhtml"></ui:include>								  		
+							</p:dialog>
+							
+						</h:panelGrid>
+						<h:panelGrid>
+						
+							<h:outputText value="" />
+							<p:dataTable var="loc" style="width: 21%"
+								value="#{campeonatoMB.campeonato.locais}">
+								<p:column headerText="Endereço(s)">
+									<h:outputText value="#{loc.endereco}" />
+								</p:column>
+							</p:dataTable>	
+								
 						</h:panelGrid>
 					</p:panel>
 				</p:tab>
 
-				<p:tab id="address" title="Periodo de Inscrição">
-					<p:panel header="Periodo de Inscrição">
+				<p:tab id="periodo" title="Período de Inscrição">
+					<p:panel>
 						<p:messages />
 						<h:panelGrid columns="2" columnClasses="label, value">
 
-							<h:outputText value="Início de Incrições: *" />
-							<p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
-								pattern="dd/MM/yyyy" mask="true" />
+							<h:outputText value="Data inicial: *" />
+							<p:calendar value="#{campeonatoMB.campeonato.dataInicioInscricao}"
+								pattern="dd/MM/yyyy" label="Data inicial" mask="true" required="true"/>
 
-
-							<h:outputText value="Fim de Incrições: *" />
-							<p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
-								pattern="dd/MM/yyyy" mask="true" />
+							<h:outputText value="Data final: *" />
+							<p:calendar value="#{campeonatoMB.campeonato.dataFimInscricao}"
+								pattern="dd/MM/yyyy" label="Data final" mask="true" required="true" />
 
 						</h:panelGrid>
 					</p:panel>
 				</p:tab>
-
-				<p:tab id="contact" title="Contact">
-					<p:panel header="Informações finais">
+				
+				<p:tab id="info" title="Informações finais">
+					<p:panel>
 						<p:messages />
-						<h:panelGrid columns="2" columnClasses="label, value">
-							<h:outputText value="Taxa de inscrição: *" />
-							<p:inputText value="#{usuarioManagedBean.usuario.email}"
-								required="true" label="Taxa de inscrição" />
+						<h:panelGrid columns="2" columnClasses="label, value" style="margin-bottom: -85px;">
+						
+							<h:outputText value="Categoria: *" />
+							<p:commandButton value=" + " type="button" onclick="PF('categoria').show();" style="background-color: #fff;" />
 
-							<h:outputText value="Quantidade mínima de jogadores: *" />
-							<p:inputText value="#{usuarioManagedBean.usuario.senha}"
-								required="true" label="Quantidade" />
-
-							<h:outputText value="Quantidade máxima de jogadores: *" />
-							<p:inputText value="#{usuarioManagedBean.usuario.telefoneFixo}" />
-
-							<h:outputText value="Quantidade mínima de times por categoria: *" />
-							<p:inputText value="#{usuarioManagedBean.usuario.telefoneFixo}" />
+							<p:dialog header="Defina uma categoria" widgetVar="categoria" modal="true" style="width: 100%">
+							  		<ui:include src="./cadastroCategoria.xhtml"></ui:include>								  		
+							</p:dialog>
 
 						</h:panelGrid>
-					</p:panel>
-				</p:tab>
-
-				<p:tab id="confirm" title="Confirmation">
-					<p:panel header="Confirmation">
-						<h:panelGrid id="confirmation" columns="3"
-							columnClasses="grid,grid,grid">
-							<h:panelGrid columns="2" columnClasses="label, value">
-								<h:outputText value="Nome do Campeonato: " />
-								<h:outputText value="#{usuarioManagedBean.usuario.nome}"
-									styleClass="outputLabel" />
-
-							</h:panelGrid>
-
-							<h:panelGrid columns="2" columnClasses="label, value">
-								<h:outputText value="Endereço: " />
-								<h:outputText value="#{usuarioManagedBean.usuario.endereco}"
-									styleClass="outputLabel" />
-
-							</h:panelGrid>
-
-							<h:panelGrid columns="2" columnClasses="label, value">
-								<h:outputText value="Email: " />
-								<h:outputText value="#{usuarioManagedBean.usuario.email}"
-									styleClass="outputLabel" />
-
-								<h:outputText value="Telefone " />
-								<h:outputText value="#{usuarioManagedBean.usuario.telefoneFixo}"
-									styleClass="outputLabel" />
-
-								<h:outputText />
-								<h:outputText />
-							</h:panelGrid>
+						<h:panelGrid>
+						
+							<h:outputText value="" />
+							<p:dataTable var="cat" style="width: 21%"
+								value="#{campeonatoMB.campeonato.categorias}">
+								<p:column headerText="Categoria(s)">
+									<h:outputText value="#{cat.categoria}" />
+								</p:column>
+							</p:dataTable>	
+								
 						</h:panelGrid>
-
-						<p:commandButton value="Submit"
-							actionListener="#{usuarioManagedBean.save}" update="growl"
+							<p:commandButton value="Submit"
+							actionListener="#{usuarioManagedBean.save}" style="float: right; background-color: #fff;" update="growl"
 							process="@this" />
 					</p:panel>
-				</p:tab>
+				</p:tab>	
 			</p:wizard>
 
 		</h:form>
 
 	</ui:define>
 </ui:composition>
+
+
+
+
+
+
