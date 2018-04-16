@@ -1,0 +1,84 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets">
+
+	<h:head>
+		<style>
+			.ui-datagrid-no-border .ui-datagrid-content { border: none; } 
+			.ui-menu, .ui-menu .ui-menu-child { background: white; }
+			.ui-menu .ui-menu-list .ui-widget-header { background: #1E344B; }
+			 tr { height: 40px; }
+			.ui-state-default { box-shadow: none; -webkit-box-shadow: none; } 
+			.ui-panel .ui-panel-content { font-size: 16px; }
+			.ui-widget-header { color: white; font-weight: 100; }
+			.ui-state-default { border: 1px solid #d6d6d6; background: #fff; font-weight: normal; color: #555; }
+			.ui-state-highlight { border: 1px solid #156090; background: #186ba0; color: #fff; }
+			.ui-widget-header { border: 1px solid #d9d9d9; color: #1b1d1f; background: -webkit-linear-gradient(top,#f6f7f9 0,#ebedf0 100%); font-weight: bold; }
+			.ui-inputfield, .ui-widget-content .ui-inputfield { font-weight: normal; background: #fff; color: #222; -webkit-box-shadow: none; }
+			.ui-messages .ui-messages-error { color: #fff; background-color: #ef5350; border-color: #ef5350; }
+			.ui-state-error, .ui-widget-content .ui-state-error { border-left: 4px solid #ef5350; } 
+			.ui-megamenu .ui-widget-header span { color: #fff; font-weight: normal; text-shadow: none; }
+		</style>
+	</h:head>
+
+	<h:body>
+		<h:form>
+			<p:growl id="growl" sticky="true" showDetail="true" />
+	
+			<p:wizard flowListener="#{categoriaMB.onFlowProcess}">
+				<p:tab title="Informações">
+					<p:panel>
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Nome: *" />
+							<p:inputText value="#{categoriaMB.categoria.nome}" required="true"
+								         label="Nome Completo" />
+								         
+							<h:outputText value="Taxa de inscrição: *" />
+							<p:inputText value="#{campeonatoMB.campeonato.valorTaxa}"
+									     required="true" label="Taxa de inscrição" />
+	
+							<p:outputLabel for="sexo" value="Sexo: *" />
+							<p:selectOneMenu id="sexo" value="#{categoriaMB.categoria.sexo}">
+								<f:selectItem itemLabel="Selecione..." noSelectionOption="true" />
+								<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+								<f:selectItem itemLabel="Feminino" itemValue="Feminino" />
+							</p:selectOneMenu>
+							
+							<h:outputText value="Nascidos a partir do ano: *" />
+							<p:inputText value="#{categoriaMB.categoria.nascidosApartirDe}" required="true"
+									   	 label="Ano de nascimento" maxlength="4" maxvalue="99" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>				
+				<p:tab title="Definição de equipe">
+					<p:panel>
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">						   	 
+							<h:outputText value="Quantidade mínima de jogadores: *" />
+							<p:inputText value="#{categoriaMB.categoria.minJogadores}"
+									  	 required="true" label="Quantidade mínima de jogadores"  />
+
+							<h:outputText value="Quantidade máxima de jogadores: *" />
+							<p:inputText value="#{categoriaMB.categoria.maxJogadores}" label="Quantidade máxima de jogadores" required="true" />
+
+							<h:outputText value="Quantidade mínima de times por categoria: *" />
+							<p:inputText value="#{categoriaMB.categoria.quantidadeMinimaTimes}" label="Quantidade mínima de times" required="true" />
+						</h:panelGrid>
+						 <p:commandButton value="Submit" actionListener="#{userWizard.save}" style="float: right;" update="growl" process="@this"/>
+					</p:panel>
+				</p:tab>
+			</p:wizard>
+		</h:form>
+	</h:body>
+
+</h:html>
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" lang="#{localeBean.language}">
+
+<h:head>
+	<style>
+.ui-datagrid-no-border .ui-datagrid-content {
+	border: none;
+}
+
+.ui-menu, .ui-menu .ui-menu-child {
+	background: white;
+}
+
+.ui-menu .ui-menu-list .ui-widget-header {
+	background: #1E344B;
+}
+
+.ui-widget-header {
+	color: white;
+	font-weight: 100;
+}
+</style>
+</h:head>
+<!-- MegaMenu -->
+<p:megaMenu orientation="horizontal"
+	style="margin-top:-8px; background: white;">
+	<p:menuitem value="Home" url="./indexTecnico.xhtml"
+		icon="ui-icon-home" />
+
+
+	<p:submenu label="Incrição" icon="ui-icon-note">
+		<p:column style="background: white;">
+			<p:submenu label="Campeonatos">
+				<p:menuitem value="Inscrição em Equipe"
+					url="./inscricaoEmEquipe.xhtml" />
+				<p:menuitem value="Campeonatos inscritos" url="indexTecnico.xhtml" />
+			</p:submenu>
+		</p:column>
+	</p:submenu>
+
+		<p:submenu label="Partidas" icon="ui-icon-note">
+			<p:column style="background: white;">
+				<p:submenu label="Partidas">
+					<p:menuitem value="Chaveamento" url="./verChaves.xhtml" />
+				</p:submenu>
+			</p:column>
+		</p:submenu>
+		
+		<p:menuitem value="Configurações" url="./info.xhtml" icon="ui-icon-home" />
+		<p:menuitem value="Sair" url="./../../index.xhtml" icon="ui-icon-home" />
+</p:megaMenu>
+
+</h:html>

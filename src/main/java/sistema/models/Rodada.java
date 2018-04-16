@@ -2,29 +2,36 @@ package sistema.models;
 
 import java.util.List;
 
+import javax.persistence.*;
+
+@Entity
 public class Rodada {
-	int numero;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	int codRodada;
 	Grupo grupo;
 	List<Partida> partidas;
 
 	public Rodada() {
 		super();
 	}
-
-	public Rodada(int numero, Grupo grupo, List<Partida> partidas) {
+	
+	public Rodada(Grupo grupo, List<Partida> partidas) {
 		super();
-		this.numero = numero;
 		this.grupo = grupo;
 		this.partidas = partidas;
 	}
 
-	public int getNumero() {
-		return numero;
+
+	public int getCodRodada() {
+		return codRodada;
 	}
 
-	public void setNumero(int numero) {
-		this.numero = numero;
+
+	public void setCodRodada(int codRodada) {
+		this.codRodada = codRodada;
 	}
+
 
 	public Grupo getGrupo() {
 		return grupo;
@@ -44,7 +51,7 @@ public class Rodada {
 
 	@Override
 	public String toString() {
-		return "Rodada [numero=" + numero + ", grupo=" + grupo + ", partidas=" + partidas + "]";
+		return "Rodada [codRodada=" + codRodada + ", grupo=" + grupo + ", partidas=" + partidas + "]";
 	}
 	
 	

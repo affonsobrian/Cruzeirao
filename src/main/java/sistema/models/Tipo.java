@@ -1,5 +1,12 @@
 package sistema.models;
 
 public enum Tipo {
-	//TODO: Definir o que será guardado
+	Torcedor,
+	Massagista,
+	Jogador,
+	Tecnico,
+	Diretor,
+	Juiz,
+	Organizador,
+	Admin
 }

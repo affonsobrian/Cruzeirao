@@ -1,0 +1,136 @@
+<ui:composition template="./index.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
+	
+	<ui:define name="principal">
+
+		<h:head>
+			<style>
+				.ui-datagrid-no-border .ui-datagrid-content { border: none; } 
+				.ui-menu, .ui-menu .ui-menu-child { background: white; }
+				.ui-menu .ui-menu-list .ui-widget-header { background: #1E344B; }
+				 tr { height: 40px; }
+				.ui-state-default { box-shadow: none; -webkit-box-shadow: none; } 
+				.ui-panel .ui-panel-content { font-size: 16px; }
+				.ui-widget-header { color: white; font-weight: 100; }
+				.ui-state-default { border: 1px solid #d6d6d6; background: #fff; font-weight: normal; color: #555; }
+				.ui-state-highlight { border: 1px solid #156090; background: #186ba0; color: #fff; }
+				.ui-widget-header { border: 1px solid #d9d9d9; color: #1b1d1f; background: -webkit-linear-gradient(top,#f6f7f9 0,#ebedf0 100%); font-weight: bold; }
+				.ui-inputfield, .ui-widget-content .ui-inputfield { font-weight: normal; background: #fff; color: #222; -webkit-box-shadow: none; }
+				.ui-messages .ui-messages-error { color: #fff; background-color: #ef5350; border-color: #ef5350; }
+				.ui-state-error, .ui-widget-content .ui-state-error { border-left: 4px solid #ef5350; } 
+			</style>
+
+		</h:head>
+		<h:form>
+		                 
+		    <p:growl id="growl" sticky="true" showDetail="true"/>
+		 
+		    <p:wizard flowListener="#{usuarioManagedBean.onFlowProcess}">
+		        <p:tab id="personal" title="Personal">
+		            <p:panel header="Personal Details">
+		                <p:messages />
+		                <h:panelGrid columns="2" columnClasses="label, value">
+		                    <h:outputText value="Nome: *" />
+		                    <p:inputText value="#{usuarioManagedBean.usuario.nome}" required="true" label="Nome Completo"/>
+		 	 
+		 	 				<h:outputText value="Email: *" />
+		                    <p:inputText value="#{usuarioManagedBean.usuario.email}" required="true" label="Email"/>
+		                    
+		                    <h:outputText value="Senha: *" />
+		                    <p:password value="#{usuarioManagedBean.usuario.senha}" required="true" feedback="true" promptLabel="Digite uma senha" weakLabel="Senha fraca" goodLabel="Senha razoável" strongLabel="Senha boa" label="Senha"/>
+		 
+		                </h:panelGrid>
+		            </p:panel>
+		        </p:tab>
+		 
+		        <p:tab id="address" title="Address">
+		            <p:panel header="Address Details">
+		                <p:messages />
+		                <h:panelGrid columns="2" columnClasses="label, value">
+		                
+		                    <h:outputText value="Data de Nascimento: " />
+		                    <p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
+           					pattern="dd/MM/yyyy"
+           					mask="true" />
+
+		                    <h:outputText value="CPF: " />
+		                    <p:inputText value="#{usuarioManagedBean.usuario.cpf}" />
+
+		                    <h:outputText value="RG: " />
+		                    <p:inputText value="#{usuarioManagedBean.usuario.rg}" />
+		                </h:panelGrid>
+		            </p:panel>
+		        </p:tab>
+		 
+		        <p:tab id="contact" title="Contact">
+		            <p:panel header="Contact Information">
+		                <p:messages />
+		                <h:panelGrid columns="2" columnClasses="label, value">
+
+		                    <h:outputText value="Telefone: " />
+		                    <p:inputText value="#{usuarioManagedBean.usuario.telefoneFixo}"/>
+		                    
+		                 	<h:outputText value="Celular: " />
+		                    <p:inputText value="#{usuarioManagedBean.usuario.telefoneMovel}" />
+		 		            
+		 		            <h:outputText value="Endereço: " />
+		                    <p:inputText value="#{usuarioManagedBean.usuario.endereco}" />
+		                </h:panelGrid>
+		            </p:panel>
+		        </p:tab>
+		        
+		        <p:tab id="additional" title="Additional">
+		            <p:panel header="Additional Information">
+		                <p:messages />
+		                <h:panelGrid columns="2" columnClasses="label, value">
+
+		                    <h:outputText value="Tipo de Usuário: " />
+		                    <p:inputText value="#{usuarioManagedBean.usuario.tipo}"/>
+		                    
+		                 	<h:outputText value="Foto: " />
+		                    <p:inputText value="#{usuarioManagedBean.usuario.foto}" />
+		 		            
+		                </h:panelGrid>
+		            </p:panel>
+		        </p:tab>
+		 
+		        <p:tab id="confirm" title="Confirmation">
+		            <p:panel header="Confirmation">
+		                <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
+		                    <h:panelGrid columns="2" columnClasses="label, value">
+		                        <h:outputText value="Nome: " />
+		                        <h:outputText value="#{usuarioManagedBean.usuario.nome}" styleClass="outputLabel"/>
+
+		                    </h:panelGrid>
+		 
+		                    <h:panelGrid columns="2" columnClasses="label, value">
+		                        <h:outputText value="Endereço: " />
+		                        <h:outputText value="#{usuarioManagedBean.usuario.endereco}" styleClass="outputLabel"/>
+		 
+		                    </h:panelGrid>
+		 
+		                    <h:panelGrid columns="2" columnClasses="label, value">
+		                        <h:outputText value="Email: " />
+		                        <h:outputText value="#{usuarioManagedBean.usuario.email}" styleClass="outputLabel"/>
+		 
+		                        <h:outputText value="Telefone " />
+		                        <h:outputText value="#{usuarioManagedBean.usuario.telefoneFixo}" styleClass="outputLabel"/>
+		 
+		                    </h:panelGrid>
+		                </h:panelGrid>
+		 
+		                <p:commandButton value="Submit" actionListener="#{usuarioManagedBean.save}" update="growl" process="@this"/>
+		            </p:panel>
+		        </p:tab>
+		    </p:wizard>
+		 
+		</h:form>
+		   	   
+	</ui:define>
+</ui:composition>

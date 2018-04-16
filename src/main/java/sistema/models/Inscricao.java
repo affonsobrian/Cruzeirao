@@ -2,24 +2,28 @@ package sistema.models;
 
 import java.util.List;
 
+import javax.persistence.*;
 
+@Entity
 public class Inscricao {
-	long numero;
-	boolean pagamento;
-	boolean validada;
-	List<Inscrito> inscritos;
-	Categoria categoria;
-	List<Partida> partidas;
-	Equipe equipe;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codInscricao;
+	private boolean pagamento;
+	private boolean validada;
+	private List<Inscrito> inscritos;
+	private Categoria categoria;
+	private List<Partida> partidas;
+	private Equipe equipe;
 
 	public Inscricao() {
 		super();
 	}
 
-	public Inscricao(long numero, boolean pagamento, boolean validada, List<Inscrito> inscritos, Categoria categoria,
+	public Inscricao(int codInscricao, boolean pagamento, boolean validada, List<Inscrito> inscritos, Categoria categoria,
 			List<Partida> partidas, Equipe equipe) {
 		super();
-		this.numero = numero;
+		this.codInscricao = codInscricao;
 		this.pagamento = pagamento;
 		this.validada = validada;
 		this.inscritos = inscritos;
@@ -28,12 +32,12 @@ public class Inscricao {
 		this.equipe = equipe;
 	}
 
-	public long getNumero() {
-		return numero;
+	public int getCodInscricao() {
+		return codInscricao;
 	}
 
-	public void setNumero(long numero) {
-		this.numero = numero;
+	public void setCodInscricao(int codInscricao) {
+		this.codInscricao = codInscricao;
 	}
 
 	public boolean isPagamento() {
@@ -86,7 +90,7 @@ public class Inscricao {
 
 	@Override
 	public String toString() {
-		return "Inscricao [numero=" + numero + ", pagamento=" + pagamento + ", validada=" + validada + ", inscritos="
+		return "Inscricao [codInscricao=" + codInscricao + ", pagamento=" + pagamento + ", validada=" + validada + ", inscritos="
 				+ inscritos + ", categoria=" + categoria + ", partidas=" + partidas + ", equipe=" + equipe + "]";
 	}
 }

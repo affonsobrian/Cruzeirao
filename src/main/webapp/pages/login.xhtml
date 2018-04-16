@@ -1,0 +1,43 @@
+<ui:composition template="./index.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
+	
+	<ui:define name="principal">
+
+		<h:head>
+			<style> .ui-datagrid-no-border .ui-datagrid-content { border: none; } 
+					.ui-menu, .ui-menu .ui-menu-child { background: white; }
+					.ui-menu .ui-menu-list .ui-widget-header { background: #1E344B; }
+					.ui-widget-header { color: white; font-weight: 100; }
+			</style>
+		</h:head>
+		<h:form>
+		 
+		 	<p:fieldset legend="Login">
+		 	
+		 		<p:messages id="messages" showDetail="true" closable="true">
+		 			<p:autoUpdate />
+		 		</p:messages>
+		 		<p:outputLabel value="E-mail:" /><br/>
+		 		<p:inputText value="#{usuarioManagedBean.usuario.email}" /><br/>
+		 		<p:outputLabel value="Senha:" /><br/>
+		 		<p:password value="#{usuarioManagedBean.usuario.senha}" required="true" label="Senha"/><br/><br/>
+		 		<p:commandButton value="Entrar" actionListener="#{usuarioManagedBean.validate}"  />
+		 	
+		 	</p:fieldset>
+		    
+		</h:form>
+		   	   
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+

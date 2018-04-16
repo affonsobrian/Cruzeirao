@@ -3,11 +3,18 @@ package sistema.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.*;
+
+@Entity
 public class Equipe {
-	String nome;
-	Date dataFundacao;
-	String cidade;
-	List<Usuario> usuarios;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codEquipe;
+	@Column(nullable = false, unique = true)
+	private String nome;
+	private Date dataFundacao;
+	private String cidade;
+	private List<Usuario> usuarios;
 
 	public Equipe() {
 		super();
@@ -20,6 +27,15 @@ public class Equipe {
 		this.cidade = cidade;
 		this.usuarios = usuarios;
 	}
+	
+	public int getCodEquipe() {
+		return codEquipe;
+	}
+
+	public void setCodEquipe(int codEquipe) {
+		this.codEquipe = codEquipe;
+	}
+
 
 	public String getNome() {
 		return nome;

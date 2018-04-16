@@ -4,9 +4,14 @@ import sistema.models.Categoria;
 import java.util.Date;
 import java.util.List;
 
-//TODO: Criar Hash e Equals
+import javax.persistence.*;
 
+//TODO: Criar Hash e Equals
+@Entity
 public class Fase {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codFase;
 	private Date datainicio;
 	private Formato formato;
 	private Categoria categoria;

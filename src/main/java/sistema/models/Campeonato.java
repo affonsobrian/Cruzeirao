@@ -3,8 +3,14 @@ package sistema.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.*;
+
+@Entity
 public class Campeonato {
 	//Atributos
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private int codCampeonato;
 	private String nome;
 	private List<Local> locais;
 	private List<Juiz> juizes;
@@ -32,8 +38,17 @@ public class Campeonato {
 	}
 	
 	//Getters and Setters
+	
 	public String getNome() {
 		return nome;
+	}
+
+	public int getCodCampeonato() {
+		return codCampeonato;
+	}
+
+	public void setCodCampeonato(int codCampeonato) {
+		this.codCampeonato = codCampeonato;
 	}
 
 	public void setNome(String nome) {

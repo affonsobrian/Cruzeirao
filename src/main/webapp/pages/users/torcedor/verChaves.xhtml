@@ -1,0 +1,48 @@
+<ui:composition template="./indexTorcedor.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
+	
+	<ui:define name="principal">
+
+		<h:head>
+			<style>
+				.ui-datagrid-no-border .ui-datagrid-content { border: none; } 
+				.ui-menu, .ui-menu .ui-menu-child { background: white; }
+				.ui-menu .ui-menu-list .ui-widget-header { background: #1E344B; }
+				 tr { height: 40px; }
+				.ui-state-default { box-shadow: none; -webkit-box-shadow: none; } 
+				.ui-panel .ui-panel-content { font-size: 16px; }
+				.ui-widget-header { color: white; font-weight: 100; }
+				.ui-state-default { border: 1px solid #d6d6d6; background: #fff; font-weight: normal; color: #555; }
+				.ui-state-highlight { border: 1px solid #156090; background: #186ba0; color: #fff; }
+				.ui-widget-header { border: 1px solid #d9d9d9; color: #1b1d1f; background: -webkit-linear-gradient(top,#f6f7f9 0,#ebedf0 100%); font-weight: bold; }
+				.ui-inputfield, .ui-widget-content .ui-inputfield { font-weight: normal; background: #fff; color: #222; -webkit-box-shadow: none; }
+				.ui-messages .ui-messages-error { color: #fff; background-color: #ef5350; border-color: #ef5350; }
+				.ui-state-error, .ui-widget-content .ui-state-error { border-left: 4px solid #ef5350; } 
+				.ui-megamenu .ui-widget-header span { color: #fff; font-weight: normal; text-shadow: none; }
+			</style>
+		</h:head>
+		
+		<h:form>
+			<h1 style="margin-top: 0">Chaveamento</h1>
+			<p:tree value="#{treeBasicView.root}" var="node"
+				orientation="horizontal">
+				<p:treeNode>
+					<h:outputText value="#{node}" />
+				</p:treeNode>
+			</p:tree>
+		</h:form>
+		   	   
+	</ui:define>
+</ui:composition>
+
+
+
+
+
+

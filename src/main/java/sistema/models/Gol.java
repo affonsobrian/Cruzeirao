@@ -1,10 +1,17 @@
 package sistema.models;
 
+import javax.persistence.*;
 
+@Entity
 public class Gol {
-	Inscrito inscrito;
-	int tempo;
-	boolean penalty;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int codGol;
+	//@Column(nullable = false)
+	private Inscrito inscrito;
+	@Column(nullable = false)
+	private int tempo;
+	private boolean penalty;
 
 	public Gol() {
 		super();

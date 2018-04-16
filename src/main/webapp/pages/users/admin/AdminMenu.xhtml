@@ -1,0 +1,92 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" lang="#{localeBean.language}">
+
+<h:head>
+	<style>
+.ui-datagrid-no-border .ui-datagrid-content {
+	border: none;
+}
+
+.ui-menu, .ui-menu .ui-menu-child {
+	background: white;
+}
+
+.ui-menu .ui-menu-list .ui-widget-header {
+	background: #1E344B;
+}
+
+.ui-widget-header {
+	color: white;
+	font-weight: 100;
+}
+
+.ui-megamenu .ui-widget-header span {
+	color: #fff;
+	font-weight: normal;
+	text-shadow: none;
+}
+</style>
+</h:head>
+<!-- MegaMenu -->
+<p:megaMenu orientation="horizontal"
+	style="margin-top:-8px; background: white;">
+	<p:menuitem value="Home" url="./indexAdmin.xhtml" icon="ui-icon-home" />
+
+	<p:submenu label="Usuarios" icon="ui-icon-note">
+		<p:column style="background: white;">
+			<p:submenu label="Usuarios">
+				<p:menuitem value="Criar Usuário" url="./cadastroUsuario.xhtml" />
+				<p:menuitem value="Usuários inscritos" url="./info.xhtml" />
+				<p:menuitem value="Aceite de Usuários" url="./AceiteUsuarios.xhtml" />
+			</p:submenu>
+		</p:column>
+	</p:submenu>
+
+	<p:submenu label="Equipes" icon="ui-icon-note">
+		<p:column style="background: white;">
+			<p:submenu label="Equipes">
+				<p:menuitem value="Inscrição" url="./cadastroEquipes.xhtml" />
+				<p:menuitem value="Equipes inscritas" url="./cadastroEquipes.xhtml" />
+				<p:menuitem value="Aceite de Equipes" url="./AceiteEquipes.xhtml" />
+			</p:submenu>
+		</p:column>
+	</p:submenu>
+
+	<p:submenu label="Campeonatos" icon="ui-icon-note">
+		<p:column style="background: white;">
+			<p:submenu label="Campeonatos">
+				<p:menuitem value="Criar Campeonato"
+					url="./cadastroCampeonato.xhtml" />
+				<p:menuitem value="Campeonatos Criados"
+					url="./cadastroCampeonato.xhtml" />
+			</p:submenu>
+		</p:column>
+	</p:submenu>
+
+	<p:submenu label="Partidas" icon="ui-icon-note">
+		<p:column style="background: white;">
+			<p:submenu label="Partidas">
+				<p:menuitem value="Adicionar Partida" url="./cadastroPartida.xhtml" />
+				<p:menuitem value="Partidas Adicionadas"
+					url="./cadastroPartida.xhtml" />
+			</p:submenu>
+		</p:column>
+	</p:submenu>
+
+	<p:submenu label="Chaveameno" icon="ui-icon-note">
+		<p:column style="background: white;">
+			<p:submenu label="Partidas">
+				<p:menuitem value="Criar Chaveamento" url="./criarChaves.xhtml" />
+				<p:menuitem value="Editar Chaveamento" url="./verChaves.xhtml" />
+			</p:submenu>
+		</p:column>
+	</p:submenu>
+	
+	<p:menuitem value="Configurações" url="./info.xhtml" icon="ui-icon-home" />
+	<p:menuitem value="Sair" url="./../../index.xhtml" icon="ui-icon-home" />
+</p:megaMenu>
+
+</h:html>
