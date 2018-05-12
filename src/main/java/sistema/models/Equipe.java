@@ -14,6 +14,9 @@ public class Equipe {
 	private String nome;
 	private Date dataFundacao;
 	private String cidade;
+	
+	//TODO Checar se está correto
+	@ManyToMany(mappedBy = "equipes")
 	private List<Usuario> usuarios;
 
 	public Equipe() {

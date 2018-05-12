@@ -19,7 +19,14 @@ public class Usuario {
 	@Column(nullable = false)
 	private String senha;
 	private Date dataNascimento;
+	
+	//TODO checar se está correto
+	@ManyToMany
+    @JoinTable(name="Usuario_Equipe",
+    joinColumns = {@JoinColumn(name="usuario_id")},
+    inverseJoinColumns = {@JoinColumn(name="equipe_id")})
 	private List<Equipe> equipes;
+	
 	private List<Inscrito> inscricoes;
 	private List<Campeonato> campeonatos;
 	private Tipo tipo;
