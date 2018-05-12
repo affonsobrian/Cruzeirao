@@ -14,10 +14,17 @@ public class Fase {
 	private int codFase;
 	private Date datainicio;
 	private Formato formato;
-	private Categoria categoria;
-	private List<Grupo> grupo;
-	private int numero;
 	
+	//TODO Checar se está certo
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="Categoria_ID")
+	private Categoria categoria;
+	
+	//TODO Checar se está correto
+	@OneToMany(mappedBy = "fase")
+	private List<Grupo> grupo;
+	
+	private int numero;
 	
 	public Fase() {
 		super();

@@ -24,7 +24,10 @@ public class Categoria {
 	@JoinColumn(name="Campeonato_ID")
 	private Campeonato campeonato;
 	
+	//TODO Checar se está correto
+	@OneToMany(mappedBy = "categoria")
 	private List<Fase> fases;
+	
 	@Column(nullable = false)
 	private int minJogadores;
 	@Column(nullable = false)

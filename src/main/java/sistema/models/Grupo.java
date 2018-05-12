@@ -11,7 +11,12 @@ public class Grupo {
 	private int codGrupo;
 	@Column(nullable = false)
 	String nome;
+	
+	//TODO Checar se está correto
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="Fase_ID")
 	Fase fase;
+	
 	List<Rodada> rodadas;
 	int numero;
 
