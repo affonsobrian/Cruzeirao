@@ -69,17 +69,20 @@ public class EquipeMB {
 
 	// Service communication
 	public void salvar() {
-		if (!equipe.equals(null)) {
+		
+		if (equipe.equals(null))
+			System.out.println("A equipe é um objeto inválido.");
+		else {
 			equipeService.salvar(equipe);
 			equipes.add(equipe);
-			
+
 			FacesMessage msg = new FacesMessage("Equipe" + equipe.getNome() + "cadastrada com sucesso!");
-	        FacesContext.getCurrentInstance().addMessage(null, msg);
-			
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+
 			equipe = new Equipe();
 		}
 	}
-	
+
 	public void remover() {
 		equipeService.remover(equipe);
 	}

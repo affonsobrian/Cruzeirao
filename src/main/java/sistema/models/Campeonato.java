@@ -16,15 +16,15 @@ public class Campeonato {
 	//TODO Checar se está correto
 	@ManyToMany
     @JoinTable(name="Campeonato_Local",
-    joinColumns = {@JoinColumn(name="campeonato_id")},
-    inverseJoinColumns = {@JoinColumn(name="local_id")})
+    joinColumns = {@JoinColumn(name="CodCampeonato")},
+    inverseJoinColumns = {@JoinColumn(name="CodLocal")})
 	private List<Local> locais;
 	
 	//TODO Checar se está correto
 	@ManyToMany
     @JoinTable(name="Campeonato_Juiz",
-    joinColumns = {@JoinColumn(name="campeonato_id")},
-    inverseJoinColumns = {@JoinColumn(name="juiz_id")})
+    joinColumns = {@JoinColumn(name="CodCampeonato")},
+    inverseJoinColumns = {@JoinColumn(name="CodJuiz")})
 	private List<Juiz> juizes;
 	
 	//TODO Checar se está correto

@@ -48,8 +48,6 @@ public class Categoria {
 		this.maxJogadores = maxJogadores;
 		this.sexo = sexo;
 	}
-
-
 	
 	public int getCodCategoria() {
 		return codCategoria;

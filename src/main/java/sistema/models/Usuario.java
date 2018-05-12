@@ -21,6 +21,7 @@ public class Usuario {
 	private Date dataNascimento;
 	private List<Equipe> equipes;
 	private List<Inscrito> inscricoes;
+	@ManyToMany(mappedBy = "juizes")
 	private List<Campeonato> campeonatos;
 	private Tipo tipo;
 	private String telefoneFixo;
