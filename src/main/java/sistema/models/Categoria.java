@@ -15,7 +15,11 @@ public class Categoria {
 	@Column(nullable = false)
 	private int nascidosApartirDe;
 	private List<Inscricao> incricoes;
+	//TODO Checar se está correto
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="Campeonato_ID")
 	private Campeonato campeonato;
+	
 	private List<Fase> fases;
 	@Column(nullable = false)
 	private int minJogadores;
