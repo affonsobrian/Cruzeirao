@@ -30,115 +30,113 @@
 		<h:form>
 		                 
 		    <p:growl id="growl" sticky="true" showDetail="true"/>
-		 
-		    <p:wizard flowListener="#{usuarioManagedBean.onFlowProcess}">
-		        <p:tab id="personal" title="Personal">
-		            <p:panel header="Personal Details">
+		
+		    <p:wizard flowListener="#{usuarioMB.onFlowProcess}">
+		        <p:tab id="personal" title="#{msg['pages.cadastroUsuario.title1']}">
+		            <p:panel header="#{msg['pages.cadastroUsuario.header1']}">
 		                <p:messages />
 		                <h:panelGrid columns="2" columnClasses="label, value">
-		                    <h:outputText value="Nome: *" />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.nome}" required="true" label="Nome Completo"/>
+		                    <h:outputText value="#{msg['pages.cadastroUsuario.nome']}: *" />
+		                    <p:inputText value="#{usuarioMB.usuario.nome}" required="true" label="Nome Completo"/>
 		 	 
-		 	 				<h:outputText value="Email: *" />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.email}" required="true" label="Email"/>
+		 	 				<h:outputText value="#{msg['pages.cadastroUsuario.email']}: *" />
+		                    <p:inputText value="#{usuarioMB.usuario.email}" required="true" label="Email"/>
 		                    
-		                    <h:outputText value="Senha: *" />
-		                    <p:password value="#{usuarioManagedBean.usuario.senha}" required="true" feedback="true" promptLabel="Digite uma senha" weakLabel="Senha fraca" goodLabel="Senha razoável" strongLabel="Senha boa" label="Senha"/>
+		                    <h:outputText value="#{msg['pages.cadastroUsuario.senha']}: *" />
+		                    <p:password value="#{usuarioMB.usuario.senha}" required="true" feedback="true" promptLabel="Digite uma senha" weakLabel="Senha fraca" goodLabel="Senha razoável" strongLabel="Senha boa" label="Senha"/>
 		 
 		                </h:panelGrid>
 		            </p:panel>
 		        </p:tab>
 		 
-		        <p:tab id="address" title="Address">
-		            <p:panel header="Address Details">
+		        <p:tab id="address" title="#{msg['pages.cadastroUsuario.title2']}">
+		            <p:panel header="#{msg['pages.cadastroUsuario.header2']}">
 		                <p:messages />
 		                <h:panelGrid columns="2" columnClasses="label, value">
 		                
-		                    <h:outputText value="Data de Nascimento: " />
-		                    <p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
+		                    <h:outputText value="#{msg['pages.cadastroUsuario.dataNascimento']}: " />
+		                    <p:calendar value="#{usuarioMB.usuario.dataNascimento}"
            					pattern="dd/MM/yyyy"
            					mask="true" />
 
-		                    <h:outputText value="CPF: " />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.cpf}" />
+		                    <h:outputText value="#{msg['pages.cadastroUsuario.cpf']}: " />
+		                    <p:inputMask value="#{usuarioMB.usuario.cpf}" mask="999.999.999-99" />
 
-		                    <h:outputText value="RG: " />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.rg}" />
+		                    <h:outputText value="#{msg['pages.cadastroUsuario.rg']}: " />
+		                    <p:inputText value="#{usuarioMB.usuario.rg}" />
 		                </h:panelGrid>
 		            </p:panel>
 		        </p:tab>
 		 
-		        <p:tab id="contact" title="Contact">
-		            <p:panel header="Contact Information">
+		        <p:tab id="contact" title="#{msg['pages.cadastroUsuario.title3']}">
+		            <p:panel header="#{msg['pages.cadastroUsuario.header3']}">
 		                <p:messages />
 		                <h:panelGrid columns="2" columnClasses="label, value">
 
-		                    <h:outputText value="Telefone: " />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.telefoneFixo}"/>
+		                    <h:outputText value="#{msg['pages.cadastroUsuario.telefone']}: " />
+		                    <p:inputMask value="#{usuarioMB.usuario.telefoneFixo}" mask="(99) 9999-9999"/>
 		                    
-		                 	<h:outputText value="Celular: " />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.telefoneMovel}" />
+		                 	<h:outputText value="#{msg['pages.cadastroUsuario.celular']}: " />
+		                    <p:inputMask value="#{usuarioMB.usuario.telefoneMovel}" mask="(99) 99999-9999" />
 		 		            
-		 		            <h:outputText value="Endereço: " />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.endereco}" />
+		 		            <h:outputText value="#{msg['pages.cadastroUsuario.endereco']}: " />
+		                    <p:inputText value="#{usuarioMB.usuario.endereco}" />
 		                </h:panelGrid>
 		            </p:panel>
 		        </p:tab>
 		        
-		        <p:tab id="additional" title="Additional">
-		            <p:panel header="Additional Information">
+		        <p:tab id="additional" title="#{msg['pages.cadastroUsuario.title4']}">
+		            <p:panel header="#{msg['pages.cadastroUsuario.header4']}">
 		                <p:messages />
 		                <h:panelGrid columns="2" columnClasses="label, value">
 
-		                    <h:outputText value="Tipo de Usuário: " />
-		                    <p:selectOneMenu>
-		                    	<f:selectItem itemLabel="Select Type" itemDisabled="true" />
-		                    	<f:selectItem itemValue="Torcedor" itemLabel="Fan"/>
-		                    	<f:selectItem itemValue="Massagista" itemLabel="Masseur"/>
-		                    	<f:selectItem itemValue="preparadorFisico" itemLabel="Presonal Trainer"/>
-		                    	<f:selectItem itemValue="Jogador" itemLabel="Player"/>
-		                    	<f:selectItem itemValue="Tecnico" itemLabel="Coach"/>
-		                    	<f:selectItem itemValue="Diretor" itemLabel="Manager"/>
-		                    	<f:selectItem itemValue="Juiz" itemLabel="Judge"/>
-		                    	<f:selectItem itemValue="Organizador" itemLabel="Organizator"/>
+		                    <h:outputText value="#{msg['pages.cadastroUsuario.tipo']}: " />
+		                    <p:selectOneMenu value="#{usuarioMB.usuario.tipo}">
+		                    	<f:selectItem itemLabel="#{msg['pages.cadastroUsuario.tipo.default']}" itemDisabled="true" />
+		                    	<f:selectItem itemValue="Torcedor" itemLabel="#{msg['pages.cadastroUsuario.tipo.torcedor']}"/>
+		                    	<f:selectItem itemValue="Massagista" itemLabel="#{msg['pages.cadastroUsuario.tipo.massagista']}"/>
+		                    	<f:selectItem itemValue="Jogador" itemLabel="#{msg['pages.cadastroUsuario.tipo.jogador']}"/>
+		                    	<f:selectItem itemValue="Tecnico" itemLabel="#{msg['pages.cadastroUsuario.tipo.tecnico']}"/>
+		                    	<f:selectItem itemValue="Diretor" itemLabel="#{msg['pages.cadastroUsuario.tipo.diretor']}"/>
+		                    	<f:selectItem itemValue="Juiz" itemLabel="#{msg['pages.cadastroUsuario.tipo.juiz']}"/>
+		                    	<f:selectItem itemValue="Organizador" itemLabel="#{msg['pages.cadastroUsuario.tipo.organizador']}"/>
 		                    	
 		                    	
 		                    </p:selectOneMenu>
-		                    <p:inputText value="#{usuarioManagedBean.usuario.tipo}"/>
 		                    
-		                 	<h:outputText value="Foto: " />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.foto}" />
+		                 	<h:outputText value="#{msg['pages.cadastroUsuario.foto']}: " />
+		                    <p:fileUpload value="#{usuarioMB.file}" mode="simple" skinSimple="true"/>
 		 		            
 		                </h:panelGrid>
 		            </p:panel>
 		        </p:tab>
 		 
-		        <p:tab id="confirm" title="Confirmation">
-		            <p:panel header="Confirmation">
+		        <p:tab id="confirm" title="#{msg['pages.cadastroUsuario.title5']}">
+		            <p:panel header="#{msg['pages.cadastroUsuario.header5']}">
 		                <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
 		                    <h:panelGrid columns="2" columnClasses="label, value">
-		                        <h:outputText value="Nome: " />
-		                        <h:outputText value="#{usuarioManagedBean.usuario.nome}" styleClass="outputLabel"/>
+		                        <h:outputText value="#{msg['pages.cadastroUsuario.nome']}: " />
+		                        <h:outputText value="#{usuarioMB.usuario.nome}" styleClass="outputLabel"/>
 
 		                    </h:panelGrid>
 		 
 		                    <h:panelGrid columns="2" columnClasses="label, value">
-		                        <h:outputText value="Endereço: " />
-		                        <h:outputText value="#{usuarioManagedBean.usuario.endereco}" styleClass="outputLabel"/>
+		                        <h:outputText value="#{msg['pages.cadastroUsuario.endereco']}: " />
+		                        <h:outputText value="#{usuarioMB.usuario.endereco}" styleClass="outputLabel"/>
 		 
 		                    </h:panelGrid>
 		 
 		                    <h:panelGrid columns="2" columnClasses="label, value">
-		                        <h:outputText value="Email: " />
-		                        <h:outputText value="#{usuarioManagedBean.usuario.email}" styleClass="outputLabel"/>
+		                        <h:outputText value="#{msg['pages.cadastroUsuario.email']}: " />
+		                        <h:outputText value="#{usuarioMB.usuario.email}" styleClass="outputLabel"/>
 		 
-		                        <h:outputText value="Telefone " />
-		                        <h:outputText value="#{usuarioManagedBean.usuario.telefoneFixo}" styleClass="outputLabel"/>
+		                        <h:outputText value="#{msg['pages.cadastroUsuario.telefone']} " />
+		                        <h:outputText value="#{usuarioMB.usuario.telefoneFixo}" styleClass="outputLabel"/>
 		 
 		                    </h:panelGrid>
 		                </h:panelGrid>
 		 
-		                <p:commandButton value="Submit" actionListener="#{usuarioManagedBean.save}" update="growl" process="@this"/>
+		                <p:commandButton value="#{msg['pages.cadastroUsuario.enviar']}" actionListener="#{usuarioMB.save}" update="growl" process="@this"/>
 		            </p:panel>
 		        </p:tab>
 		    </p:wizard>

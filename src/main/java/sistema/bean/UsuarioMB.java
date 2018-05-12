@@ -7,6 +7,7 @@ import javax.faces.context.FacesContext;
 
 import org.primefaces.event.FlowEvent;
 import org.primefaces.event.RowEditEvent;
+import org.primefaces.model.UploadedFile;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,6 +22,7 @@ public class UsuarioMB {
 	private Usuario usuario = new Usuario();
 	private List<Usuario> usuarios;
 	private UsuarioService service = new UsuarioService();
+	private UploadedFile file;
 	
 	public void onRowEdition(RowEditEvent event)
 	{
@@ -38,6 +40,14 @@ public class UsuarioMB {
 		return usuarios;
 	}
 	
+	public UploadedFile getFile() {
+		return file;
+	}
+
+	public void setFile(UploadedFile file) {
+		this.file = file;
+	}
+
 	public void remove(Usuario usuario)
 	{
 		service.remove(usuario);
@@ -60,6 +70,17 @@ public class UsuarioMB {
 
 		return event.getNewStep();
 	}
+	
+//	public void upload() {
+//		Byte [] foto = this.usuario.getFoto();
+//		System.out.println(file.getContentType());
+		//if(file.getContentType() == "jpg")
+//        if(this.usuario.getFoto() != null) {
+            //FacesMessage message = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
+//            FacesMessage message = new FacesMessage("Succesful", file.getContentType() + " is uploaded.");
+//            FacesContext.getCurrentInstance().addMessage(null, message);
+//        }
+//    }
 	
 	public void validate() throws IOException {
 		

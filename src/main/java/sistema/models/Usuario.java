@@ -32,14 +32,14 @@ public class Usuario {
 	private	String cpf;
 	private String cref;
 	private Sexo sexo;
-	private String foto;
+	private Byte[] foto;
 	
 	//Constutores
 	public Usuario() {
 	}
 	public Usuario(String email, String nome, Date dataNascimento, List<Equipe> equipes, List<Inscrito> inscricoes,
 			List<Campeonato> campeonatos, Tipo tipo, String telefoneFixo, String telefoneMovel, String endereco,
-			String rg, String cpf, String cref, Sexo sexo, String foto) {
+			String rg, String cpf, String cref, Sexo sexo, Byte[] foto) {
 		super();
 		this.email = email;
 		this.nome = nome;
@@ -153,10 +153,10 @@ public class Usuario {
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
-	public String getFoto() {
+	public Byte [] getFoto() {
 		return foto;
 	}
-	public void setFoto(String foto) {
+	public void setFoto(Byte [] foto) {
 		this.foto = foto;
 	}
 	
