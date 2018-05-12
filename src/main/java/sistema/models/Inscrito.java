@@ -11,7 +11,12 @@ public class Inscrito {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Tipo tipo;
 	private Usuario usuario;
+	
+	//TODO Checar se está correto
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CodInscricao")
 	private Inscricao inscricao;
+	
 	private	boolean aceiteUsuario;
 	private	boolean suspensoJogos;
 	private boolean inscricaoValida;

@@ -7,12 +7,14 @@ import javax.persistence.*;
 
 @Entity
 public class Partida {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codPartida;
-	private Inscricao equipeMandante;
-	private Inscricao equipeVisitante;
+
+	//TODO Checar se está correto
+	@ManyToMany(mappedBy = "partidas")
+	private List<Inscricao> incricoes;
+	
 	private Date data;
 	private Local local;
 	private Partida proxPartida;
@@ -28,8 +30,6 @@ public class Partida {
 			Partida proxPartida, List<Juiz> juizes, Grupo grupo, String relatoJuiz) {
 		super();
 		this.codPartida = codPartida;
-		this.equipeMandante = equipeMandante;
-		this.equipeVisitante = equipeVisitante;
 		this.data = data;
 		this.local = local;
 		this.proxPartida = proxPartida;
@@ -45,22 +45,6 @@ public class Partida {
 
 	public void setCodPartida(int codPartida) {
 		this.codPartida = codPartida;
-	}
-
-	public Inscricao getEquipeMandante() {
-		return equipeMandante;
-	}
-
-	public void setEquipeMandante(Inscricao equipeMandante) {
-		this.equipeMandante = equipeMandante;
-	}
-
-	public Inscricao getEquipeVisitante() {
-		return equipeVisitante;
-	}
-
-	public void setEquipeVisitante(Inscricao equipeVisitante) {
-		this.equipeVisitante = equipeVisitante;
 	}
 
 	public Date getData() {
@@ -111,12 +95,19 @@ public class Partida {
 		this.relatoJuiz = relatoJuiz;
 	}
 
+	public List<Inscricao> getIncricoes() {
+		return incricoes;
+	}
+
+	public void setIncricoes(List<Inscricao> incricoes) {
+		this.incricoes = incricoes;
+	}
+
 	@Override
 	public String toString() {
-		return "Partida [codPartida=" + codPartida + ", equipeMandante=" + equipeMandante + ", equipeVisitante="
-				+ equipeVisitante + ", data=" + data + ", local=" + local + ", proxPartida=" + proxPartida + ", juizes="
-				+ juizes + ", grupo=" + grupo + ", relatoJuiz=" + relatoJuiz + "]";
+		return "Partida [codPartida=" + codPartida + ", incricoes=" + incricoes + ", data=" + data + ", local=" + local
+				+ ", proxPartida=" + proxPartida + ", juizes=" + juizes + ", grupo=" + grupo + ", relatoJuiz="
+				+ relatoJuiz + "]";
 	}
-	
-	
+
 }
