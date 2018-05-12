@@ -14,7 +14,11 @@ public class Categoria {
 	private String nome;
 	@Column(nullable = false)
 	private int nascidosApartirDe;
+	
+	//TODO Cheacar se estpa correto
+	@OneToMany(mappedBy = "categoria")
 	private List<Inscricao> incricoes;
+	
 	//TODO Checar se está correto
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="Campeonato_ID")
