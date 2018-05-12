@@ -12,7 +12,12 @@ public class Inscricao {
 	private boolean pagamento;
 	private boolean validada;
 	private List<Inscrito> inscritos;
+	
+	//TODO Cheacar se está correto
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="Categoria_ID")
 	private Categoria categoria;
+	
 	private List<Partida> partidas;
 	private Equipe equipe;
 
