@@ -8,7 +8,12 @@ public class Gol {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codGol;
 	//@Column(nullable = false)
+	
+	//TODO Checar se está correto
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="inscrito_ID")
 	private Inscrito inscrito;
+	
 	@Column(nullable = false)
 	private int tempo;
 	private boolean penalty;

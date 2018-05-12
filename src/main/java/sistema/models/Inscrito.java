@@ -1,5 +1,7 @@
 package sistema.models;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,10 @@ public class Inscrito {
 	private	boolean aceiteUsuario;
 	private	boolean suspensoJogos;
 	private boolean inscricaoValida;
+	
+	//TODO Checar se está correto
+	@OneToMany(mappedBy = "inscrito")
+	private List<Gol> gols;
 	
 	//Construtores
 	public Inscrito() {
@@ -37,6 +43,15 @@ public class Inscrito {
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
+	
+	public List<Gol> getGols() {
+		return gols;
+	}
+
+	public void setGols(List<Gol> gols) {
+		this.gols = gols;
+	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
