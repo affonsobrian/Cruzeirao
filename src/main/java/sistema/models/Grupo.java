@@ -14,7 +14,7 @@ public class Grupo {
 	
 	//TODO Checar se está correto
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="Fase_ID")
+	@JoinColumn(name="CodFase")
 	Fase fase;
 	
 	List<Rodada> rodadas;

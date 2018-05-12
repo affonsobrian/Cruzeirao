@@ -15,7 +15,6 @@ public class Cartao {
 	@Column(nullable = false)
 	private int tempo;
 	
-	
 	public Cartao() {
 		super();
 	}
@@ -47,8 +46,5 @@ public class Cartao {
 	public String toString() {
 		return "Cartao [inscrito=" + inscrito + ", tipo=" + tipo + ", tempo=" + tempo + "]";
 	}
-	
-	
-	
 	
 }

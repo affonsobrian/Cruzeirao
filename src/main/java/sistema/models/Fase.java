@@ -17,7 +17,7 @@ public class Fase {
 	
 	//TODO Checar se está certo
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="Categoria_ID")
+	@JoinColumn(name="CodCategoria")
 	private Categoria categoria;
 	
 	//TODO Checar se está correto

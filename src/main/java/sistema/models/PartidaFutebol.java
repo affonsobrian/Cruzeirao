@@ -33,19 +33,13 @@ public class PartidaFutebol {
 		this.cartoesVisitante = cartoesVisitante;
 	}
 
-
-
 	public int getCodPartidaFutebol() {
 		return codPartidaFutebol;
 	}
 
-
-
 	public void setCodPartidaFutebol(int codPartidaFutebol) {
 		this.codPartidaFutebol = codPartidaFutebol;
 	}
-
-
 
 	public List<Gol> getGolsMandantes() {
 		return golsMandantes;

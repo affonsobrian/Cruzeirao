@@ -7,7 +7,6 @@ import javax.persistence.*;
 @Entity
 @SequenceGenerator(name="USU_SEQ", sequenceName="codUsuarioSequence", initialValue=1, allocationSize=1, schema="APP")
 public class Usuario {
-	
 	//Atributos
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -23,8 +22,8 @@ public class Usuario {
 	//TODO checar se está correto
 	@ManyToMany
     @JoinTable(name="Usuario_Equipe",
-    joinColumns = {@JoinColumn(name="usuario_id")},
-    inverseJoinColumns = {@JoinColumn(name="equipe_id")})
+    joinColumns = {@JoinColumn(name="CodUsuario")},
+    inverseJoinColumns = {@JoinColumn(name="CodEquipe")})
 	private List<Equipe> equipes;
 	
 	private List<Inscrito> inscricoes;
@@ -64,7 +63,6 @@ public class Usuario {
 		this.sexo = sexo;
 		this.foto = foto;
 	}
-	
 	
 	//Getters and Setters
 	public int getCodUsuario() {

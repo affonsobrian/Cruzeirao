@@ -21,7 +21,7 @@ public class Categoria {
 	
 	//TODO Checar se está correto
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="Campeonato_ID")
+	@JoinColumn(name="CodCampeonato")
 	private Campeonato campeonato;
 	
 	//TODO Checar se está correto

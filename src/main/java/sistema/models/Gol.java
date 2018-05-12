@@ -11,7 +11,7 @@ public class Gol {
 	
 	//TODO Checar se está correto
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="inscrito_ID")
+	@JoinColumn(name="CodInscrito")
 	private Inscrito inscrito;
 	
 	@Column(nullable = false)
@@ -57,6 +57,5 @@ public class Gol {
 	public String toString() {
 		return "Gol [inscrito=" + inscrito + ", tempo=" + tempo + ", penalty=" + penalty + "]";
 	}
-	
-	
+		
 }

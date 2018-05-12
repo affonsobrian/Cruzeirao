@@ -15,7 +15,7 @@ public class Inscricao {
 	
 	//TODO Cheacar se está correto
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="Categoria_ID")
+	@JoinColumn(name="CodCategoria")
 	private Categoria categoria;
 	
 	private List<Partida> partidas;
