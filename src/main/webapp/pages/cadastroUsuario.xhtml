@@ -91,6 +91,19 @@
 		                <h:panelGrid columns="2" columnClasses="label, value">
 
 		                    <h:outputText value="Tipo de Usuário: " />
+		                    <p:selectOneMenu>
+		                    	<f:selectItem itemLabel="Select Type" itemDisabled="true" />
+		                    	<f:selectItem itemValue="Torcedor" itemLabel="Fan"/>
+		                    	<f:selectItem itemValue="Massagista" itemLabel="Masseur"/>
+		                    	<f:selectItem itemValue="preparadorFisico" itemLabel="Presonal Trainer"/>
+		                    	<f:selectItem itemValue="Jogador" itemLabel="Player"/>
+		                    	<f:selectItem itemValue="Tecnico" itemLabel="Coach"/>
+		                    	<f:selectItem itemValue="Diretor" itemLabel="Manager"/>
+		                    	<f:selectItem itemValue="Juiz" itemLabel="Judge"/>
+		                    	<f:selectItem itemValue="Organizador" itemLabel="Organizator"/>
+		                    	
+		                    	
+		                    </p:selectOneMenu>
 		                    <p:inputText value="#{usuarioManagedBean.usuario.tipo}"/>
 		                    
 		                 	<h:outputText value="Foto: " />
