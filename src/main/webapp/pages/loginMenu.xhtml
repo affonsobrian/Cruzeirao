@@ -10,7 +10,37 @@
 						.ui-menu, .ui-menu .ui-menu-child { background: white; }
 						.ui-menu .ui-menu-list .ui-widget-header { background: #1E344B; }
 						.ui-widget-header { color: white; font-weight: 100; }
+						.ui-icon-triangle-1-s {display:none;}
+						.ui-corner-all a {height: 16px; width: 20px;}
+						.ui-state-hover {
+									
+						}
+						.bandeira-en {    
+										background-image: url(../../resources/sistema/1_0/imagens/en-us.png) !important;
+									    background-size: cover !important;
+									    background-repeat: no-repeat;
+									    position: absolute;
+									    right: 1vw;
+									    height: 45px !important;
+									    width: 45px !important;
+									    top: 14.3vw;
+									    background-color: transparent;
+									    border: none;
+						}
+						.bandeira-br {
+									    background-image: url(../../resources/sistema/1_0/imagens/pt-br.png) !important;
+									    background-size: cover !important;
+									    background-repeat: no-repeat;
+									    position: absolute;
+									    right: 1vw;
+									    height: 45px !important;
+									    width: 45px !important;
+									    top: 14.3vw;
+									    background-color: transparent;
+									    border: none;
+						}
 				</style>
+				
 			</h:head>
 			<!-- MegaMenu -->
 			<p:megaMenu orientation="horizontal" style="margin-top:-8px; background: white;">
@@ -18,5 +48,15 @@
 				<p:menuitem value="#{msg['pages.loginMenu.login']}" url="./login.xhtml" icon="ui-icon-person"/>
 				<p:menuitem value="#{msg['pages.loginMenu.cadastro']}" url="./cadastroUsuario.xhtml" icon="ui-icon-person"/>
 			</p:megaMenu>
+			
+			
+			<h:panelGroup>
+				<f:ajax event="click" listener="#{localeBean.setPortuguese()}"/>
+				<p:button rendered="#{localeBean.renderEn()}" value="" outcome="#{localeBean.setPortuguese()}" styleClass="bandeira-en"/>
+			</h:panelGroup>
+			<h:panelGroup>
+				<f:ajax event="click" listener="#{localeBean.setEnglish()}"/>
+				<p:button rendered="#{localeBean.renderPt()}" value="" outcome="#{localeBean.setEnglish()}" styleClass="bandeira-pt"/>
+			</h:panelGroup>
 			
 </h:html>
