@@ -6,7 +6,11 @@ import javax.persistence.*;
 //TODO: Criar toString()
 @Entity
 public class Juiz extends Usuario{
-
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "juizes")
+	private Partida partida;
+	
 	private String cref;
 	public Juiz() {
 		super();

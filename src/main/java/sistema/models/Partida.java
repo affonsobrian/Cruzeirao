@@ -16,10 +16,25 @@ public class Partida {
 	private List<Inscricao> incricoes;
 	
 	private Date data;
+	//TODO Checar se está correto
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CodLocal")
 	private Local local;
+	
+	//TODO Checar se está correto
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CodPartida")
 	private Partida proxPartida;
+	
+	//TODO Checar se está correto
+	@OneToMany(mappedBy = "partida")
 	private List<Juiz> juizes;
+	
+	//TODO Checar se está correto
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CodGrupo")
 	private Grupo grupo;
+	
 	private String relatoJuiz;
 
 	public Partida() {
