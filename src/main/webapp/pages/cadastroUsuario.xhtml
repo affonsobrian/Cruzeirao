@@ -31,19 +31,19 @@
 		                 
 		    <p:growl id="growl" sticky="true" showDetail="true"/>
 		 
-		    <p:wizard flowListener="#{usuarioManagedBean.onFlowProcess}">
+		    <p:wizard flowListener="#{usuarioMB.onFlowProcess}">
 		        <p:tab id="personal" title="Personal">
 		            <p:panel header="Personal Details">
 		                <p:messages />
 		                <h:panelGrid columns="2" columnClasses="label, value">
 		                    <h:outputText value="Nome: *" />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.nome}" required="true" label="Nome Completo"/>
+		                    <p:inputText value="#{usuarioMB.usuario.nome}" required="true" label="Nome Completo"/>
 		 	 
 		 	 				<h:outputText value="Email: *" />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.email}" required="true" label="Email"/>
+		                    <p:inputText value="#{usuarioMB.usuario.email}" required="true" label="Email"/>
 		                    
 		                    <h:outputText value="Senha: *" />
-		                    <p:password value="#{usuarioManagedBean.usuario.senha}" required="true" feedback="true" promptLabel="Digite uma senha" weakLabel="Senha fraca" goodLabel="Senha razoável" strongLabel="Senha boa" label="Senha"/>
+		                    <p:password value="#{usuarioMB.usuario.senha}" required="true" feedback="true" promptLabel="Digite uma senha" weakLabel="Senha fraca" goodLabel="Senha razoável" strongLabel="Senha boa" label="Senha"/>
 		 
 		                </h:panelGrid>
 		            </p:panel>
@@ -55,15 +55,15 @@
 		                <h:panelGrid columns="2" columnClasses="label, value">
 		                
 		                    <h:outputText value="Data de Nascimento: " />
-		                    <p:calendar value="#{usuarioManagedBean.usuario.dataNascimento}"
+		                    <p:calendar value="#{usuarioMB.usuario.dataNascimento}"
            					pattern="dd/MM/yyyy"
            					mask="true" />
 
 		                    <h:outputText value="CPF: " />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.cpf}" />
+		                    <p:inputText value="#{usuarioMB.usuario.cpf}" />
 
 		                    <h:outputText value="RG: " />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.rg}" />
+		                    <p:inputText value="#{usuarioMB.usuario.rg}" />
 		                </h:panelGrid>
 		            </p:panel>
 		        </p:tab>
@@ -74,13 +74,13 @@
 		                <h:panelGrid columns="2" columnClasses="label, value">
 
 		                    <h:outputText value="Telefone: " />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.telefoneFixo}"/>
+		                    <p:inputText value="#{usuarioMB.usuario.telefoneFixo}"/>
 		                    
 		                 	<h:outputText value="Celular: " />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.telefoneMovel}" />
+		                    <p:inputText value="#{usuarioMB.usuario.telefoneMovel}" />
 		 		            
 		 		            <h:outputText value="Endereço: " />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.endereco}" />
+		                    <p:inputText value="#{usuarioMB.usuario.endereco}" />
 		                </h:panelGrid>
 		            </p:panel>
 		        </p:tab>
@@ -91,10 +91,10 @@
 		                <h:panelGrid columns="2" columnClasses="label, value">
 
 		                    <h:outputText value="Tipo de Usuário: " />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.tipo}"/>
+		                    <p:inputText value="#{usuarioMB.usuario.tipo}"/>
 		                    
 		                 	<h:outputText value="Foto: " />
-		                    <p:inputText value="#{usuarioManagedBean.usuario.foto}" />
+		                    <p:inputText value="#{usuarioMB.usuario.foto}" />
 		 		            
 		                </h:panelGrid>
 		            </p:panel>
@@ -105,27 +105,27 @@
 		                <h:panelGrid id="confirmation" columns="3" columnClasses="grid,grid,grid">
 		                    <h:panelGrid columns="2" columnClasses="label, value">
 		                        <h:outputText value="Nome: " />
-		                        <h:outputText value="#{usuarioManagedBean.usuario.nome}" styleClass="outputLabel"/>
+		                        <h:outputText value="#{usuarioMB.usuario.nome}" styleClass="outputLabel"/>
 
 		                    </h:panelGrid>
 		 
 		                    <h:panelGrid columns="2" columnClasses="label, value">
 		                        <h:outputText value="Endereço: " />
-		                        <h:outputText value="#{usuarioManagedBean.usuario.endereco}" styleClass="outputLabel"/>
+		                        <h:outputText value="#{usuarioMB.usuario.endereco}" styleClass="outputLabel"/>
 		 
 		                    </h:panelGrid>
 		 
 		                    <h:panelGrid columns="2" columnClasses="label, value">
 		                        <h:outputText value="Email: " />
-		                        <h:outputText value="#{usuarioManagedBean.usuario.email}" styleClass="outputLabel"/>
+		                        <h:outputText value="#{usuarioMB.usuario.email}" styleClass="outputLabel"/>
 		 
 		                        <h:outputText value="Telefone " />
-		                        <h:outputText value="#{usuarioManagedBean.usuario.telefoneFixo}" styleClass="outputLabel"/>
+		                        <h:outputText value="#{usuarioMB.usuario.telefoneFixo}" styleClass="outputLabel"/>
 		 
 		                    </h:panelGrid>
 		                </h:panelGrid>
 		 
-		                <p:commandButton value="Submit" actionListener="#{usuarioManagedBean.save}" update="growl" process="@this"/>
+		                <p:commandButton value="Submit" actionListener="#{usuarioMB.save}" update="growl" process="@this"/>
 		            </p:panel>
 		        </p:tab>
 		    </p:wizard>

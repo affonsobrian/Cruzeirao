@@ -24,10 +24,10 @@
 		 			<p:autoUpdate />
 		 		</p:messages>
 		 		<p:outputLabel value="E-mail:" /><br/>
-		 		<p:inputText value="#{usuarioManagedBean.usuario.email}" /><br/>
+		 		<p:inputText value="#{usuarioMB.usuario.email}" /><br/>
 		 		<p:outputLabel value="Senha:" /><br/>
-		 		<p:password value="#{usuarioManagedBean.usuario.senha}" required="true" label="Senha"/><br/><br/>
-		 		<p:commandButton value="Entrar" actionListener="#{usuarioManagedBean.validate}"  />
+		 		<p:password value="#{usuarioMB.usuario.senha}" required="true" label="Senha"/><br/><br/>
+		 		<p:commandButton value="Entrar" actionListener="#{usuarioMB.validate}"  />
 		 	
 		 	</p:fieldset>
 		    

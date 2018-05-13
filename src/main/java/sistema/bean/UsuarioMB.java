@@ -16,7 +16,7 @@ import sistema.service.UsuarioService;
 
 @ManagedBean
 @ViewScoped
-public class UsuarioManagedBean {
+public class UsuarioMB {
 	
 	private Usuario usuario = new Usuario();
 	private List<Usuario> usuarios;
