@@ -10,6 +10,10 @@ public class Inscrito {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Tipo tipo;
+	
+	//TODO Checar se está correto
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CodUsuario")
 	private Usuario usuario;
 	
 	//TODO Checar se está correto
