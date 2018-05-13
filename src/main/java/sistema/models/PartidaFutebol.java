@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 @Entity
 public class PartidaFutebol {
+	//TODO checar a logica
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codPartidaFutebol;

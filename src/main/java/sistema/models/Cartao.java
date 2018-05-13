@@ -16,6 +16,7 @@ public class Cartao {
 	private int tempo;
 	
 	//TODO Como mapear está classe? Visto que em Partida Futebol existem dois atributos distintos
+	//TODO Checar a logica
 	private PartidaFutebol partidaFutebol;
 	
 	public Cartao() {
