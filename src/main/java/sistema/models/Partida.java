@@ -123,11 +123,19 @@ public class Partida {
 		this.incricoes = incricoes;
 	}
 
+	public Rodada getRodada() {
+		return rodada;
+	}
+
+	public void setRodada(Rodada rodada) {
+		this.rodada = rodada;
+	}
+
 	@Override
 	public String toString() {
 		return "Partida [codPartida=" + codPartida + ", incricoes=" + incricoes + ", data=" + data + ", local=" + local
-				+ ", proxPartida=" + proxPartida + ", juizes=" + juizes + ", grupo=" + grupo + ", relatoJuiz="
-				+ relatoJuiz + "]";
+				+ ", proxPartida=" + proxPartida + ", juizes=" + juizes + ", grupo=" + grupo + ", rodada=" + rodada
+				+ ", relatoJuiz=" + relatoJuiz + "]";
 	}
 
 }

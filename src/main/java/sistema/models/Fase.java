@@ -67,11 +67,16 @@ public class Fase {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+	public int getCodFase() {
+		return codFase;
+	}
+	public void setCodFase(int codFase) {
+		this.codFase = codFase;
+	}
 	@Override
 	public String toString() {
-		return "Fase [datainicio=" + datainicio + ", formato=" + formato + ", categoria=" + categoria + ", grupo="
-				+ grupo + ", numero=" + numero + "]";
+		return "Fase [codFase=" + codFase + ", datainicio=" + datainicio + ", formato=" + formato + ", categoria="
+				+ categoria + ", grupo=" + grupo + ", numero=" + numero + "]";
 	}
-	
 	
 }

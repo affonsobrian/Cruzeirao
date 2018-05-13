@@ -21,6 +21,15 @@ public class Juiz extends Usuario{
 	public void setCref(String cref) {
 		this.cref = cref;
 	}
-	
+	public Partida getPartida() {
+		return partida;
+	}
+	public void setPartida(Partida partida) {
+		this.partida = partida;
+	}
+	@Override
+	public String toString() {
+		return "Juiz [partida=" + partida + ", cref=" + cref + "]";
+	}
 	
 }

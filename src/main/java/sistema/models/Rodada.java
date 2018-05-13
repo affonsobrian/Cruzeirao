@@ -56,6 +56,5 @@ public class Rodada {
 	public String toString() {
 		return "Rodada [codRodada=" + codRodada + ", grupo=" + grupo + ", partidas=" + partidas + "]";
 	}
-	
-	
+
 }

@@ -120,11 +120,10 @@ public class Campeonato {
 
 	@Override
 	public String toString() {
-		return "Campeonato [nome=" + nome + ", locais=" + locais + ", juizes=" + juizes + ", categorias=" + categorias
-				+ ", dataInicioInscricao=" + dataInicioInscricao + ", dataFimInscricao=" + dataFimInscricao
-				+ ", valorTaxa=" + valorTaxa + "]";
+		return "Campeonato [codCampeonato=" + codCampeonato + ", nome=" + nome + ", locais=" + locais + ", juizes="
+				+ juizes + ", categorias=" + categorias + ", dataInicioInscricao=" + dataInicioInscricao
+				+ ", dataFimInscricao=" + dataFimInscricao + ", valorTaxa=" + valorTaxa + "]";
 	}
-	
 	//TODO: Criar HashCode e Comparable
 		
 }

@@ -50,8 +50,7 @@ public class Local {
 
 	@Override
 	public String toString() {
-		return "Local [endereco=" + endereco + "]";
+		return "Local [codLocal=" + codLocal + ", endereco=" + endereco + ", campeonatos=" + campeonatos + "]";
 	}
-	
-	
+
 }

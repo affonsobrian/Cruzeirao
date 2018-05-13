@@ -98,10 +98,10 @@ public class PartidaFutebol {
 
 	@Override
 	public String toString() {
-		return "PartidaFutebol [golsMandantes=" + golsMandantes + ", golsVisitantes=" + golsVisitantes
-				+ ", golsPenaltesMandantes=" + golsPenaltesMandantes + ", golsPenaltesVisitantes="
-				+ golsPenaltesVisitantes + ", cartoesMandante=" + cartoesMandante + ", cartoesVisitante="
-				+ cartoesVisitante + "]";
-	}		
-	
+		return "PartidaFutebol [codPartidaFutebol=" + codPartidaFutebol + ", golsMandantes=" + golsMandantes
+				+ ", golsVisitantes=" + golsVisitantes + ", golsPenaltesMandantes=" + golsPenaltesMandantes
+				+ ", golsPenaltesVisitantes=" + golsPenaltesVisitantes + ", cartoesMandante=" + cartoesMandante
+				+ ", cartoesVisitante=" + cartoesVisitante + "]";
+	}
+
 }

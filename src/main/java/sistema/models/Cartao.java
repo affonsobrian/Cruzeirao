@@ -63,7 +63,9 @@ public class Cartao {
 	}
 	@Override
 	public String toString() {
-		return "Cartao [inscrito=" + inscrito + ", tipo=" + tipo + ", tempo=" + tempo + "]";
+		return "Cartao [codCartao=" + codCartao + ", inscrito=" + inscrito + ", tipo=" + tipo + ", tempo=" + tempo
+				+ ", partidaFutebol=" + partidaFutebol + "]";
 	}
+	
 	
 }

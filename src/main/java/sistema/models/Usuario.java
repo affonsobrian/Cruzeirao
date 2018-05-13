@@ -188,12 +188,20 @@ public class Usuario {
 			return false;
 		return true;
 	}
+	
+	
+	
+	public void setCodUsuario(int codUsuario) {
+		this.codUsuario = codUsuario;
+	}
+	
 	@Override
 	public String toString() {
-		return "Usuario [email=" + email + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", equipes="
-				+ equipes + ", inscricoes=" + inscricoes + ", campeonatos=" + campeonatos + ", tipo=" + tipo
-				+ ", telefoneFixo=" + telefoneFixo + ", telefoneModel=" + telefoneMovel + ", endereco=" + endereco
-				+ ", rg=" + rg + ", cpf=" + cpf + ", cref=" + cref + ", sexo=" + sexo + ", foto=" + foto + "]";
+		return "Usuario [codUsuario=" + codUsuario + ", email=" + email + ", nome=" + nome + ", senha=" + senha
+				+ ", dataNascimento=" + dataNascimento + ", equipes=" + equipes + ", inscricoes=" + inscricoes
+				+ ", campeonatos=" + campeonatos + ", tipo=" + tipo + ", telefoneFixo=" + telefoneFixo
+				+ ", telefoneMovel=" + telefoneMovel + ", endereco=" + endereco + ", rg=" + rg + ", cpf=" + cpf
+				+ ", cref=" + cref + ", sexo=" + sexo + ", foto=" + foto + "]";
 	}
 	
 }

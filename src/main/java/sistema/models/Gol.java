@@ -79,5 +79,5 @@ public class Gol {
 		return "Gol [codGol=" + codGol + ", inscrito=" + inscrito + ", partidaFutebol=" + partidaFutebol + ", tempo="
 				+ tempo + ", penalty=" + penalty + "]";
 	}
-		
+
 }

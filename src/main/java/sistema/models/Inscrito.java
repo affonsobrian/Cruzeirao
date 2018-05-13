@@ -95,10 +95,9 @@ public class Inscrito {
 	@Override
 	public String toString() {
 		return "Inscrito [tipo=" + tipo + ", usuario=" + usuario + ", inscricao=" + inscricao + ", aceiteUsuario="
-				+ aceiteUsuario + ", suspensoJogos=" + suspensoJogos + ", inscricaoValida=" + inscricaoValida + "]";
+				+ aceiteUsuario + ", suspensoJogos=" + suspensoJogos + ", inscricaoValida=" + inscricaoValida
+				+ ", gols=" + gols + "]";
 	}
-	
-	//TODO: Criar HashCode e Comparable
-	
-	
+
+	//TODO: Criar HashCode e Comparable	
 }

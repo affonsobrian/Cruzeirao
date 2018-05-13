@@ -103,12 +103,6 @@ public class Inscricao {
 		this.equipe = equipe;
 	}
 
-	@Override
-	public String toString() {
-		return "Inscricao [codInscricao=" + codInscricao + ", pagamento=" + pagamento + ", validada=" + validada + ", inscritos="
-				+ inscritos + ", categoria=" + categoria + ", partidas=" + partidas + ", equipe=" + equipe + "]";
-	}
-
 	public boolean isTimeDaCasa() {
 		return timeDaCasa;
 	}
@@ -116,5 +110,13 @@ public class Inscricao {
 	public void setTimeDaCasa(boolean timeDaCasa) {
 		this.timeDaCasa = timeDaCasa;
 	}
+
+	@Override
+	public String toString() {
+		return "Inscricao [codInscricao=" + codInscricao + ", pagamento=" + pagamento + ", validada=" + validada
+				+ ", inscritos=" + inscritos + ", timeDaCasa=" + timeDaCasa + ", categoria=" + categoria + ", partidas="
+				+ partidas + ", equipe=" + equipe + "]";
+	}
 	
+
 }

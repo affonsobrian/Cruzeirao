@@ -110,10 +110,12 @@ public class Categoria {
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
+
 	@Override
 	public String toString() {
-		return "Categoria [nome=" + nome + ", nascidosApartirDe=" + nascidosApartirDe + ", minJogadores=" + minJogadores
-				+ ", maxJogadores=" + maxJogadores + ", sexo=" + sexo + "]";
+		return "Categoria [codCategoria=" + codCategoria + ", nome=" + nome + ", nascidosApartirDe=" + nascidosApartirDe
+				+ ", incricoes=" + incricoes + ", campeonato=" + campeonato + ", fases=" + fases + ", minJogadores="
+				+ minJogadores + ", maxJogadores=" + maxJogadores + ", sexo=" + sexo + "]";
 	}
-	
+
 }
