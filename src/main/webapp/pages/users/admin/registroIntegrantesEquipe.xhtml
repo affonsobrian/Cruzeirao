@@ -1,0 +1,55 @@
+<ui:composition template="./indexAdmin.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
+
+	<ui:define name="principal">
+
+		<h:head>
+			<style></style>
+		</h:head>
+		<h:body>
+			<h:form id="form">
+				<p:growl id="msgs" />
+
+				<p:panelGrid columns="2">
+					<p:outputLabel for="equipe" value="Equipe: " />
+					<p:selectOneMenu id="equipe" value="#{equipeMB.equipe}"
+						converter="equipeConverter" style="width: 190px;" required="true">
+						<f:selectItem itemLabel="Selecione..." itemValue=""
+							noSelectionOption="true" />
+						<f:selectItems value="#{equipeMB.equipes}" var="equipe"
+							itemLabel="#{equipe.nome}" itemValue="#{equipe}" />
+					</p:selectOneMenu>
+				</p:panelGrid>
+
+				<h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5"
+					columnClasses="label, value">
+
+					<p:outputLabel for="jogador" value="Jogadores:" />
+					<p:selectManyMenu id="jogador" style="width: 100%;"
+						value="#{equipeMB.jogadoresSelecionados}"
+						converter="usuarioConverter" var="u" filter="true"
+						filterMatchMode="contains" showCheckbox="true">
+						<f:selectItems value="#{usuarioMB.usuarios}" var="usuario"
+							itemLabel="#{usuario.nome}" itemValue="#{usuario}" required="true" />
+						<p:column>
+							<h:outputText styleClass="ui-theme ui-theme-#{u.nome}" />
+						</p:column>
+
+						<p:column>
+							<h:outputText value="#{u.nome}" />
+						</p:column>
+					</p:selectManyMenu>
+				</h:panelGrid>
+
+				<p:commandButton value="Salvar" />
+
+			</h:form>
+		</h:body>
+	</ui:define>
+</ui:composition>

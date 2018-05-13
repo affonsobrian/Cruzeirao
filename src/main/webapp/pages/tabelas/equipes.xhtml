@@ -1,0 +1,41 @@
+<h:html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" lang="#{localeBean.language}">
+
+<f:view locale="#{localeBean.locale}">
+	<h:body>
+		<p:layout>
+			<ui:include src="../layout/banner.xhtml"></ui:include>
+
+			<ui:include src="../layout/menus/AdminMenu.xhtml"></ui:include>
+
+			<br />
+			<ui:insert name="principal" />
+
+			<p:dataTable var="equipe" value="#{equipeMB.equipes}">
+				<p:column headerText="Nome">
+					<h:outputText value="#{equipe.nome}" />
+				</p:column>
+
+				<p:column headerText="Data de Fundação">
+					<h:outputText value="#{equipe.dataFundacao}">
+						<f:convertDateTime pattern="dd/MM/yyyy" />
+					</h:outputText>
+				</p:column>
+
+				<p:column headerText="Cidade">
+					<h:outputText value="#{equipe.cidade}" />
+				</p:column>
+
+				<p:column headerText="Integrantes">
+					<h:outputText value="#{equipe.cidade}" />
+				</p:column>
+
+			</p:dataTable>
+
+		</p:layout>
+	</h:body>
+</f:view>
+</h:html>
