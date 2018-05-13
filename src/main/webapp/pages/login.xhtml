@@ -24,10 +24,10 @@
 		 			<p:autoUpdate />
 		 		</p:messages>
 		 		<p:outputLabel value="#{msg['pages.login.email']}:" /><br/>
-		 		<p:inputText value="#{usuarioManagedBean.usuario.email}" /><br/>
+		 		<p:inputText value="#{usuarioMB.usuario.email}" /><br/>
 		 		<p:outputLabel value="#{msg['pages.login.senha']}:" /><br/>
-		 		<p:password value="#{usuarioManagedBean.usuario.senha}" required="true" label="Senha"/><br/><br/>
-		 		<p:commandButton value="#{msg['pages.login.login']}" actionListener="#{usuarioManagedBean.validate}"  />
+		 		<p:password value="#{usuarioMB.usuario.senha}" required="true" label="Senha"/><br/><br/>
+		 		<p:commandButton value="#{msg['pages.login.login']}" actionListener="#{usuarioMB.validate}"  />
 		 	
 		 	</p:fieldset>
 		    

@@ -18,6 +18,7 @@
 		<class>sistema.models.Partida</class>
 		<class>sistema.models.PartidaFutebol</class>
 		<class>sistema.models.Rodada</class>
+		<class>sistema.models.CurrentUser</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url"

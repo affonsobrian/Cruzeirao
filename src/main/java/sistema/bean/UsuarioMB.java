@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.List;
 
 import sistema.models.Usuario;
+import sistema.service.CurrentUserService;
 import sistema.service.UsuarioService;
 
 @ManagedBean
@@ -22,6 +23,7 @@ public class UsuarioMB {
 	private Usuario usuario = new Usuario();
 	private List<Usuario> usuarios;
 	private UsuarioService service = new UsuarioService();
+	private CurrentUserService current = new CurrentUserService();
 	private UploadedFile file;
 	
 	public void onRowEdition(RowEditEvent event)
@@ -31,11 +33,13 @@ public class UsuarioMB {
 	}
 	
 	public Usuario getUsuario() {
-		return usuario;
+		this.usuario = current.getCurrentUser();
+		return this.usuario;
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
 	public List<Usuario> getUsuarios() {
 		return usuarios;
 	}

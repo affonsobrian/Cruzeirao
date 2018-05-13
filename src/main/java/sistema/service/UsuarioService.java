@@ -6,11 +6,13 @@ import java.util.List;
 import javax.faces.context.FacesContext;
 
 import sistema.dao.UsuarioDAO;
+import sistema.models.CurrentUser;
 import sistema.models.Usuario;
 
 public class UsuarioService {
 
 	UsuarioDAO usuarioDAO = new UsuarioDAO();
+	CurrentUserService usuarioAtual = new CurrentUserService();
 
 	public Usuario salvar(Usuario usuario) {
 		System.out.println("Saving user...");
@@ -42,7 +44,8 @@ public class UsuarioService {
 		for (Usuario u : this.getUsuarios()) {
 			if(u.getSenha().equals(usuario.getSenha()))
 			{			
-				System.out.println("Logged in");
+				System.out.println("Logging in");
+				this.usuarioAtual.setCurrentUser(new CurrentUser(u));
 				return u;
 			}
 		}
