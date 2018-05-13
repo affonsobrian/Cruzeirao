@@ -14,6 +14,11 @@ public class Gol {
 	@JoinColumn(name="CodInscrito")
 	private Inscrito inscrito;
 	
+	//TODO Checar se está correto
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CodPartidaFutebol")
+	private PartidaFutebol partidaFutebol;
+	
 	@Column(nullable = false)
 	private int tempo;
 	private boolean penalty;
@@ -53,9 +58,26 @@ public class Gol {
 		this.penalty = penalty;
 	}
 
+	public int getCodGol() {
+		return codGol;
+	}
+
+	public void setCodGol(int codGol) {
+		this.codGol = codGol;
+	}
+
+	public PartidaFutebol getPartidaFutebol() {
+		return partidaFutebol;
+	}
+
+	public void setPartidaFutebol(PartidaFutebol partidaFutebol) {
+		this.partidaFutebol = partidaFutebol;
+	}
+
 	@Override
 	public String toString() {
-		return "Gol [inscrito=" + inscrito + ", tempo=" + tempo + ", penalty=" + penalty + "]";
+		return "Gol [codGol=" + codGol + ", inscrito=" + inscrito + ", partidaFutebol=" + partidaFutebol + ", tempo="
+				+ tempo + ", penalty=" + penalty + "]";
 	}
 		
 }

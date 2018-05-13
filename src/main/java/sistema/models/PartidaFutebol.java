@@ -9,11 +9,17 @@ public class PartidaFutebol {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codPartidaFutebol;
+	@OneToMany(mappedBy = "partidaFutebol")
 	private List<Gol> golsMandantes;
+	@OneToMany(mappedBy = "partidaFutebol")
 	private List<Gol> golsVisitantes;
+	@OneToMany(mappedBy = "partidaFutebol")
 	private List<Gol> golsPenaltesMandantes;
+	@OneToMany(mappedBy = "partidaFutebol")
 	private List<Gol> golsPenaltesVisitantes;
+	@OneToMany(mappedBy = "partidaFutebol")
 	private List<Cartao> cartoesMandante;
+	@OneToMany(mappedBy = "partidaFutebol")
 	private List<Cartao> cartoesVisitante;
 
 	public PartidaFutebol() {
