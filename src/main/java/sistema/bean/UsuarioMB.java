@@ -26,6 +26,7 @@ public class UsuarioMB {
 	private CurrentUserService current = new CurrentUserService();
 	private UploadedFile file;
 	
+	
 	public void onRowEdition(RowEditEvent event)
 	{
 		Usuario u = ((Usuario)event.getObject());
