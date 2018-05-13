@@ -10,6 +10,9 @@ public class Rodada {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	int codRodada;
 	Grupo grupo;
+
+	//TODO Checar se está correto
+	@OneToMany(mappedBy = "rodada")
 	List<Partida> partidas;
 
 	public Rodada() {

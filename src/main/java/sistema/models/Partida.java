@@ -35,6 +35,11 @@ public class Partida {
 	@JoinColumn(name="CodGrupo")
 	private Grupo grupo;
 	
+	//TODO Checar se está correto
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CodRodada")
+	private Rodada rodada;
+	
 	private String relatoJuiz;
 
 	public Partida() {
