@@ -7,17 +7,39 @@ import javax.persistence.*;
 
 @Entity
 public class Partida {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codPartida;
-	private Inscricao equipeMandante;
-	private Inscricao equipeVisitante;
+
+	//TODO Checar se está correto
+	@ManyToMany(mappedBy = "partidas")
+	private List<Inscricao> incricoes;
+	
 	private Date data;
+	//TODO Checar se está correto
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CodLocal")
 	private Local local;
+	
+	//TODO Checar se está correto
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CodPartida")
 	private Partida proxPartida;
+	
+	//TODO Checar se está correto
+	@OneToMany(mappedBy = "partida")
 	private List<Juiz> juizes;
+	
+	//TODO Checar se está correto
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CodGrupo")
 	private Grupo grupo;
+	
+	//TODO Checar se está correto
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CodRodada")
+	private Rodada rodada;
+	
 	private String relatoJuiz;
 
 	public Partida() {
@@ -28,8 +50,6 @@ public class Partida {
 			Partida proxPartida, List<Juiz> juizes, Grupo grupo, String relatoJuiz) {
 		super();
 		this.codPartida = codPartida;
-		this.equipeMandante = equipeMandante;
-		this.equipeVisitante = equipeVisitante;
 		this.data = data;
 		this.local = local;
 		this.proxPartida = proxPartida;
@@ -45,22 +65,6 @@ public class Partida {
 
 	public void setCodPartida(int codPartida) {
 		this.codPartida = codPartida;
-	}
-
-	public Inscricao getEquipeMandante() {
-		return equipeMandante;
-	}
-
-	public void setEquipeMandante(Inscricao equipeMandante) {
-		this.equipeMandante = equipeMandante;
-	}
-
-	public Inscricao getEquipeVisitante() {
-		return equipeVisitante;
-	}
-
-	public void setEquipeVisitante(Inscricao equipeVisitante) {
-		this.equipeVisitante = equipeVisitante;
 	}
 
 	public Date getData() {
@@ -111,12 +115,27 @@ public class Partida {
 		this.relatoJuiz = relatoJuiz;
 	}
 
+	public List<Inscricao> getIncricoes() {
+		return incricoes;
+	}
+
+	public void setIncricoes(List<Inscricao> incricoes) {
+		this.incricoes = incricoes;
+	}
+
+	public Rodada getRodada() {
+		return rodada;
+	}
+
+	public void setRodada(Rodada rodada) {
+		this.rodada = rodada;
+	}
+
 	@Override
 	public String toString() {
-		return "Partida [codPartida=" + codPartida + ", equipeMandante=" + equipeMandante + ", equipeVisitante="
-				+ equipeVisitante + ", data=" + data + ", local=" + local + ", proxPartida=" + proxPartida + ", juizes="
-				+ juizes + ", grupo=" + grupo + ", relatoJuiz=" + relatoJuiz + "]";
+		return "Partida [codPartida=" + codPartida + ", incricoes=" + incricoes + ", data=" + data + ", local=" + local
+				+ ", proxPartida=" + proxPartida + ", juizes=" + juizes + ", grupo=" + grupo + ", rodada=" + rodada
+				+ ", relatoJuiz=" + relatoJuiz + "]";
 	}
-	
-	
+
 }

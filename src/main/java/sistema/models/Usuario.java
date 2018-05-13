@@ -7,7 +7,6 @@ import javax.persistence.*;
 @Entity
 @SequenceGenerator(name="USU_SEQ", sequenceName="codUsuarioSequence", initialValue=1, allocationSize=1, schema="APP")
 public class Usuario {
-	
 	//Atributos
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -19,7 +18,14 @@ public class Usuario {
 	@Column(nullable = false)
 	private String senha;
 	private Date dataNascimento;
+	
+	//TODO checar se está correto
+	@ManyToMany
+    @JoinTable(name="Usuario_Equipe",
+    joinColumns = {@JoinColumn(name="CodUsuario")},
+    inverseJoinColumns = {@JoinColumn(name="CodEquipe")})
 	private List<Equipe> equipes;
+	
 	private List<Inscrito> inscricoes;
 	private List<Campeonato> campeonatos;
 	private Tipo tipo;
@@ -57,7 +63,6 @@ public class Usuario {
 		this.sexo = sexo;
 		this.foto = foto;
 	}
-	
 	
 	//Getters and Setters
 	public int getCodUsuario() {
@@ -193,12 +198,20 @@ public class Usuario {
 			return false;
 		return true;
 	}
+	
+	
+	
+	public void setCodUsuario(int codUsuario) {
+		this.codUsuario = codUsuario;
+	}
+	
 	@Override
 	public String toString() {
-		return "Usuario [email=" + email + ", nome=" + nome + ", dataNascimento=" + dataNascimento + ", equipes="
-				+ equipes + ", inscricoes=" + inscricoes + ", campeonatos=" + campeonatos + ", tipo=" + tipo
-				+ ", telefoneFixo=" + telefoneFixo + ", telefoneModel=" + telefoneMovel + ", endereco=" + endereco
-				+ ", rg=" + rg + ", cpf=" + cpf + ", cref=" + cref + ", sexo=" + sexo + ", foto=" + foto + "]";
+		return "Usuario [codUsuario=" + codUsuario + ", email=" + email + ", nome=" + nome + ", senha=" + senha
+				+ ", dataNascimento=" + dataNascimento + ", equipes=" + equipes + ", inscricoes=" + inscricoes
+				+ ", campeonatos=" + campeonatos + ", tipo=" + tipo + ", telefoneFixo=" + telefoneFixo
+				+ ", telefoneMovel=" + telefoneMovel + ", endereco=" + endereco + ", rg=" + rg + ", cpf=" + cpf
+				+ ", cref=" + cref + ", sexo=" + sexo + ", foto=" + foto + "]";
 	}
 	
 }

@@ -1,5 +1,7 @@
 package sistema.models;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,11 +10,24 @@ public class Inscrito {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Tipo tipo;
+	
+	//TODO Checar se está correto
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CodUsuario")
 	private Usuario usuario;
+	
+	//TODO Checar se está correto
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CodInscricao")
 	private Inscricao inscricao;
+	
 	private	boolean aceiteUsuario;
 	private	boolean suspensoJogos;
 	private boolean inscricaoValida;
+	
+	//TODO Checar se está correto
+	@OneToMany(mappedBy = "inscrito")
+	private List<Gol> gols;
 	
 	//Construtores
 	public Inscrito() {
@@ -37,6 +52,15 @@ public class Inscrito {
 	public void setTipo(Tipo tipo) {
 		this.tipo = tipo;
 	}
+	
+	public List<Gol> getGols() {
+		return gols;
+	}
+
+	public void setGols(List<Gol> gols) {
+		this.gols = gols;
+	}
+
 	public Usuario getUsuario() {
 		return usuario;
 	}
@@ -71,10 +95,9 @@ public class Inscrito {
 	@Override
 	public String toString() {
 		return "Inscrito [tipo=" + tipo + ", usuario=" + usuario + ", inscricao=" + inscricao + ", aceiteUsuario="
-				+ aceiteUsuario + ", suspensoJogos=" + suspensoJogos + ", inscricaoValida=" + inscricaoValida + "]";
+				+ aceiteUsuario + ", suspensoJogos=" + suspensoJogos + ", inscricaoValida=" + inscricaoValida
+				+ ", gols=" + gols + "]";
 	}
-	
-	//TODO: Criar HashCode e Comparable
-	
-	
+
+	//TODO: Criar HashCode e Comparable	
 }
