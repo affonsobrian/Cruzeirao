@@ -35,7 +35,7 @@
 						value="#{equipeMB.jogadoresSelecionados}"
 						converter="usuarioConverter" var="u" filter="true"
 						filterMatchMode="contains" showCheckbox="true">
-						<f:selectItems value="#{usuarioMB.jogadores}" var="jogador"
+						<f:selectItems value="#{usuarioMB.usuarios}" var="jogador"
 							itemLabel="#{jogador.nome}" itemValue="#{jogador}" required="true" />
 						<p:column>
 							<h:outputText styleClass="ui-theme ui-theme-#{u.nome}" />
