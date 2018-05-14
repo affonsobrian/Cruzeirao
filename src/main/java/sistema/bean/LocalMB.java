@@ -8,14 +8,16 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import sistema.models.Local;
+import sistema.service.LocalService;
 
 @ManagedBean
 @ViewScoped
 public class LocalMB {
 	private Local local = new Local();
 	private List<Local> locais;
-	
-	//Getters and Setters
+	private LocalService localService = new LocalService();
+
+	// Getters and Setters
 	public Local getLocal() {
 		return local;
 	}
@@ -32,15 +34,25 @@ public class LocalMB {
 		this.locais = locais;
 	}
 
-	//Service
+	// Service
 	public void salvar() {
-
-			locais.add(this.getLocal());	
-			FacesMessage msg = new FacesMessage("Local cadastrado com sucesso!");
+		if (this.getLocal().equals(null))
+			System.out.println("O local é um objeto inválido.");
+		else {
+			locais.add(this.getLocal());
+			localService.salvar(this.getLocal());
+			FacesMessage msg = new FacesMessage("Local " + this.getLocal() + " cadastrado com sucesso!");
 			FacesContext.getCurrentInstance().addMessage(null, msg);
-			
-			
 			local = new Local();
+		}
+	}
 
+	public void remover(Local local) {
+		if (this.getLocal().equals(null))
+			System.out.println("O local é um objeto inválido.");
+		else {
+			locais.remove(local);
+			localService.remover(local);
+		}
 	}
 }

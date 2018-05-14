@@ -12,6 +12,7 @@ import org.primefaces.model.UploadedFile;
 import java.io.IOException;
 import java.util.List;
 
+import sistema.models.Tipo;
 import sistema.models.Usuario;
 import sistema.service.CurrentUserService;
 import sistema.service.UsuarioService;
@@ -19,31 +20,32 @@ import sistema.service.UsuarioService;
 @ManagedBean
 @ViewScoped
 public class UsuarioMB {
-	
+
 	private Usuario usuario = new Usuario();
 	private List<Usuario> usuarios;
+	private List<Usuario> jogadores;
 	private UsuarioService service = new UsuarioService();
 	private CurrentUserService current = new CurrentUserService();
 	private UploadedFile file;
-	
-	public void onRowEdition(RowEditEvent event)
-	{
-		Usuario u = ((Usuario)event.getObject());
+
+	public void onRowEdition(RowEditEvent event) {
+		Usuario u = ((Usuario) event.getObject());
 		service.alterar(u);
 	}
-	
+
 	public Usuario getUsuario() {
 		this.usuario = current.getCurrentUser();
 		return this.usuario;
 	}
+
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
 
 	public List<Usuario> getUsuarios() {
-		return usuarios;
+		return service.getUsuarios();
 	}
-	
+
 	public UploadedFile getFile() {
 		return file;
 	}
@@ -52,12 +54,11 @@ public class UsuarioMB {
 		this.file = file;
 	}
 
-	public void remove(Usuario usuario)
-	{
+	public void remove(Usuario usuario) {
 		service.remove(usuario);
 		usuarios.remove(usuario);
 	}
-	
+
 	public void save() {
 		System.out.println("Sending request...");
 		usuario = service.salvar(usuario);
@@ -69,39 +70,56 @@ public class UsuarioMB {
 		usuario = new Usuario();
 
 	}
-	
+
 	public String onFlowProcess(FlowEvent event) {
 
 		return event.getNewStep();
 	}
-	
-//	public void upload() {
-//		Byte [] foto = this.usuario.getFoto();
-//		System.out.println(file.getContentType());
-		//if(file.getContentType() == "jpg")
-//        if(this.usuario.getFoto() != null) {
-            //FacesMessage message = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
-//            FacesMessage message = new FacesMessage("Succesful", file.getContentType() + " is uploaded.");
-//            FacesContext.getCurrentInstance().addMessage(null, message);
-//        }
-//    }
-	
+
+	// public void upload() {
+	// Byte [] foto = this.usuario.getFoto();
+	// System.out.println(file.getContentType());
+	// if(file.getContentType() == "jpg")
+	// if(this.usuario.getFoto() != null) {
+	// FacesMessage message = new FacesMessage("Succesful", file.getFileName() + "
+	// is uploaded.");
+	// FacesMessage message = new FacesMessage("Succesful", file.getContentType() +
+	// " is uploaded.");
+	// FacesContext.getCurrentInstance().addMessage(null, message);
+	// }
+	// }
+
 	public void validate() throws IOException {
-		
+
 		Usuario u = this.service.validate(this.usuario);
-		if(u.equals(this.usuario))
-		{
-			if(FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage() == "pt")
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Usuário ou senha incorreto!"));
+		if (u.equals(this.usuario)) {
+			if (FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage() == "pt")
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Usuário ou senha incorreto!"));
 			else
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Warn", "User or password is incorrect!"));
-		}
-		else
-		{
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Warn", "User or password is incorrect!"));
+		} else {
 			this.usuario = u;
 			service.redirect(this.usuario);
 		}
-		
 	}
 	
+	public List<Usuario> getJogadores() {
+		service.getUsuarios()
+		.stream()
+		
+		.forEach(usuario -> {
+			this.jogadores = null;
+			
+			if (!usuario.equals(null))
+				this.jogadores.add(usuario);
+		});
+		
+		return this.jogadores;
+	}
+
+	public void setJogadores(List<Usuario> jogadores) {
+		this.jogadores = jogadores;
+	}
 }
