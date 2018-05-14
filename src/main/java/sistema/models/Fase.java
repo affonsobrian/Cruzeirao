@@ -14,10 +14,17 @@ public class Fase {
 	private int codFase;
 	private Date datainicio;
 	private Formato formato;
-	private Categoria categoria;
-	private List<Grupo> grupo;
-	private int numero;
 	
+	//TODO Checar se está certo
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CodCategoria")
+	private Categoria categoria;
+	
+	//TODO Checar se está correto
+	@OneToMany(mappedBy = "fase")
+	private List<Grupo> grupo;
+	
+	private int numero;
 	
 	public Fase() {
 		super();
@@ -60,11 +67,16 @@ public class Fase {
 	public void setNumero(int numero) {
 		this.numero = numero;
 	}
+	public int getCodFase() {
+		return codFase;
+	}
+	public void setCodFase(int codFase) {
+		this.codFase = codFase;
+	}
 	@Override
 	public String toString() {
-		return "Fase [datainicio=" + datainicio + ", formato=" + formato + ", categoria=" + categoria + ", grupo="
-				+ grupo + ", numero=" + numero + "]";
+		return "Fase [codFase=" + codFase + ", datainicio=" + datainicio + ", formato=" + formato + ", categoria="
+				+ categoria + ", grupo=" + grupo + ", numero=" + numero + "]";
 	}
-	
 	
 }

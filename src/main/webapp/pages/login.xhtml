@@ -18,16 +18,16 @@
 		</h:head>
 		<h:form>
 		 
-		 	<p:fieldset legend="Login">
+		 	<p:fieldset legend="#{msg['pages.login.login']}">
 		 	
 		 		<p:messages id="messages" showDetail="true" closable="true">
 		 			<p:autoUpdate />
 		 		</p:messages>
-		 		<p:outputLabel value="E-mail:" /><br/>
-		 		<p:inputText value="#{usuarioManagedBean.usuario.email}" /><br/>
-		 		<p:outputLabel value="Senha:" /><br/>
-		 		<p:password value="#{usuarioManagedBean.usuario.senha}" required="true" label="Senha"/><br/><br/>
-		 		<p:commandButton value="Entrar" actionListener="#{usuarioManagedBean.validate}"  />
+		 		<p:outputLabel value="#{msg['pages.login.email']}:" /><br/>
+		 		<p:inputText value="#{usuarioMB.usuario.email}" /><br/>
+		 		<p:outputLabel value="#{msg['pages.login.senha']}:" /><br/>
+		 		<p:password value="#{usuarioMB.usuario.senha}" required="true" label="Senha"/><br/><br/>
+		 		<p:commandButton value="#{msg['pages.login.login']}" actionListener="#{usuarioMB.validate}"  />
 		 	
 		 	</p:fieldset>
 		    

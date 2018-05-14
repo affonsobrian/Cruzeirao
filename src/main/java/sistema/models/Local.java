@@ -1,5 +1,7 @@
 package sistema.models;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -9,6 +11,9 @@ public class Local {
 	private int codLocal;
 	@Column(nullable = false)
 	String endereco;
+	//TODO Checar se está coreto
+	@ManyToMany(mappedBy = "locais")
+	private List<Campeonato> campeonatos;
 
 	public Local() {
 		super();
@@ -27,9 +32,25 @@ public class Local {
 		this.endereco = endereco;
 	}
 
+	public int getCodLocal() {
+		return codLocal;
+	}
+
+	public void setCodLocal(int codLocal) {
+		this.codLocal = codLocal;
+	}
+
+	public List<Campeonato> getCampeonatos() {
+		return campeonatos;
+	}
+
+	public void setCampeonatos(List<Campeonato> campeonatos) {
+		this.campeonatos = campeonatos;
+	}
+
 	@Override
 	public String toString() {
-		return "Local [endereco=" + endereco + "]";
+		return "Local [codLocal=" + codLocal + ", endereco=" + endereco + ", campeonatos=" + campeonatos + "]";
 	}
 
 }

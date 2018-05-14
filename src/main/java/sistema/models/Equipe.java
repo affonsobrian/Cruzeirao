@@ -14,6 +14,9 @@ public class Equipe {
 	private String nome;
 	private Date dataFundacao;
 	private String cidade;
+	
+	//TODO Checar se está correto
+	@ManyToMany(mappedBy = "equipes")
 	private List<Usuario> usuarios;
 
 	public Equipe() {
@@ -71,9 +74,8 @@ public class Equipe {
 
 	@Override
 	public String toString() {
-		return "Equipe [nome=" + nome + ", dataFundacao=" + dataFundacao + ", cidade=" + cidade + ", usuarios="
-				+ usuarios + "]";
+		return "Equipe [codEquipe=" + codEquipe + ", nome=" + nome + ", dataFundacao=" + dataFundacao + ", cidade="
+				+ cidade + ", usuarios=" + usuarios + "]";
 	}
 
-	
 }

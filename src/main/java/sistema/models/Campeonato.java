@@ -12,13 +12,28 @@ public class Campeonato {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int codCampeonato;
 	private String nome;
+	
+	//TODO Checar se está correto
+	@ManyToMany
+    @JoinTable(name="Campeonato_Local",
+    joinColumns = {@JoinColumn(name="CodCampeonato")},
+    inverseJoinColumns = {@JoinColumn(name="CodLocal")})
 	private List<Local> locais;
+	
+	//TODO Checar se está correto
+	@ManyToMany
+    @JoinTable(name="Campeonato_Juiz",
+    joinColumns = {@JoinColumn(name="CodCampeonato")},
+    inverseJoinColumns = {@JoinColumn(name="CodJuiz")})
 	private List<Juiz> juizes;
+	
+	//TODO Checar se está correto
+	@OneToMany(mappedBy = "campeonato")
 	private List<Categoria> categorias;
+	
 	private Date dataInicioInscricao;
 	private Date dataFimInscricao;
 	private double valorTaxa;
-	
 	
 	//Constutores
 	public Campeonato() {
@@ -105,13 +120,10 @@ public class Campeonato {
 
 	@Override
 	public String toString() {
-		return "Campeonato [nome=" + nome + ", locais=" + locais + ", juizes=" + juizes + ", categorias=" + categorias
-				+ ", dataInicioInscricao=" + dataInicioInscricao + ", dataFimInscricao=" + dataFimInscricao
-				+ ", valorTaxa=" + valorTaxa + "]";
+		return "Campeonato [codCampeonato=" + codCampeonato + ", nome=" + nome + ", locais=" + locais + ", juizes="
+				+ juizes + ", categorias=" + categorias + ", dataInicioInscricao=" + dataInicioInscricao
+				+ ", dataFimInscricao=" + dataFimInscricao + ", valorTaxa=" + valorTaxa + "]";
 	}
-	
 	//TODO: Criar HashCode e Comparable
-	
-	
-	
+		
 }
