@@ -4,6 +4,7 @@ import java.util.List;
 
 import sistema.dao.EquipeDAO;
 import sistema.models.Equipe;
+import sistema.models.Usuario;
 
 public class EquipeService {
 
@@ -34,5 +35,9 @@ public class EquipeService {
 		equipe = equipeDAO.getById(Equipe.class, equipe.getCodEquipe());
 		equipeDAO.remove(equipe);
 		equipeDAO.closeEntityManager();
+	}
+	
+	public void registrarIntegranteEquipe(Equipe equipe, List<Usuario> jogadores) {
+		//TODO: Implementar DAO para salvar na entidade de relacionamento de jogador/equipe
 	}
 }

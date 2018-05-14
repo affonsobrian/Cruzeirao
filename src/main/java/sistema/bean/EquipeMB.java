@@ -19,6 +19,7 @@ public class EquipeMB {
 
 	private Equipe equipe = new Equipe();
 	private List<Equipe> equipes;
+	private List<Usuario> jogadoresSelecionados;
 	private EquipeService equipeService = new EquipeService();
 
 	// Getters and Setters
@@ -55,11 +56,19 @@ public class EquipeMB {
 	}
 
 	public List<Equipe> getEquipes() {
-		return equipes;
+		return equipeService.getEquipes();
 	}
 
 	public void setEquipes(List<Equipe> equipes) {
 		this.equipes = equipes;
+	}
+
+	public List<Usuario> getJogadoresSelecionados() {
+		return jogadoresSelecionados;
+	}
+
+	public void setJogadoresSelecionados(List<Usuario> jogadoresSelecionados) {
+		this.jogadoresSelecionados = jogadoresSelecionados;
 	}
 
 	// Wizard manipulation
@@ -69,18 +78,27 @@ public class EquipeMB {
 
 	// Service communication
 	public void salvar() {
-		if (!equipe.equals(null)) {
-			equipeService.salvar(equipe);
+		
+		if (equipe.equals(null))
+			System.out.println("A equipe é um objeto inválido.");
+		else {
 			equipes.add(equipe);
-			
+			equipeService.salvar(equipe);
+
 			FacesMessage msg = new FacesMessage("Equipe" + equipe.getNome() + "cadastrada com sucesso!");
-	        FacesContext.getCurrentInstance().addMessage(null, msg);
-			
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+
 			equipe = new Equipe();
 		}
 	}
-	
+
 	public void remover() {
 		equipeService.remover(equipe);
+	}
+	
+	public void registrarIntegrantesEquipe(){
+		if(!equipe.equals(null) && !jogadoresSelecionados.equals(null)) {
+			//equipeService.salvar(equipe);
+		}
 	}
 }
