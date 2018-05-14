@@ -22,8 +22,8 @@ public class Partida {
 	private Local local;
 	
 	//TODO Checar se está correto
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "CodPartida")
+	//@OneToOne(fetch = FetchType.LAZY)
+	//@JoinColumn(name = "CodPartida")
 	private Partida proxPartida;
 	
 	//TODO Checar se está correto
