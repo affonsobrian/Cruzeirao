@@ -108,7 +108,7 @@ public class UsuarioMB {
 	public List<Usuario> getJogadores() {
 		service.getUsuarios()
 		.stream()
-		
+		.filter(usuario -> usuario.getTipo() == Tipo.Jogador)
 		.forEach(usuario -> {
 			this.jogadores = null;
 			
