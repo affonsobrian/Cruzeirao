@@ -36,8 +36,4 @@ public class EquipeService {
 		equipeDAO.remove(equipe);
 		equipeDAO.closeEntityManager();
 	}
-	
-	public void registrarIntegranteEquipe(Equipe equipe, List<Usuario> jogadores) {
-		//TODO: Implementar DAO para salvar na entidade de relacionamento de jogador/equipe
-	}
 }

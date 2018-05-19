@@ -98,7 +98,8 @@ public class EquipeMB {
 	
 	public void registrarIntegrantesEquipe(){
 		if(!equipe.equals(null) && !jogadoresSelecionados.equals(null)) {
-			//equipeService.salvar(equipe);
+			equipe.setUsuarios(jogadoresSelecionados);
+			equipeService.alterar(equipe);
 		}
 	}
 }
