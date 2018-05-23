@@ -21,7 +21,6 @@ public class LocaleBean {
     }
 
     public String getLanguage() {
-    	System.out.println("Language: " + locale.getLanguage());
         return locale.getLanguage();
     }
 
@@ -30,20 +29,17 @@ public class LocaleBean {
         FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
     }
     
-    public void SetPortuguese(ActionEvent event) {
+    public void setPortuguese() {
     	locale = new Locale("pt");
-    	System.out.println("Setting Pt");
         FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
     }
     
-    public void SetEnglish(ActionEvent event) {
+    public void setEnglish() {
     	locale = Locale.ENGLISH;
-    	System.out.println("Setting En");
     	FacesContext.getCurrentInstance().getViewRoot().setLocale(locale);
     }
     
     public boolean getrenderPt() {
-    	System.out.println("Render Pt:");
     	System.out.println(FacesContext.getCurrentInstance().getViewRoot().getLocale() != Locale.ENGLISH);
     	if(FacesContext.getCurrentInstance().getViewRoot().getLocale() == Locale.ENGLISH)
     		return false;
@@ -52,7 +48,6 @@ public class LocaleBean {
     }
     
     public boolean getrenderEn() {
-    	System.out.println("Render En:");
     	System.out.println(FacesContext.getCurrentInstance().getViewRoot().getLocale() == Locale.ENGLISH);
     	if(FacesContext.getCurrentInstance().getViewRoot().getLocale() == Locale.ENGLISH)
     		return true;

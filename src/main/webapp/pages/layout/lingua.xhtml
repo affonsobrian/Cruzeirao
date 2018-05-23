@@ -43,8 +43,8 @@
 				
 			</h:head>
 			<h:form id="bandeiraForm">
-				<h:commandButton rendered="#{localeBean.language == 'en'}" actionListener="#{localeBean.setPortuguese}" value="" styleClass="bandeira-en"/>
-				<h:commandButton rendered="#{localeBean.language == 'pt'}" update="bandeiraForm" actionListener="#{localeBean.setEnglish}" value="" styleClass="bandeira-br"/>
+				<h:commandButton rendered="#{localeBean.language == 'en'}" actionListener="#{localeBean.setPortuguese()}" value="" styleClass="bandeira-en"/>
+				<h:commandButton rendered="#{localeBean.language == 'pt'}" update="bandeiraForm" actionListener="#{localeBean.setEnglish()}" value="" styleClass="bandeira-br"/>
 			</h:form>
 			
 </h:html>
