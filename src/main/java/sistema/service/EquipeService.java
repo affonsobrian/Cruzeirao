@@ -4,6 +4,7 @@ import java.util.List;
 
 import sistema.dao.EquipeDAO;
 import sistema.models.Equipe;
+import sistema.models.Usuario;
 
 public class EquipeService {
 

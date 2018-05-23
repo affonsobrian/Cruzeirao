@@ -15,6 +15,9 @@ public class Cartao {
 	@Column(nullable = false)
 	private int tempo;
 	
+	//TODO Como mapear está classe? Visto que em Partida Futebol existem dois atributos distintos
+	//TODO Checar a logica
+	private PartidaFutebol partidaFutebol;
 	
 	public Cartao() {
 		super();
@@ -43,12 +46,26 @@ public class Cartao {
 	public void setTempo(int tempo) {
 		this.tempo = tempo;
 	}
+	
+	
+	
+	public int getCodCartao() {
+		return codCartao;
+	}
+	public void setCodCartao(int codCartao) {
+		this.codCartao = codCartao;
+	}
+	public PartidaFutebol getPartidaFutebol() {
+		return partidaFutebol;
+	}
+	public void setPartidaFutebol(PartidaFutebol partidaFutebol) {
+		this.partidaFutebol = partidaFutebol;
+	}
 	@Override
 	public String toString() {
-		return "Cartao [inscrito=" + inscrito + ", tipo=" + tipo + ", tempo=" + tempo + "]";
+		return "Cartao [codCartao=" + codCartao + ", inscrito=" + inscrito + ", tipo=" + tipo + ", tempo=" + tempo
+				+ ", partidaFutebol=" + partidaFutebol + "]";
 	}
-	
-	
 	
 	
 }
