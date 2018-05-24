@@ -21,10 +21,13 @@ public class Categoria {
 	
 	//TODO Checar se está correto
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="Campeonato_ID")
+	@JoinColumn(name="CodCampeonato")
 	private Campeonato campeonato;
 	
+	//TODO Checar se está correto
+	@OneToMany(mappedBy = "categoria")
 	private List<Fase> fases;
+	
 	@Column(nullable = false)
 	private int minJogadores;
 	@Column(nullable = false)
@@ -48,8 +51,6 @@ public class Categoria {
 		this.maxJogadores = maxJogadores;
 		this.sexo = sexo;
 	}
-
-
 	
 	public int getCodCategoria() {
 		return codCategoria;
@@ -107,10 +108,12 @@ public class Categoria {
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
+
 	@Override
 	public String toString() {
-		return "Categoria [nome=" + nome + ", nascidosApartirDe=" + nascidosApartirDe + ", minJogadores=" + minJogadores
-				+ ", maxJogadores=" + maxJogadores + ", sexo=" + sexo + "]";
+		return "Categoria [codCategoria=" + codCategoria + ", nome=" + nome + ", nascidosApartirDe=" + nascidosApartirDe
+				+ ", incricoes=" + incricoes + ", campeonato=" + campeonato + ", fases=" + fases + ", minJogadores="
+				+ minJogadores + ", maxJogadores=" + maxJogadores + ", sexo=" + sexo + "]";
 	}
-	
+
 }

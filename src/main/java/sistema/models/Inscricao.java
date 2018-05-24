@@ -11,14 +11,24 @@ public class Inscricao {
 	private int codInscricao;
 	private boolean pagamento;
 	private boolean validada;
+	@OneToMany(mappedBy = "inscricao")
 	private List<Inscrito> inscritos;
+	private boolean timeDaCasa;
 	
-	//TODO Cheacar se está correto
+	//TODO Checar se está correto
 	@ManyToOne(fetch=FetchType.LAZY)
-	@JoinColumn(name="Categoria_ID")
+	@JoinColumn(name="CodCategoria")
 	private Categoria categoria;
 	
+	//TODO Checar se está correto
+	@ManyToMany
+    @JoinTable(name="Incricao_Partida",
+    joinColumns = {@JoinColumn(name="CodInscricao")},
+    inverseJoinColumns = {@JoinColumn(name="CodPartida")})
 	private List<Partida> partidas;
+	
+	//TODO Checar se está correto
+	@OneToOne
 	private Equipe equipe;
 
 	public Inscricao() {
@@ -93,9 +103,20 @@ public class Inscricao {
 		this.equipe = equipe;
 	}
 
+	public boolean isTimeDaCasa() {
+		return timeDaCasa;
+	}
+
+	public void setTimeDaCasa(boolean timeDaCasa) {
+		this.timeDaCasa = timeDaCasa;
+	}
+
 	@Override
 	public String toString() {
-		return "Inscricao [codInscricao=" + codInscricao + ", pagamento=" + pagamento + ", validada=" + validada + ", inscritos="
-				+ inscritos + ", categoria=" + categoria + ", partidas=" + partidas + ", equipe=" + equipe + "]";
+		return "Inscricao [codInscricao=" + codInscricao + ", pagamento=" + pagamento + ", validada=" + validada
+				+ ", inscritos=" + inscritos + ", timeDaCasa=" + timeDaCasa + ", categoria=" + categoria + ", partidas="
+				+ partidas + ", equipe=" + equipe + "]";
 	}
+	
+
 }
