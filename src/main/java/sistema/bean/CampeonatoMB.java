@@ -1,5 +1,6 @@
 package sistema.bean;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -18,10 +19,9 @@ import sistema.service.LocalService;
 @ManagedBean
 @ViewScoped
 public class CampeonatoMB {
-	
+
 	private Campeonato campeonato = new Campeonato();
 	private Local local = new Local();
-	private List<Local> locais;
 	private CampeonatoService campeonatoService;
 	private LocalService localService;
 
@@ -40,37 +40,34 @@ public class CampeonatoMB {
 	public void setLocal(Local local) {
 		this.local = local;
 	}
-	
-	//Service communication
+
+	// Service communication
 	public void salvarLocal() {
 		if (this.getLocal().equals(null))
 			System.out.println("O local é um objeto inválido.");
 		else {
-			locais.add(this.getLocal());
-			localService.salvar(this.getLocal());
-			FacesMessage msg = new FacesMessage("Local " + this.getLocal() + " cadastrado com sucesso!");
+			campeonato.getLocais().add(this.getLocal());
+			FacesMessage msg = new FacesMessage("Local " + this.getLocal().getEndereco() + " cadastrado com sucesso!");
 			FacesContext.getCurrentInstance().addMessage(null, msg);
 			local = new Local();
 		}
 	}
-	
+
 	public void remover(Local local) {
 		if (this.getLocal().equals(null))
 			System.out.println("O local é um objeto inválido.");
 		else {
-			locais.remove(local);
-			localService.remover(local);
+			campeonato.getLocais().remove(this.getLocal());
 		}
 	}
-	
+
 	// Wizard manipulation
 	public String onFlowProcess(FlowEvent event) {
 		return event.getNewStep();
 	}
-	
-	public void onRowEdition(RowEditEvent event)
-	{
-		Campeonato c = ((Campeonato)event.getObject());
+
+	public void onRowEdition(RowEditEvent event) {
+		Campeonato c = ((Campeonato) event.getObject());
 		campeonatoService.alterar(c);
 	}
 

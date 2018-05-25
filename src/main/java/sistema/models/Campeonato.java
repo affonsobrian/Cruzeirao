@@ -1,5 +1,6 @@
 package sistema.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,18 +19,18 @@ public class Campeonato {
     @JoinTable(name="Campeonato_Local",
     joinColumns = {@JoinColumn(name="CodCampeonato")},
     inverseJoinColumns = {@JoinColumn(name="CodLocal")})
-	private List<Local> locais;
+	private List<Local> locais = new ArrayList<Local>();
 	
 	//TODO Checar se está correto
 	@ManyToMany
     @JoinTable(name="Campeonato_Juiz",
     joinColumns = {@JoinColumn(name="CodCampeonato")},
     inverseJoinColumns = {@JoinColumn(name="CodJuiz")})
-	private List<Juiz> juizes;
+	private List<Juiz> juizes = new ArrayList<Juiz>();
 	
 	//TODO Checar se está correto
 	@OneToMany(mappedBy = "campeonato")
-	private List<Categoria> categorias;
+	private List<Categoria> categorias = new ArrayList<Categoria>();
 	
 	private Date dataInicioInscricao;
 	private Date dataFimInscricao;
