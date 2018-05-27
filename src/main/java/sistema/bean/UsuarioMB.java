@@ -2,7 +2,7 @@ package sistema.bean;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.event.FlowEvent;
@@ -14,18 +14,16 @@ import java.util.List;
 
 import sistema.models.Tipo;
 import sistema.models.Usuario;
-import sistema.service.CurrentUserService;
 import sistema.service.UsuarioService;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class UsuarioMB {
 
 	private Usuario usuario = new Usuario();
 	private List<Usuario> usuarios;
 	private List<Usuario> jogadores;
 	private UsuarioService service = new UsuarioService();
-	private CurrentUserService current = new CurrentUserService();
 	private UploadedFile file;
 
 	public void onRowEdition(RowEditEvent event) {
@@ -34,7 +32,7 @@ public class UsuarioMB {
 	}
 
 	public Usuario getUsuario() {
-		this.usuario = current.getCurrentUser();
+		//this.usuario = current.getCurrentUser();
 		return this.usuario;
 	}
 
@@ -121,5 +119,10 @@ public class UsuarioMB {
 
 	public void setJogadores(List<Usuario> jogadores) {
 		this.jogadores = jogadores;
+	}
+	
+	public void logout() throws IOException {
+		this.usuario = new Usuario();
+		FacesContext.getCurrentInstance().getExternalContext().redirect("./index.xhtml");
 	}
 }
