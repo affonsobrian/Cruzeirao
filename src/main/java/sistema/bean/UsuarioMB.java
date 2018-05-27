@@ -121,8 +121,9 @@ public class UsuarioMB {
 		this.jogadores = jogadores;
 	}
 	
-	public void logout() throws IOException {
+	public String logout() throws IOException {
 		this.usuario = new Usuario();
 		FacesContext.getCurrentInstance().getExternalContext().redirect("./index.xhtml");
+		return "redirecting...";
 	}
 }
