@@ -29,7 +29,7 @@ public class Campeonato {
 	private List<Juiz> juizes = new ArrayList<Juiz>();
 	
 	//TODO Checar se está correto
-	@OneToMany(mappedBy = "campeonato")
+	//@OneToMany(mappedBy = "campeonato")
 	private List<Categoria> categorias = new ArrayList<Categoria>();
 	
 	private Date dataInicioInscricao;

@@ -13,7 +13,6 @@ import sistema.models.Categoria;
 import sistema.models.Local;
 import sistema.service.CampeonatoService;
 
-
 @ManagedBean
 @ViewScoped
 public class CampeonatoMB {
@@ -22,15 +21,8 @@ public class CampeonatoMB {
 	private Local local = new Local();
 	private Categoria categoria = new Categoria();
 	private CampeonatoService campeonatoService;
-
-	public Categoria getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
 	
+	//Getters and Setters
 	public Campeonato getCampeonato() {
 		return campeonato;
 	}
@@ -45,6 +37,14 @@ public class CampeonatoMB {
 
 	public void setLocal(Local local) {
 		this.local = local;
+	}
+	
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 
 	// Service communication
@@ -67,15 +67,17 @@ public class CampeonatoMB {
 		}
 	}
 	
-	public void salvarCategoria() {					
-			System.out.println("Salvar categoria");
-			System.out.println(this.getCategoria().getNome());
-
+	public void salvarCategoria() {						
+		if(this.getCategoria().getNome() == "") {
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro! O campo de categoria está inválido.", null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
+		}
+		else {
 			campeonato.getCategorias().add(this.getCategoria());
-			//FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso! A Categoria " + this.getCategoria().getNome() + " foi cadastrada", null);
-			//FacesContext.getCurrentInstance().addMessage(null, msg);
+			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso! A Categoria " + this.getCategoria().getNome() + " foi cadastrada", null);
+			FacesContext.getCurrentInstance().addMessage(null, msg);
 			categoria = new Categoria();
-		
+		}
 	}
 	
 	public void removerCategoria(Categoria categoria) {
@@ -84,11 +86,10 @@ public class CampeonatoMB {
 		}
 	}
 	
-	public void salvarCampeonato() {
-		System.out.println(this.campeonato.getLocais());
-		System.out.println(this.campeonato.getCategorias());
-		
-		//this.campeonatoService.salvar(this.getCampeonato());
+	public void salvarCampeonato() {	
+		System.out.println("Campeonato: \n");
+		System.out.println(this.getCampeonato());
+		this.campeonatoService.salvar(this.getCampeonato());
 		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso! O campeonato foi criado", null);
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 		campeonato = new Campeonato();

@@ -24,21 +24,18 @@
 				.ui-megamenu .ui-widget-header span { color: #fff; font-weight: normal; text-shadow: none; }
 			</style>
 		</h:head>
-		
+
 		<h:body>
-			<h:form id="formLocal">
-				<p:panel id="panel">
-					<h:panelGrid columns="2" cellpadding="5">
-					
-						<p:outputLabel for="loc" value="Local: " />
-						<p:inputText id="loc" value="#{campeonatoMB.local.endereco}"></p:inputText>
-						
-						<h:commandButton value="Salvar"
-							actionListener="#{campeonatoMB.salvarLocal()}" 
-							style="background-color: #fff;" icon="ui-icon-check" />
-					</h:panelGrid>
-				</p:panel>			 
-			</h:form>
+			<p:panel id="panel">
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="loc" value="Local: " />
+					<p:inputText id="loc" value="#{campeonatoMB.local.endereco}"></p:inputText>
+		
+					<h:commandButton value="Salvar"
+						actionListener="#{campeonatoMB.salvarLocal()}"
+						style="background-color: #fff;" icon="ui-icon-check" />
+				</h:panelGrid>
+			</p:panel>
 		</h:body>
 </h:html>
 
