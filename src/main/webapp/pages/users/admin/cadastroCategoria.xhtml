@@ -24,56 +24,49 @@
 		</style>
 	</h:head>
 
-	<h:body>
-		<h:form>
-			<p:growl id="growl" sticky="true" showDetail="true" />
-	
-			<p:wizard flowListener="#{categoriaMB.onFlowProcess}">
-				<p:tab title="Informações">
-					<p:panel>
-						<p:messages />
-						<h:panelGrid columns="2" columnClasses="label, value">
-							<h:outputText value="Nome: *" />
-							<p:inputText value="#{categoriaMB.categoria.nome}" required="true"
-								         label="Nome Completo" />
-								         
-							<h:outputText value="Taxa de inscrição: *" />
-							<p:inputText value="#{campeonatoMB.campeonato.valorTaxa}"
-									     required="true" label="Taxa de inscrição" />
-	
-							<p:outputLabel for="sexo" value="Sexo: *" />
-							<p:selectOneMenu id="sexo" value="#{categoriaMB.categoria.sexo}">
-								<f:selectItem itemLabel="Selecione..." noSelectionOption="true" />
-								<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
-								<f:selectItem itemLabel="Feminino" itemValue="Feminino" />
-							</p:selectOneMenu>
-							
-							<h:outputText value="Nascidos a partir do ano: *" />
-							<p:inputText value="#{categoriaMB.categoria.nascidosApartirDe}" required="true"
-									   	 label="Ano de nascimento" maxlength="4" maxvalue="99" />
-						</h:panelGrid>
-					</p:panel>
-				</p:tab>				
-				<p:tab title="Definição de equipe">
-					<p:panel>
-						<p:messages />
-						<h:panelGrid columns="2" columnClasses="label, value">						   	 
-							<h:outputText value="Quantidade mínima de jogadores: *" />
-							<p:inputText value="#{categoriaMB.categoria.minJogadores}"
-									  	 required="true" label="Quantidade mínima de jogadores"  />
+<h:body>
+	<h:form id="formCategoria">
+		<p:panel>
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputText value="Nome: *" />
+				<p:inputText value="#{campeonatoMB.categoria.nome}"
+					label="Nome Completo" />
 
-							<h:outputText value="Quantidade máxima de jogadores: *" />
-							<p:inputText value="#{categoriaMB.categoria.maxJogadores}" label="Quantidade máxima de jogadores" required="true" />
+				<h:outputText value="Taxa de inscrição: *" />
+				<p:inputText value="#{campeonatoMB.campeonato.valorTaxa}"
+					label="Taxa de inscrição" />
 
-							<h:outputText value="Quantidade mínima de times por categoria: *" />
-							<p:inputText value="#{categoriaMB.categoria.quantidadeMinimaTimes}" label="Quantidade mínima de times" required="true" />
-						</h:panelGrid>
-						 <p:commandButton value="Submit" actionListener="#{userWizard.save}" style="float: right;" update="growl" process="@this"/>
-					</p:panel>
-				</p:tab>
-			</p:wizard>
-		</h:form>
-	</h:body>
+				<p:outputLabel for="sexo" value="Sexo: *" />
+				<p:selectOneMenu id="sexo" value="#{campeonatoMB.categoria.sexo}">
+					<f:selectItem itemLabel="Selecione..." noSelectionOption="true" />
+					<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+					<f:selectItem itemLabel="Feminino" itemValue="Feminino" />
+				</p:selectOneMenu>
+
+				<h:outputText value="Nascidos a partir do ano: *" />
+				<p:inputText value="#{campeonatoMB.categoria.nascidosApartirDe}"
+					required="true" label="Ano de nascimento" maxlength="4"
+					maxvalue="99" />
+
+				<h:outputText value="Quantidade mínima de jogadores: *" />
+				<p:inputText value="#{campeonatoMB.categoria.minJogadores}"
+					label="Quantidade mínima de jogadores" />
+
+				<h:outputText value="Quantidade máxima de jogadores: *" />
+				<p:inputText value="#{campeonatoMB.categoria.maxJogadores}"
+					label="Quantidade máxima de jogadores" />
+
+				<h:outputText value="Quantidade mínima de times por categoria: *" />
+				<p:inputText value="#{campeonatoMB.categoria.quantidadeMinimaTimes}"
+					label="Quantidade mínima de times" />
+
+				<h:commandButton value="Salvar"
+					actionListener="#{campeonatoMB.salvarCategoria()}"
+					style="background-color: #fff;" icon="ui-icon-check" />
+			</h:panelGrid>
+		</p:panel>
+	</h:form>
+</h:body>
 
 </h:html>
 
