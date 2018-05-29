@@ -32,19 +32,19 @@
 			<p:growl id="growl" sticky="true" showDetail="true" />
 
 			<p:wizard flowListener="#{campeonatoMB.onFlowProcess}">
-				<p:tab id="dados" title="Dados Iniciais">
+				<p:tab id="dados" title="#{msg['pages.cadastroUsuario.header1']}">
 					<p:panel>
 						<p:messages />
 						<h:panelGrid columns="2" columnClasses="label, value" style="margin-bottom: -85px;">
 
-							<h:outputText value="Nome do Campeonato: *" />
+							<h:outputText value="#{msg['Nome_Campeonato']}: *" />
 							<p:inputText value="#{campeonatoMB.campeonato.nome}"
 								required="true" label="Nome do Campeonato" />
 								
 							<h:outputText value="Local: *" />
 							<p:commandButton value=" + " type="button" onclick="PF('local').show();" style="background-color: #fff;" />
 
-							<p:dialog header="Defina um local" widgetVar="local" modal="true" width="400">
+							<p:dialog header="#{msg['Defina_um_local']}" widgetVar="local" modal="true" width="400">
 							  		<ui:include src="./cadastroLocais.xhtml"></ui:include>								  		
 							</p:dialog>
 							
@@ -54,7 +54,7 @@
 							<h:outputText value="" />
 							<p:dataTable var="loc" style="width: 21%"
 								value="#{campeonatoMB.campeonato.locais}">
-								<p:column headerText="Endereço(s)">
+								<p:column headerText="#{msg['Enderecos']}">
 									<h:outputText value="#{loc.endereco}" />
 								</p:column>
 							</p:dataTable>	
@@ -63,16 +63,16 @@
 					</p:panel>
 				</p:tab>
 
-				<p:tab id="periodo" title="Período de Inscrição">
+				<p:tab id="periodo" title="#{msg['periodo_inscricao']}">
 					<p:panel>
 						<p:messages />
 						<h:panelGrid columns="2" columnClasses="label, value">
 
-							<h:outputText value="Data inicial: *" />
+							<h:outputText value="#{msg['data_inicial']}: *" />
 							<p:calendar value="#{campeonatoMB.campeonato.dataInicioInscricao}"
 								pattern="dd/MM/yyyy" label="Data inicial" mask="true" required="true"/>
 
-							<h:outputText value="Data final: *" />
+							<h:outputText value="#{msg['data_final']}: *" />
 							<p:calendar value="#{campeonatoMB.campeonato.dataFimInscricao}"
 								pattern="dd/MM/yyyy" label="Data final" mask="true" required="true" />
 
@@ -80,15 +80,15 @@
 					</p:panel>
 				</p:tab>
 				
-				<p:tab id="info" title="Informações finais">
+				<p:tab id="info" title="#{msg['informacao_final']}">
 					<p:panel>
 						<p:messages />
 						<h:panelGrid columns="2" columnClasses="label, value" style="margin-bottom: -85px;">
 						
-							<h:outputText value="Categoria: *" />
+							<h:outputText value="#{msg['categoria']}: *" />
 							<p:commandButton value=" + " type="button" onclick="PF('categoria').show();" style="background-color: #fff;" />
 
-							<p:dialog header="Defina uma categoria" widgetVar="categoria" modal="true" style="width: 100%">
+							<p:dialog header="#{msg['definar_categoria']}" widgetVar="categoria" modal="true" style="width: 100%">
 							  		<ui:include src="./cadastroCategoria.xhtml"></ui:include>								  		
 							</p:dialog>
 
@@ -98,7 +98,7 @@
 							<h:outputText value="" />
 							<p:dataTable var="cat" style="width: 21%"
 								value="#{campeonatoMB.campeonato.categorias}">
-								<p:column headerText="Categoria(s)">
+								<p:column headerText="#{msg['categoria']}">
 									<h:outputText value="#{cat.categoria}" />
 								</p:column>
 							</p:dataTable>	
@@ -115,9 +115,3 @@
 
 	</ui:define>
 </ui:composition>
-
-
-
-
-
-

@@ -34,7 +34,7 @@
 						<p:outputLabel for="loc" value="Local: " />
 						<p:inputText id="loc" value="#{campeonatoMB.local.endereco}" required="true"></p:inputText>
 						
-						<p:commandButton value="Salvar"
+						<p:commandButton value="#{msg['salvar']}"
 							actionListener="#{campeonatoMB.salvarLocal}" style="background-color: #fff;" update="panel"
 							icon="ui-icon-check" />
 					</h:panelGrid>

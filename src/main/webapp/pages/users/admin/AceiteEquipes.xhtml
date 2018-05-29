@@ -64,21 +64,21 @@ form {
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="time" value="Time: " />
 					<p:selectOneMenu id="time" value="0" style="width:150px">
-						<f:selectItem itemLabel="Selecione" itemValue=""
+						<f:selectItem itemLabel="#{msg['Selecione']}" itemValue=""
 							noSelectionOption="true" />
 						<f:selectItems value="#{dropdownView.pendentes}" />
 					</p:selectOneMenu>
 
-					<p:outputLabel for="city" value="Usuario: " />
+					<p:outputLabel for="city" value="#{msg['Usuario']}: " />
 					<p:selectOneMenu id="city" value="#{dropdownView.city}"
 						style="width:150px">
-						<f:selectItem itemLabel="Selecione" itemValue=""
+						<f:selectItem itemLabel="#{msg['Selecione']}" itemValue=""
 							noSelectionOption="true" />
 						<f:selectItems value="#{dropdownView.cities}" />
 					</p:selectOneMenu>
 
 				</h:panelGrid>
-				<p:commandButton value="Atualizar" update="msgs"
+				<p:commandButton value="#{msg['Atualizar']}" update="msgs"
 					actionListener="#{dropdownView.displayLocation}"
 					icon="ui-icon-check" />
 			</p:panel>
@@ -90,23 +90,23 @@ form {
 						name="imagens/user.png" />
 				</f:facet>
 
-				<h:outputText value="Nome:" />
+				<h:outputText value="#{msg['pages.cadastroUsuario.nome']}:" />
 				<h:outputText value="xxxxxxx" />
 
-				<h:outputText value="CPF: " />
+				<h:outputText value="#{msg['pages.cadastroUsuario.cpf']}: " />
 				<h:outputText value="xxx.xxx.xxx-xx" />
 
-				<h:outputText value="Tipo:" />
+				<h:outputText value="#{msg['pages.cadastroUsuario.tipo']}:" />
 				<h:outputText value="xxxxxxx" />
 
-				<h:outputText value="Equipe:" />
+				<h:outputText value="#{msg['Equipe']}:" />
 				<h:outputText value="xxxxxxx" />
 
-				<p:button value="Aceitar" icon="ui-icon-check">
+				<p:button value="#{msg['Aceitar']}" icon="ui-icon-check">
 					<f:param name="productId" value="10" />
 				</p:button>
 
-				<p:button value="Recusar" icon="ui-icon-closethick">
+				<p:button value="#{msg['Recusar']}" icon="ui-icon-closethick">
 					<f:param name="productId" value="10" />
 				</p:button>
 
