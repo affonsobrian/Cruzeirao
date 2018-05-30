@@ -13,7 +13,7 @@ import sistema.service.UsuarioService;
 public class AceiteMB {
 	
 	private UsuarioService service = new UsuarioService();
-	private Usuario currentaceite;
+	private Usuario currentaceite = service.getAceiteList().size() != 0 ? service.getAceiteList().get(0) : new Usuario();
 	
 	public Usuario getCurrentaceite() {
 		return currentaceite;
@@ -36,6 +36,10 @@ public class AceiteMB {
 	}
 	
 	public void aceitarUsuario() {
-		
+		this.service.aceitarUsuario(currentaceite);
+	}
+	
+	public void recusarUsuasio() {
+		this.service.recusarUsuario(currentaceite);
 	}
 }

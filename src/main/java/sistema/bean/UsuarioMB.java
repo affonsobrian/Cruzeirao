@@ -89,14 +89,7 @@ public class UsuarioMB {
 	public void validate() throws IOException {
 
 		Usuario u = this.service.validate(this.usuario);
-		if (u == null) {
-			if (FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage() == "pt")
-				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Usuário ou senha incorreto!"));
-			else
-				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Warn", "User or password is incorrect!"));
-		} else {
+		if (u != null) {
 			this.usuario = u;
 			service.redirect(this.usuario);
 		}

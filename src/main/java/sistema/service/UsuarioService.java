@@ -1,8 +1,10 @@
 package sistema.service;
 
 import java.io.IOException;
+import java.security.Provider.Service;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -43,16 +45,36 @@ public class UsuarioService {
 	}
 	
 	public Usuario validate(Usuario usuario) throws IOException {
-				
+		boolean validated = false;				
 		for (Usuario u : this.getUsuarios()) {
-			if(u.getSenha().equals(usuario.getSenha()))
-			{			
-				System.out.println("Logging in");
-				return u;
+			if(u.getEmail().equals(usuario.getEmail()) && u.getSenha().equals(usuario.getSenha()))
+			{
+				validated = true;
+				if(u.isAceite()) {
+					System.out.println("Logging in");
+					return u;
+				}
+				else
+				{
+					if (FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage() == "pt")
+						FacesContext.getCurrentInstance().addMessage(null,
+								new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Usuário precisa ser validado!"));
+					else
+						FacesContext.getCurrentInstance().addMessage(null,
+								new FacesMessage(FacesMessage.SEVERITY_ERROR, "Warn", "User needs validation!"));
+				}
 			}
 		}
 		System.out.println("Failed Logging in");
-		return usuario;
+		if(!validated) {
+			if (FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage() == "pt")
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Usuário ou senha incorreto!"));
+			else
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Warn", "User or password is incorrect!"));
+		}
+		return null;
 	}
 	
 	public void redirect(Usuario usuario) throws IOException {
@@ -105,9 +127,33 @@ public class UsuarioService {
 	
 	public void aceitarUsuario(Usuario u) {
 		try {
-			this.getAceiteList().stream().filter(x -> x.getCodUsuario() == u.getCodUsuario()).findFirst().get().setAceite(true);
+			for(Usuario x : this.getAceiteList()) {
+				if(x.getCodUsuario() == u.getCodUsuario()) {
+					System.out.println("Aeeeeee");
+					System.out.println(u.isAceite());
+					u.setAceite(true);
+					System.out.println(u.isAceite());
+					break;
+				}
+			}
+			System.out.println(u.isAceite());
+			this.alterar(u);
 		}catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erro ao fazer aceite!"));
+			if(FacesContext.getCurrentInstance().getViewRoot().getLocale() == Locale.ENGLISH)
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error on validation!"));
+			else
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erro ao fazer aceite!"));
+		}
+	}
+	
+	public void recusarUsuario(Usuario u) {
+		try {
+			this.remove(u);
+		}catch (Exception e) {
+			if(FacesContext.getCurrentInstance().getViewRoot().getLocale() == Locale.ENGLISH)
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error on validation!"));
+			else
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erro ao fazer aceite!"));
 		}
 	}
 }
