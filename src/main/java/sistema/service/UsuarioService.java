@@ -1,11 +1,14 @@
 package sistema.service;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 import sistema.dao.UsuarioDAO;
+import sistema.models.Tipo;
 import sistema.models.Usuario;
 
 public class UsuarioService {
@@ -14,6 +17,8 @@ public class UsuarioService {
 
 	public Usuario salvar(Usuario usuario) {
 		System.out.println("Saving user...");
+		if(usuario.getTipo() == Tipo.Admin || usuario.getTipo() == Tipo.Organizador)
+			usuario.setAceite(false);
 		usuario = usuarioDAO.save(usuario);
 		usuarioDAO.closeEntityManager();
 		System.out.println("User saved successfully");
@@ -86,6 +91,23 @@ public class UsuarioService {
 				break;
 		}
 	}
-	
 
+	public List<Usuario> getAceiteList() {
+		
+		List<Usuario> aceites = new ArrayList<Usuario>();
+		for(Usuario u : this.usuarioDAO.getAll(Usuario.class)) {
+			if(!u.isAceite())
+				aceites.add(u);
+		}
+		return aceites;
+		
+	}
+	
+	public void aceitarUsuario(Usuario u) {
+		try {
+			this.getAceiteList().stream().filter(x -> x.getCodUsuario() == u.getCodUsuario()).findFirst().get().setAceite(true);
+		}catch (Exception e) {
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erro ao fazer aceite!"));
+		}
+	}
 }

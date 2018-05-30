@@ -32,7 +32,6 @@ public class UsuarioMB {
 	}
 
 	public Usuario getUsuario() {
-		//this.usuario = current.getCurrentUser();
 		return this.usuario;
 	}
 
@@ -59,14 +58,14 @@ public class UsuarioMB {
 
 	public void save() {
 		System.out.println("Sending request...");
-		usuario = service.salvar(usuario);
+		this.usuario = service.salvar(this.usuario);
 		System.out.println("Success!");
 
-		if (usuario != null)
-			usuarios.add(usuario);
+		if (this.usuario != null)
+			this.usuarios.add(this.usuario);
 
-		usuario = new Usuario();
-
+		this.usuario = new Usuario();
+		System.out.println(this.usuario);
 	}
 
 	public String onFlowProcess(FlowEvent event) {
@@ -90,7 +89,7 @@ public class UsuarioMB {
 	public void validate() throws IOException {
 
 		Usuario u = this.service.validate(this.usuario);
-		if (u.equals(this.usuario)) {
+		if (u == null) {
 			if (FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage() == "pt")
 				FacesContext.getCurrentInstance().addMessage(null,
 						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Usuário ou senha incorreto!"));
@@ -123,7 +122,10 @@ public class UsuarioMB {
 	
 	public String logout() throws IOException {
 		this.usuario = new Usuario();
+		System.out.println(this.usuario);
 		FacesContext.getCurrentInstance().getExternalContext().redirect("./index.xhtml");
-		return "redirecting...";
+		return "sohvai";
 	}
+	
+
 }
