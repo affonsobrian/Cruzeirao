@@ -10,7 +10,7 @@ public class Local {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int codLocal;
 	@Column(nullable = false)
-	String endereco;
+	private String endereco;
 	//TODO Checar se está coreto
 	@ManyToMany(mappedBy = "locais")
 	private List<Campeonato> campeonatos;
