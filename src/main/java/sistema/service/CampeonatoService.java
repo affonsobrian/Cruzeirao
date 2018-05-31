@@ -11,10 +11,8 @@ public class CampeonatoService {
 	
 	public Campeonato salvar(Campeonato campeonato)
 	{
-		System.out.println("Saving user...");
 		campeonato = (Campeonato) campeonatoDAO.save(campeonato);
 		campeonatoDAO.closeEntityManager();
-		System.out.println("User saved successfully");
 		return campeonato;
 	}
 	

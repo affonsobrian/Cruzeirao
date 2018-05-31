@@ -20,7 +20,7 @@ public class CampeonatoMB {
 	private Campeonato campeonato = new Campeonato();
 	private Local local = new Local();
 	private Categoria categoria = new Categoria();
-	private CampeonatoService campeonatoService;
+	private CampeonatoService campeonatoService = new CampeonatoService();
 	
 	//Getters and Setters
 	public Campeonato getCampeonato() {
@@ -87,8 +87,6 @@ public class CampeonatoMB {
 	}
 	
 	public void salvarCampeonato() {	
-		System.out.println("Campeonato: \n");
-		System.out.println(this.getCampeonato());
 		this.campeonatoService.salvar(this.getCampeonato());
 		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso! O campeonato foi criado", null);
 		FacesContext.getCurrentInstance().addMessage(null, msg);
