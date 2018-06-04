@@ -33,26 +33,26 @@
 			</h:head>
 			<!-- MegaMenu -->
 			<p:megaMenu orientation="horizontal" style="margin-top:-8px; background: white;">
-				<p:menuitem value="Home" url="./indexJuiz.xhtml"/>
+				<p:menuitem value="#{msg['pages.Menus.home']}" url="./indexJuiz.xhtml"/>
 				
-				<p:submenu label="Campeonatos">
+				<p:submenu label="#{msg['pages.Menus.campeonatos']}">
 					<p:column style="background: white;">
-					<p:submenu label="Campeonatos">
+					<p:submenu label="#{msg['pages.Menus.campeonatos']}">
 							<p:menuitem value="Adicionar Partida" url="./cadastroPartida.xhtml" />
 						</p:submenu>
 					</p:column>
 				</p:submenu>
 
-				<p:submenu label="Partidas">
+				<p:submenu label="#{msg['pages.Menus.partidas']}">
 					<p:column style="background: white;">
-					<p:submenu label="Partidas">
-							<p:menuitem value="Chaveamento" url="./verChaves.xhtml" />
+					<p:submenu label="#{msg['pages.Menus.partidas']}">
+							<p:menuitem value="#{msg['pages.Menus.chaveamento']}" url="./verChaves.xhtml" />
 						</p:submenu>
 					</p:column>
 				</p:submenu>
 				
-				<p:menuitem value="Configurações" url="./info.xhtml"/>
-				<p:menuitem value="Sair" url="./../../logout.xhtml"/>
+				<p:menuitem value="#{msg['pages.Menus.perfil']}" url="./info.xhtml"/>
+				<p:menuitem value="#{msg['pages.Menus.sair']}" url="./../../logout.xhtml"/>
 				
 			</p:megaMenu>
 			

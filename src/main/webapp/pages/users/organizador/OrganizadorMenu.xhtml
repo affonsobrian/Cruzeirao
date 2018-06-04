@@ -33,17 +33,17 @@
 <!-- MegaMenu -->
 <p:megaMenu orientation="horizontal"
 	style="margin-top:-8px; background: white;">
-	<p:menuitem value="Home" url="./indexOrganizador.xhtml"/>
+	<p:menuitem value="#{msg['pages.Menus.home']}" url="./indexOrganizador.xhtml"/>
 
-		<p:submenu label="Equipes">
+		<p:submenu label="#{msg['pages.Menus.equipes']}">
 			<p:column style="background: white;">
-				<p:submenu label="Equipes">
+				<p:submenu label="#{msg['pages.Menus.equipes']}">
 					<p:menuitem value="Aceite de Equipes" url="./indexOrganizador.xhtml" />
 				</p:submenu>
 			</p:column>
 		</p:submenu>
 
-		<p:submenu label="Membros">
+		<p:submenu label="#{msg['pages.Menus.membros']}">
 			<p:column style="background: white;">
 				<p:submenu label="Membros da equipe">
 					<p:menuitem value="Aceite de Membros" url="./usuarios.xhtml" />
@@ -52,17 +52,17 @@
 			</p:column>
 		</p:submenu>
 
-		<p:submenu label="Campeonatos">
+		<p:submenu label="#{msg['pages.Menus.campeonatos']}">
 			<p:column style="background: white;">
-				<p:submenu label="Campeonatos">
+				<p:submenu label="#{msg['pages.Menus.campeonatos']}">
 					<p:menuitem value="Criar Campeonato" url="./cadastroCampeonato.xhtml" />
 					<p:menuitem value="Grenciar Campeonatos" url="./cadastroCampeonato.xhtml" />
 				</p:submenu>
 			</p:column>
 		</p:submenu>
 		
-		<p:menuitem value="Configurações" url="./info.xhtml"/>
-		<p:menuitem value="Sair" url="./../../logout.xhtml"/>
+		<p:menuitem value="#{msg['pages.Menus.perfil']}" url="./info.xhtml"/>
+		<p:menuitem value="#{msg['pages.Menus.sair']}" url="./../../logout.xhtml"/>
 </p:megaMenu>
 
 </h:html>

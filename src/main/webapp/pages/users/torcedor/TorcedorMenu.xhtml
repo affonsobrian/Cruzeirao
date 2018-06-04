@@ -33,18 +33,18 @@
 <!-- MegaMenu -->
 <p:megaMenu orientation="horizontal"
 	style="margin-top:-8px; background: white;">
-	<p:menuitem value="Home" url="./indexTorcedor.xhtml"/>
+	<p:menuitem value="#{msg['pages.Menus.home']}" url="./indexTorcedor.xhtml"/>
 
-	<p:submenu label="Partidas">
+	<p:submenu label="#{msg['pages.Menus.partidas']}">
 		<p:column style="background: white;">
-			<p:submenu label="Partidas">
-				<p:menuitem value="Chaveamento" url="verChaves.xhtml" />
+			<p:submenu label="#{msg['pages.Menus.partidas']}">
+				<p:menuitem value="#{msg['pages.Menus.chaveamento']}" url="verChaves.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
 	
-	<p:menuitem value="Configurações" url="./info.xhtml"/>
-	<p:menuitem value="Sair" url="./../../logout.xhtml"/>
+	<p:menuitem value="#{msg['pages.Menus.perfil']}" url="./info.xhtml"/>
+	<p:menuitem value="#{msg['pages.Menus.sair']}" url="./../../logout.xhtml"/>
 </p:megaMenu>
 
 </h:html>
