@@ -1,5 +1,6 @@
 package sistema.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -24,7 +25,7 @@ public class Usuario {
     @JoinTable(name="Usuario_Equipe",
     joinColumns = {@JoinColumn(name="CodUsuario")},
     inverseJoinColumns = {@JoinColumn(name="CodEquipe")})
-	private List<Equipe> equipes;
+	private List<Equipe> equipes = new ArrayList<Equipe>();
 	
 	private List<Inscrito> inscricoes;
 	@ManyToMany(mappedBy = "juizes")

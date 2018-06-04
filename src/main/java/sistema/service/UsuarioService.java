@@ -97,7 +97,7 @@ public class UsuarioService {
 				break;
 			case Massagista:
 				System.out.println("Redirecting to Masseur");
-				FacesContext.getCurrentInstance().getExternalContext().redirect("./users/massagista/indexMassagista.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./users/jogador/indexJogador.xhtml");
 				break;
 			case Organizador:
 				System.out.println("Redirecting to Organizer");
