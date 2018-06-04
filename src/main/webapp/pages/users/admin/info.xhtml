@@ -6,67 +6,93 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:ui2="http://java.sun.com/jsf/facelets"
 	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
-	
+
 	<ui:define name="principal">
 
 		<h:head>
 			<style>
-				.ui-datagrid-no-border .ui-datagrid-content { border: none; } 
-				.ui-menu, .ui-menu .ui-menu-child { background: white; }
-				.ui-menu .ui-menu-list .ui-widget-header { background: #1E344B; }
-				.ui-state-default { box-shadow: none; -webkit-box-shadow: none; background-color: #fff; } 
-				.ui-state-highlight, .ui-widget-content .ui-state-highlight { border: 1px solid #156090; background: #186ba0; color: #fff; }
-				.ui-panelgrid .ui-panelgrid-cell { background-color: #fff; padding: 4px 20px; } 
-				tr.ui-widget-content { height: 50px; }
-				td.ui-panelgrid-cell { width: 120px; }
-				form { margin: 0 auto; width: 345px; } 
-			</style>
+.ui-datagrid-no-border .ui-datagrid-content {
+	border: none;
+}
+
+.ui-menu, .ui-menu .ui-menu-child {
+	background: white;
+}
+
+.ui-menu .ui-menu-list .ui-widget-header {
+	background: #1E344B;
+}
+
+.ui-state-default {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+	background-color: #fff;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight {
+	border: 1px solid #156090;
+	background: #186ba0;
+	color: #fff;
+}
+
+.ui-panelgrid .ui-panelgrid-cell {
+	background-color: #fff;
+	padding: 4px 20px;
+}
+
+tr.ui-widget-content {
+	height: 50px;
+}
+
+td.ui-panelgrid-cell {
+	width: 120px;
+}
+
+form {
+	margin: 0 auto;
+	width: 345px;
+}
+</style>
 
 		</h:head>
-		
-		<h:form>		                 	  
-		    <p:panelGrid columns="2">
-			    <f:facet name="header">
-			        <p:graphicImage style="max-width: 150px;" library="sistema" name="imagens/user.png" />
-			    </f:facet>
-			 
-			    <h:outputText value="Nome:" />
-			    <h:outputText value="#{usuarioMB.usuario.nome}" />
-			    
-			    <h:outputText value="CPF: " />
-			    <h:outputText value="#{usuarioMB.usuario.cpf}" />
-			 
-			    <h:outputText value="Tipo:" />
-			    <p:selectOneMenu value="" hideNoSelectionOption="true">
-		            <f:selectItem itemLabel="Selecione..." itemValue="#{null}" noSelectionOption="true" />
-		            <f:selectItem itemLabel="Massagista" itemValue="massagista" />
-		            <f:selectItem itemLabel="Preparador Físico" itemValue="preparadorFisico" />
-		            <f:selectItem itemLabel="Jogador" itemValue="jogador" />
-		            <f:selectItem itemLabel="Técnico" itemValue="tecnico" />
-		            <f:selectItem itemLabel="Diretor" itemValue="diretor" />
-		            <f:selectItem itemLabel="Juiz" itemValue="juiz" />
-		            <f:selectItem itemLabel="Organizador" itemValue="organizador" />
-		            <f:selectItem itemLabel="Admin" itemValue="admin" />
-		        </p:selectOneMenu>
-			 
-			   <h:outputText value="Equipe:" />
-			   <p:selectOneMenu value="" style="width:80%" hideNoSelectionOption="true">
-		            <f:selectItem itemLabel="Selecione..." itemValue="#{null}" noSelectionOption="true" />
-		            <f:selectItem itemLabel="Sou Paulo FC" itemValue="souPaulo" />
-		            <f:selectItem itemLabel="Sou Douglas FC" itemValue="souDouglas" />
-		            <f:selectItem itemLabel="Parmerinha FC" itemValue="parmerinha" />
-		            <f:selectItem itemLabel="Vai Curintia FC" itemValue="vaiCurintia" />
-		            <f:selectItem itemLabel="Marrone FC" itemValue="diretor" />
-		        </p:selectOneMenu>
+
+		<h:form id="infoForm">
+
+			<p:growl id="msgs" showDetail="true" />
+
+			<p:panelGrid columns="2">
+
+				<f:facet name="header">
+					<p:graphicImage style="max-width: 150px;" library="sistema"
+						name="imagens/user.png" />
+				</f:facet>
+
+				<h:outputText value="Nome:" />
+				<h:outputText value="#{usuarioMB.usuario.nome}" />
+
+				<h:outputText value="CPF: " />
+				<h:outputText value="#{usuarioMB.usuario.cpf}" />
+				
+				<h:outputText value="RG: " />
+				<h:outputText value="#{usuarioMB.usuario.rg}" />
+				
+				<h:outputText value="Telefone Fixo: " />
+				<h:outputText value="#{usuarioMB.usuario.telefoneFixo}" />
+				
+				<h:outputText value="Telefone Móvel: " />
+				<h:outputText value="#{usuarioMB.usuario.telefoneMovel}" />
+				
+				<h:outputText value="Endereço: " />
+				<h:outputText value="#{usuarioMB.usuario.endereco}" />
+
+				<h:outputText value="Tipo:" />
+				<h:outputText value="#{usuarioMB.usuario.tipo}" />
+
+				<h:outputText value="Equipes:" />
+				<h:outputText value="#{usuarioMB.usuario.equipes}" />
 
 			</p:panelGrid>
 		</h:form>
-		   	   
+
 	</ui:define>
 </ui:composition>
-
-
-
-
-
-

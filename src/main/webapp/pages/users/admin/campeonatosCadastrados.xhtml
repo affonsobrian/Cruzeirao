@@ -1,0 +1,36 @@
+<ui:composition template="./indexAdmin.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
+
+	<ui:define name="principal">
+
+			<p:dataTable var="time" value="#{dtBasicView.time}">
+				<p:column headerText="Colocação">
+					<h:outputText value="#{time.id}" />
+				</p:column>
+
+				<p:column headerText="Time">
+					<h:outputText value="#{time.name}" />
+				</p:column>
+
+				<p:column headerText="Vitorias">
+					<h:outputText value="#{time.vitorias}" />
+				</p:column>
+
+				<p:column headerText="Derrotas">
+					<h:outputText value="#{tiem.derrotas}" />
+				</p:column>
+				
+				<p:column headerText="Pontuação">
+					<h:outputText value="#{tiem.derrotas}" />
+				</p:column>
+			
+			</p:dataTable>
+
+	</ui:define>
+</ui:composition>

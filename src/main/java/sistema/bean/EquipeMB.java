@@ -7,7 +7,10 @@ import javax.faces.context.FacesContext;
 
 import org.primefaces.event.FlowEvent;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+
 import sistema.models.Equipe;
 import sistema.models.Tipo;
 import sistema.models.Usuario;
@@ -18,8 +21,8 @@ import sistema.service.EquipeService;
 public class EquipeMB {
 
 	private Equipe equipe = new Equipe();
-	private List<Equipe> equipes;
-	private List<Usuario> jogadoresSelecionados;
+	private List<Equipe> equipes = new ArrayList<Equipe>();
+	private List<Usuario> jogadoresSelecionados = new ArrayList<Usuario>();
 	private EquipeService equipeService = new EquipeService();
 
 	// Getters and Setters
@@ -79,14 +82,16 @@ public class EquipeMB {
 	// Service communication
 	public void salvar() {
 		
-		if (equipe.equals(null))
+		if (equipe == null)
 			System.out.println("A equipe é um objeto inválido.");
 		else {
 			equipes.add(equipe);
 			equipeService.salvar(equipe);
-
-			FacesMessage msg = new FacesMessage("Equipe" + equipe.getNome() + "cadastrada com sucesso!");
-			FacesContext.getCurrentInstance().addMessage(null, msg);
+			
+			if(FacesContext.getCurrentInstance().getViewRoot().getLocale() == Locale.ENGLISH)
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Team " + equipe.getNome() + " successfully subscribed!"));
+			else
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Equipe " + equipe.getNome() + " cadastrada com sucesso!"));
 
 			equipe = new Equipe();
 		}

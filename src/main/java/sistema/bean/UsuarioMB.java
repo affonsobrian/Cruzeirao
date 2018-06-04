@@ -99,10 +99,8 @@ public class UsuarioMB {
 		service.getUsuarios()
 		.stream()
 		.filter(usuario -> usuario.getTipo() == Tipo.Jogador)
-		.forEach(usuario -> {
-			this.jogadores = null;
-			
-			if (!usuario.equals(null))
+		.forEach(usuario -> {			
+			if (usuario != null)
 				this.jogadores.add(usuario);
 		});
 		

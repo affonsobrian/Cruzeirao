@@ -38,8 +38,7 @@
 	<p:submenu label="#{msg['pages.Menus.usuarios']}" icon="ui-icon-note">
 		<p:column style="background: white;">
 			<p:submenu label="#{msg['pages.Menus.usuarios']}">
-				<p:menuitem value="#{msg['pages.users.admin.adminMenu.usuarios.criar']}" url="./cadastroUsuario.xhtml" />
-				<p:menuitem value="#{msg['pages.users.admin.adminMenu.usuarios.inscritos']}" url="./info.xhtml" />
+				<p:menuitem value="#{msg['pages.users.admin.adminMenu.usuarios.inscritos']}" url="./usuariosCadastrados.xhtml" />
 				<p:menuitem value="#{msg['pages.users.admin.adminMenu.usuarios.aceite']}" url="./AceiteUsuarios.xhtml" />
 			</p:submenu>
 		</p:column>
@@ -49,7 +48,7 @@
 		<p:column style="background: white;">
 			<p:submenu label="#{msg['pages.Menus.equipes']}">
 				<p:menuitem value="#{msg['pages.users.admin.adminMenu.times.inscricao']}" url="./cadastroEquipes.xhtml" />
-				<p:menuitem value="#{msg['pages.users.admin.adminMenu.times.incritas']}" url="../../tabelas/equipes.xhtml" />
+				<p:menuitem value="#{msg['pages.users.admin.adminMenu.times.incritas']}" url="./equipesCadastradas.xhtml" />
 				<p:menuitem value="#{msg['pages.users.admin.adminMenu.times.escalar']}" url="./registroIntegrantesEquipe.xhtml" />
 				<p:menuitem value="#{msg['pages.users.admin.adminMenu.times.aceite']}" url="./AceiteEquipes.xhtml" />
 			</p:submenu>
@@ -62,7 +61,7 @@
 				<p:menuitem value="#{msg['pages.users.admin.adminMenu.campeonatos.criar']}"
 					url="./cadastroCampeonato.xhtml" />
 				<p:menuitem value="#{msg['pages.users.admin.adminMenu.campeonatos.criados']}"
-					url="./cadastroCampeonato.xhtml" />
+					url="./campeonatosCadastrados.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
