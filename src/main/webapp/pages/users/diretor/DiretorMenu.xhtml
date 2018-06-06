@@ -33,9 +33,9 @@
 <!-- MegaMenu -->
 <p:megaMenu orientation="horizontal"
 	style="margin-top:-8px; background: white;">
-	<p:menuitem value="#{msg['pages.Menus.home']}" url="./indexDiretor.xhtml"	icon="ui-icon-home" />
+	<p:menuitem value="#{msg['pages.Menus.home']}" url="./indexDiretor.xhtml"/>
 
-	<p:submenu label="#{msg['pages.users.diretor.diretorMenu.inscricao']}" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.users.diretor.diretorMenu.inscricao']}">
 		<p:column style="background: white;">
 			<p:submenu label="#{msg['pages.users.diretor.diretorMenu.inscricao']}">
 				<p:menuitem value="#{msg['pages.users.diretor.diretorMenu.inscricao.campeonato']}"
@@ -44,7 +44,7 @@
 		</p:column>
 	</p:submenu>
 
-	<p:submenu label="#{msg['pages.users.diretor.diretorMenu.membros']}" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.users.diretor.diretorMenu.membros']}">
 		<p:column style="background: white;">
 			<p:submenu label="#{msg['pages.users.diretor.diretorMenu.membros']}">
 				<p:menuitem value="#{msg['pages.users.diretor.diretorMenu.membros.aceite']}" url="./AceiteUsuarios.xhtml" />
@@ -52,7 +52,7 @@
 		</p:column>
 	</p:submenu>
 	
-	<p:submenu label="#{msg['pages.users.diretor.diretorMenu.partidas']}" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.users.diretor.diretorMenu.partidas']}">
 		<p:column style="background: white;">
 			<p:submenu label="#{msg['pages.users.diretor.diretorMenu.partidas']}">
 				<p:menuitem value="#{msg['pages.users.diretor.diretorMenu.partidas.chaveamento']}" url="./verChaves.xhtml" />
@@ -60,8 +60,8 @@
 		</p:column>
 	</p:submenu>
 	
-	<p:menuitem value="#{msg['pages.Menus.perfil']}" url="./info.xhtml" icon="ui-icon-home" />
-	<p:menuitem value="#{msg['pages.Menus.sair']}" url="./../../logout.xhtml" icon="ui-icon-home" />
+	<p:menuitem value="#{msg['pages.Menus.perfil']}" url="./info.xhtml"/>
+	<p:menuitem value="#{msg['pages.Menus.sair']}" url="./../../logout.xhtml"/>
 
 </p:megaMenu>
 

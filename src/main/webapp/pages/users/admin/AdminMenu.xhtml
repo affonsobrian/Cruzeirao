@@ -33,9 +33,9 @@
 <!-- MegaMenu -->
 <p:megaMenu orientation="horizontal"
 	style="margin-top:-8px; background: white;">
-	<p:menuitem value="#{msg['pages.Menus.home']}" url="./indexAdmin.xhtml" icon="ui-icon-home" />
+	<p:menuitem value="#{msg['pages.Menus.home']}" url="./indexAdmin.xhtml" />
 
-	<p:submenu label="#{msg['pages.Menus.usuarios']}" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.Menus.usuarios']}">
 		<p:column style="background: white;">
 			<p:submenu label="#{msg['pages.Menus.usuarios']}">
 				<p:menuitem value="#{msg['pages.users.admin.adminMenu.usuarios.inscritos']}" url="./usuariosCadastrados.xhtml" />
@@ -44,7 +44,7 @@
 		</p:column>
 	</p:submenu>
 
-	<p:submenu label="#{msg['pages.Menus.equipes']}" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.Menus.equipes']}">
 		<p:column style="background: white;">
 			<p:submenu label="#{msg['pages.Menus.equipes']}">
 				<p:menuitem value="#{msg['pages.users.admin.adminMenu.times.inscricao']}" url="./cadastroEquipes.xhtml" />
@@ -55,7 +55,7 @@
 		</p:column>
 	</p:submenu>
 
-	<p:submenu label="#{msg['pages.Menus.campeonatos']}" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.Menus.campeonatos']}">
 		<p:column style="background: white;">
 			<p:submenu label="#{msg['pages.Menus.campeonatos']}">
 				<p:menuitem value="#{msg['pages.users.admin.adminMenu.campeonatos.criar']}"
@@ -66,7 +66,7 @@
 		</p:column>
 	</p:submenu>
 
-	<p:submenu label="#{msg['pages.Menus.partidas']}" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.Menus.partidas']}">
 		<p:column style="background: white;">
 			<p:submenu label="#{msg['pages.Menus.partidas']}">
 				<p:menuitem value="#{msg['pages.users.admin.adminMenu.partidas.adicionar']}" url="./cadastroPartida.xhtml" />
@@ -76,7 +76,7 @@
 		</p:column>
 	</p:submenu>
 
-	<p:submenu label="#{msg['pages.Menus.chaveamento']}" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.Menus.chaveamento']}">
 		<p:column style="background: white;">
 			<p:submenu label="#{msg['pages.Menus.chaveamento']}">
 				<p:menuitem value="#{msg['pages.users.admin.adminMenu.chaves.criar']}" url="./criarChaves.xhtml" />
@@ -85,8 +85,8 @@
 		</p:column>
 	</p:submenu>
 	
-	<p:menuitem value="#{msg['pages.Menus.perfil']}" url="./info.xhtml" icon="ui-icon-home" />
-	<p:menuitem value="#{msg['pages.Menus.sair']}" url="./../../logout.xhtml" icon="ui-icon-home" />
+	<p:menuitem value="#{msg['pages.Menus.perfil']}" url="./info.xhtml"/>
+	<p:menuitem value="#{msg['pages.Menus.sair']}" url="./../../logout.xhtml"/>
 </p:megaMenu>
 
 </h:html>

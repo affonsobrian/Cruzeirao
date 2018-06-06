@@ -33,11 +33,10 @@
 <!-- MegaMenu -->
 <p:megaMenu orientation="horizontal"
 	style="margin-top:-8px; background: white;">
-	<p:menuitem value="Home" url="./indexTecnico.xhtml"
-		icon="ui-icon-home" />
+	<p:menuitem value="#{msg['pages.Menus.home']}" url="./indexTecnico.xhtml"/>
 
 
-	<p:submenu label="Incrição" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.Menus.inscricoes']}">
 		<p:column style="background: white;">
 			<p:submenu label="Campeonatos">
 				<p:menuitem value="Inscrição em Equipe"
@@ -47,16 +46,16 @@
 		</p:column>
 	</p:submenu>
 
-		<p:submenu label="Partidas" icon="ui-icon-note">
+		<p:submenu label="#{msg['pages.Menus.partidas']}">
 			<p:column style="background: white;">
 				<p:submenu label="Partidas">
-					<p:menuitem value="Chaveamento" url="./verChaves.xhtml" />
+					<p:menuitem value="#{msg['pages.Menus.chaveamento']}" url="./verChaves.xhtml" />
 				</p:submenu>
 			</p:column>
 		</p:submenu>
 		
-		<p:menuitem value="Configurações" url="./info.xhtml" icon="ui-icon-home" />
-		<p:menuitem value="Sair" url="./../../logout.xhtml" icon="ui-icon-home" />
+		<p:menuitem value="#{msg['pages.Menus.perfil']}" url="./info.xhtml"/>
+		<p:menuitem value="#{msg['pages.Menus.sair']}" url="./../../logout.xhtml"/>
 </p:megaMenu>
 
 </h:html>
