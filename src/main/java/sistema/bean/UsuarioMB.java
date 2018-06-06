@@ -10,6 +10,7 @@ import org.primefaces.event.RowEditEvent;
 import org.primefaces.model.UploadedFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import sistema.models.Tipo;
@@ -23,7 +24,7 @@ public class UsuarioMB {
 
 	private Usuario usuario = new Usuario();
 	private List<Usuario> usuarios;
-	private List<Usuario> jogadores;
+	private List<Usuario> jogadores = new ArrayList<Usuario>();
 	private UsuarioService service = new UsuarioService();
 	private CurrentUserService current = new CurrentUserService();
 	private UploadedFile file;
@@ -110,10 +111,8 @@ public class UsuarioMB {
 		.stream()
 		.filter(usuario -> usuario.getTipo() == Tipo.Jogador)
 		.forEach(usuario -> {
-			this.jogadores = null;
-			
-			if (!usuario.equals(null))
-				this.jogadores.add(usuario);
+
+			this.jogadores.add(usuario);
 		});
 		
 		return this.jogadores;

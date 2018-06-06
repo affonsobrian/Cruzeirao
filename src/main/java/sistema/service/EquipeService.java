@@ -11,11 +11,9 @@ public class EquipeService {
 	EquipeDAO equipeDAO = new EquipeDAO();
 
 	public Equipe salvar(Equipe equipe) {
-		System.out.println("Saving team...");
 		equipe = equipeDAO.save(equipe);
 		equipeDAO.closeEntityManager();
-		System.out.println("Team saved successfully");
-
+		
 		return equipe;
 	}
 

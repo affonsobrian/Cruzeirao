@@ -1,5 +1,8 @@
 package sistema.bean;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -30,6 +33,10 @@ public class CampeonatoMB {
 	public void setCampeonato(Campeonato campeonato) {
 		this.campeonato = campeonato;
 	}
+	
+	public List<Campeonato> buscaCampeonatos() {
+		return campeonatoService.getCampeonatos();
+	}
 
 	public Local getLocal() {
 		return local;
@@ -38,7 +45,7 @@ public class CampeonatoMB {
 	public void setLocal(Local local) {
 		this.local = local;
 	}
-	
+
 	public Categoria getCategoria() {
 		return categoria;
 	}
@@ -91,6 +98,10 @@ public class CampeonatoMB {
 		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso! O campeonato foi criado", null);
 		FacesContext.getCurrentInstance().addMessage(null, msg);
 		campeonato = new Campeonato();
+	}
+	
+	public void removerCampeonato(Campeonato campeonato) {
+		this.campeonatoService.remove(campeonato);
 	}
 
 	// Wizard manipulation

@@ -1,17 +1,20 @@
-<h:html
+<ui:composition template="./indexOrganizador.xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui2="http://java.sun.com/jsf/facelets">
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
 	
+	<ui:define name="principal">
+
 		<h:head>
 			<style>
 				.ui-datagrid-no-border .ui-datagrid-content { border: none; } 
 				.ui-menu, .ui-menu .ui-menu-child { background: white; }
 				.ui-menu .ui-menu-list .ui-widget-header { background: #1E344B; }
-				tr { height: 40px; }
+				 tr { height: 40px; }
 				.ui-state-default { box-shadow: none; -webkit-box-shadow: none; } 
 				.ui-panel .ui-panel-content { font-size: 16px; }
 				.ui-widget-header { color: white; font-weight: 100; }
@@ -24,20 +27,35 @@
 				.ui-megamenu .ui-widget-header span { color: #fff; font-weight: normal; text-shadow: none; }
 			</style>
 		</h:head>
-
-		<h:body>
-			<p:panel id="panel">
-				<h:panelGrid columns="2" cellpadding="5">
-					<p:outputLabel for="loc" value="Local: " />
-					<p:inputText id="loc" value="#{campeonatoMB.local.endereco}"></p:inputText>
 		
-					<h:commandButton value="Salvar"
-						actionListener="#{campeonatoMB.salvarLocal()}"
-						style="background-color: #fff;" icon="ui-icon-check" />
-				</h:panelGrid>
-			</p:panel>
-		</h:body>
-</h:html>
+		<h:form>
+			<p:dataTable id="basicDT" var="car" value="#{dtSelectionView.cars1}">
+				<f:facet name="header">Campeonato(s)</f:facet>
+				<p:column headerText="Id">
+					<h:outputText value="#{car.id}" />
+				</p:column>
+				<p:column headerText="Year">
+					<h:outputText value="#{car.year}" />
+				</p:column>
+				<p:column headerText="Brand">
+					<h:outputText value="#{car.brand}" />
+				</p:column>
+				<p:column headerText="Color">
+					<h:outputText value="#{car.color}" />
+				</p:column>
+				<p:column style="width:32px;text-align: center">
+					<p:commandButton update=":form:carDetail"
+						oncomplete="PF('carDialog').show()" icon="ui-icon-search"
+						title="View">
+						<f:setPropertyActionListener value="#{car}"
+							target="#{dtSelectionView.selectedCar}" />
+					</p:commandButton>
+				</p:column>
+			</p:dataTable>
+		</h:form>
+		   	   
+	</ui:define>
+</ui:composition>
 
 
 

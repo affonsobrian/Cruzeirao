@@ -14,7 +14,7 @@
 			<br />
 			<ui:insert name="principal" />
 
-			<p:dataTable var="equipe" value="#{equipeMB.equipes}">
+			<p:dataTable var="equipe" value="#{equipeMB.buscaEquipes()}">
 				<p:column headerText="Nome">
 					<h:outputText value="#{equipe.nome}" />
 				</p:column>
@@ -26,10 +26,6 @@
 				</p:column>
 
 				<p:column headerText="Cidade">
-					<h:outputText value="#{equipe.cidade}" />
-				</p:column>
-
-				<p:column headerText="Integrantes">
 					<h:outputText value="#{equipe.cidade}" />
 				</p:column>
 
