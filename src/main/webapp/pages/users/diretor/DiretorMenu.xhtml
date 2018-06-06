@@ -33,35 +33,35 @@
 <!-- MegaMenu -->
 <p:megaMenu orientation="horizontal"
 	style="margin-top:-8px; background: white;">
-	<p:menuitem value="Home" url="./indexDiretor.xhtml"	icon="ui-icon-home" />
+	<p:menuitem value="#{msg['pages.Menus.home']}" url="./indexDiretor.xhtml"	icon="ui-icon-home" />
 
-	<p:submenu label="Inscrição" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.users.diretor.diretorMenu.inscricao']}" icon="ui-icon-note">
 		<p:column style="background: white;">
-			<p:submenu label="Equipe">
-				<p:menuitem value="Inscrição em campeonato"
+			<p:submenu label="#{msg['pages.users.diretor.diretorMenu.inscricao']}">
+				<p:menuitem value="#{msg['pages.users.diretor.diretorMenu.inscricao.campeonato']}"
 					url="./cadastroEquipes.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
 
-	<p:submenu label="Membros" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.users.diretor.diretorMenu.membros']}" icon="ui-icon-note">
 		<p:column style="background: white;">
-			<p:submenu label="Membros da equipe">
-				<p:menuitem value="Aceite de Membros" url="./AceiteUsuarios.xhtml" />
+			<p:submenu label="#{msg['pages.users.diretor.diretorMenu.membros']}">
+				<p:menuitem value="#{msg['pages.users.diretor.diretorMenu.membros.aceite']}" url="./AceiteUsuarios.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
 	
-	<p:submenu label="Partidas" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.users.diretor.diretorMenu.partidas']}" icon="ui-icon-note">
 		<p:column style="background: white;">
-			<p:submenu label="Partidas">
-				<p:menuitem value="Chaveamento" url="./verChaves.xhtml" />
+			<p:submenu label="#{msg['pages.users.diretor.diretorMenu.partidas']}">
+				<p:menuitem value="#{msg['pages.users.diretor.diretorMenu.partidas.chaveamento']}" url="./verChaves.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
 	
-	<p:menuitem value="Configurações" url="./info.xhtml" icon="ui-icon-home" />
-	<p:menuitem value="Sair" url="./../../index.xhtml" icon="ui-icon-home" />
+	<p:menuitem value="#{msg['pages.Menus.perfil']}" url="./info.xhtml" icon="ui-icon-home" />
+	<p:menuitem value="#{msg['pages.Menus.sair']}" url="./../../logout.xhtml" icon="ui-icon-home" />
 
 </p:megaMenu>
 
