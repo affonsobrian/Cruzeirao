@@ -1,5 +1,6 @@
 package sistema.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -15,19 +16,21 @@ public class Categoria {
 	@Column(nullable = false)
 	private int nascidosApartirDe;
 	
-	//TODO Cheacar se estpa correto
+	//TODO Cheacar se está correto
 	@OneToMany(mappedBy = "categoria")
-	private List<Inscricao> incricoes;
+	private List<Inscricao> incricoes = new ArrayList<Inscricao>();
 	
 	//TODO Checar se está correto
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="CodCampeonato")
-	private Campeonato campeonato;
+	private Campeonato campeonato = new Campeonato();
 	
 	//TODO Checar se está correto
 	@OneToMany(mappedBy = "categoria")
-	private List<Fase> fases;
+	private List<Fase> fases = new ArrayList<Fase>();
 	
+	@Column(nullable = false)
+	private int quantidadeMinimaTimes;
 	@Column(nullable = false)
 	private int minJogadores;
 	@Column(nullable = false)
@@ -40,7 +43,7 @@ public class Categoria {
 	}
 	
 	public Categoria(String nome, int nascidosApartirDe, List<Inscricao> incricoes, Campeonato campeonato,
-			List<Fase> fases, int minJogadores, int maxJogadores, Sexo sexo) {
+			List<Fase> fases, int minJogadores, int maxJogadores, Sexo sexo, int quantidadeMinimaTimes) {
 		super();
 		this.nome = nome;
 		this.nascidosApartirDe = nascidosApartirDe;
@@ -50,9 +53,8 @@ public class Categoria {
 		this.minJogadores = minJogadores;
 		this.maxJogadores = maxJogadores;
 		this.sexo = sexo;
+		this.quantidadeMinimaTimes = quantidadeMinimaTimes;
 	}
-
-
 	
 	public int getCodCategoria() {
 		return codCategoria;
@@ -60,6 +62,14 @@ public class Categoria {
 
 	public void setCodCategoria(int codCategoria) {
 		this.codCategoria = codCategoria;
+	}
+	
+	public int getQuantidadeMinimaTimes() {
+		return quantidadeMinimaTimes;
+	}
+
+	public void setQuantidadeMinimaTimes(int quantidadeMinimaTimes) {
+		this.quantidadeMinimaTimes = quantidadeMinimaTimes;
 	}
 
 	public String getNome() {

@@ -7,6 +7,7 @@ import javax.faces.context.FacesContext;
 
 import org.primefaces.event.FlowEvent;
 
+import java.util.ArrayList;
 import java.util.List;
 import sistema.models.Equipe;
 import sistema.models.Tipo;
@@ -18,7 +19,7 @@ import sistema.service.EquipeService;
 public class EquipeMB {
 
 	private Equipe equipe = new Equipe();
-	private List<Equipe> equipes;
+	private List<Usuario> jogadoresSelecionados = new ArrayList<Usuario>();
 	private EquipeService equipeService = new EquipeService();
 
 	// Getters and Setters
@@ -27,7 +28,7 @@ public class EquipeMB {
 	}
 
 	public Equipe getEquipeById(int timeId) {
-		Equipe equipe = (Equipe) this.getEquipes().get(timeId);
+		Equipe equipe = (Equipe) this.buscaEquipes().get(timeId);
 
 		return equipe;
 	}
@@ -35,7 +36,7 @@ public class EquipeMB {
 	public void setEquipe(Equipe equipe) {
 		boolean nomeExiste = false;
 
-		for (Equipe t : this.getEquipes()) {
+		for (Equipe t : this.buscaEquipes()) {
 			if (t.getNome().equals(equipe.getNome()))
 				nomeExiste = true;
 		}
@@ -54,12 +55,19 @@ public class EquipeMB {
 		}
 	}
 
-	public List<Equipe> getEquipes() {
-		return equipes;
+	public List<Equipe> buscaEquipes() {
+		return equipeService.getEquipes();
 	}
 
-	public void setEquipes(List<Equipe> equipes) {
-		this.equipes = equipes;
+	public List<Usuario> getJogadoresSelecionados() {
+		return jogadoresSelecionados;
+	}
+
+	public void setJogadoresSelecionados(List<Usuario> jogadoresSelecionados) {
+		
+		System.out.println(jogadoresSelecionados);
+		
+		this.jogadoresSelecionados = jogadoresSelecionados;
 	}
 
 	// Wizard manipulation
@@ -69,18 +77,28 @@ public class EquipeMB {
 
 	// Service communication
 	public void salvar() {
-		if (!equipe.equals(null)) {
+		
+		if (equipe == null)
+			System.out.println("A equipe é um objeto inválido.");
+		else {
 			equipeService.salvar(equipe);
-			equipes.add(equipe);
-			
-			FacesMessage msg = new FacesMessage("Equipe" + equipe.getNome() + "cadastrada com sucesso!");
-	        FacesContext.getCurrentInstance().addMessage(null, msg);
+
+			FacesMessage msg = new FacesMessage("Equipe " + equipe.getNome() + " cadastrada com sucesso!");
+			FacesContext.getCurrentInstance().addMessage(null, msg);
 			
 			equipe = new Equipe();
 		}
 	}
-	
+
 	public void remover() {
 		equipeService.remover(equipe);
+	}
+	
+	public void registrarIntegrantesEquipe(){
+		if(equipe != null && jogadoresSelecionados != null) {
+			
+			equipe.setUsuarios(jogadoresSelecionados);
+			equipeService.alterar(equipe);
+		}
 	}
 }

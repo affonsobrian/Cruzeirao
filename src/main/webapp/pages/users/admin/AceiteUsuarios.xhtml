@@ -8,12 +8,12 @@
 	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
 
 	<ui:define name="principal">
-
 		<h:head>
 			<style>
 .ui-datagrid-no-border .ui-datagrid-content {
 	border: none;
 }
+
 
 .ui-menu, .ui-menu .ui-menu-child {
 	background: white;
@@ -62,14 +62,14 @@ form {
 
 			<p:panel style="margin-bottom:10px;">
 				<h:panelGrid columns="2" cellpadding="5">
-					<p:outputLabel for="user" value="Usuario: " />
+					<p:outputLabel for="user" value="#{msg['Usuario']}: " />
 					<p:selectOneMenu id="user" value="0" style="width:150px">
-						<f:selectItem itemLabel="Selecione" itemValue=""
+						<f:selectItem itemLabel="#{msg['Selecione']}" itemValue=""
 							noSelectionOption="true" />
 						<f:selectItems value="#{dropdownView.pendentes}" />
 					</p:selectOneMenu>
 				</h:panelGrid>
-				<p:commandButton value="Atualizar" update="msgs"
+				<p:commandButton value="#{msg['Atualizar']}" update="msgs"
 					actionListener="#{dropdownView.displayLocation}"
 					icon="ui-icon-check" />
 			</p:panel>
@@ -80,24 +80,23 @@ form {
 					<p:graphicImage style="max-width: 150px;" library="sistema"
 						name="imagens/user.png" />
 				</f:facet>
-
-				<h:outputText value="Nome:" />
+				<h:outputText value="#{msg['pages.cadastroUsuario.nome']}:" />
 				<h:outputText value="xxxxxxx" />
 
-				<h:outputText value="CPF: " />
+				<h:outputText value="#{msg['pages.cadastroUsuario.cpf']}: " />
 				<h:outputText value="xxx.xxx.xxx-xx" />
 
-				<h:outputText value="Tipo:" />
+				<h:outputText value="#{msg['pages.cadastroUsuario.tipo']}:" />
 				<h:outputText value="xxxxxxx" />
 
-				<h:outputText value="Equipe:" />
+				<h:outputText value="#{msg['Equipe']}:" />
 				<h:outputText value="xxxxxxx" />
 
-				<p:button value="Aceitar" icon="ui-icon-check">
+				<p:button value="#{msg['Aceitar']}" icon="ui-icon-check">
 					<f:param name="productId" value="10" />
 				</p:button>
 
-				<p:button value="Recusar" icon="ui-icon-closethick">
+				<p:button value="#{msg['Recusar']}" icon="ui-icon-closethick">
 					<f:param name="productId" value="10" />
 				</p:button>
 
