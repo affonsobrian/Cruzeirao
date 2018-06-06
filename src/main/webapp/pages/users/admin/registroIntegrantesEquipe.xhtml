@@ -22,7 +22,7 @@
 						converter="equipeConverter" style="width: 190px;" required="true">
 						<f:selectItem itemLabel="Selecione..." itemValue=""
 							noSelectionOption="true" />
-						<f:selectItems value="#{equipeMB.equipes}" var="equipe"
+						<f:selectItems value="#{equipeMB.buscaEquipes()}" var="equipe"
 							itemLabel="#{equipe.nome}" itemValue="#{equipe}" />
 					</p:selectOneMenu>
 				</p:panelGrid>
@@ -35,7 +35,7 @@
 						value="#{equipeMB.jogadoresSelecionados}"
 						converter="usuarioConverter" var="u" filter="true"
 						filterMatchMode="contains" showCheckbox="true">
-						<f:selectItems value="#{usuarioMB.usuarios}" var="jogador"
+						<f:selectItems value="#{usuarioMB.jogadores}" var="jogador"
 							itemLabel="#{jogador.nome}" itemValue="#{jogador}" required="true" />
 						<p:column>
 							<h:outputText styleClass="ui-theme ui-theme-#{u.nome}" />
@@ -47,7 +47,7 @@
 					</p:selectManyMenu>
 				</h:panelGrid>
 
-				<p:commandButton value="Salvar" />
+				<h:commandButton value="Salvar" actionListener="#{equipeMB.registrarIntegrantesEquipe()}" />
 
 			</h:form>
 		</h:body>

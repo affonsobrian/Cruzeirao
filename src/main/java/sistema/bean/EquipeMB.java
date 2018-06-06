@@ -31,7 +31,7 @@ public class EquipeMB {
 	}
 
 	public Equipe getEquipeById(int timeId) {
-		Equipe equipe = (Equipe) this.getEquipes().get(timeId);
+		Equipe equipe = (Equipe) this.buscaEquipes().get(timeId);
 
 		return equipe;
 	}
@@ -39,7 +39,7 @@ public class EquipeMB {
 	public void setEquipe(Equipe equipe) {
 		boolean nomeExiste = false;
 
-		for (Equipe t : this.getEquipes()) {
+		for (Equipe t : this.buscaEquipes()) {
 			if (t.getNome().equals(equipe.getNome()))
 				nomeExiste = true;
 		}
@@ -58,7 +58,7 @@ public class EquipeMB {
 		}
 	}
 
-	public List<Equipe> getEquipes() {
+	public List<Equipe> buscaEquipes() {
 		return equipeService.getEquipes();
 	}
 
@@ -85,7 +85,6 @@ public class EquipeMB {
 		if (equipe == null)
 			System.out.println("A equipe é um objeto inválido.");
 		else {
-			equipes.add(equipe);
 			equipeService.salvar(equipe);
 			
 			if(FacesContext.getCurrentInstance().getViewRoot().getLocale() == Locale.ENGLISH)
@@ -102,7 +101,7 @@ public class EquipeMB {
 	}
 	
 	public void registrarIntegrantesEquipe(){
-		if(!equipe.equals(null) && !jogadoresSelecionados.equals(null)) {
+		if(equipe != null && jogadoresSelecionados != null) {
 			equipe.setUsuarios(jogadoresSelecionados);
 			equipeService.alterar(equipe);
 		}

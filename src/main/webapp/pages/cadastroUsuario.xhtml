@@ -101,11 +101,11 @@
 		                    	<f:selectItem itemValue="Juiz" itemLabel="#{msg['pages.cadastroUsuario.tipo.juiz']}"/>
 		                    	<f:selectItem itemValue="Organizador" itemLabel="#{msg['pages.cadastroUsuario.tipo.organizador']}"/>
 		                    	
-		                    	
+		                  
 		                    </p:selectOneMenu>
 		                    
 		                 	<h:outputText value="#{msg['pages.cadastroUsuario.foto']}: " />
-		                    <p:fileUpload value="#{usuarioMB.file}" mode="simple" skinSimple="true"/>
+		                    <p:fileUpload label="#{msg['pages.cadastroUsuario.foto.ecolher']} " value="#{usuarioMB.file}" mode="simple" skinSimple="true"/>
 		 		            
 		                </h:panelGrid>
 		            </p:panel>

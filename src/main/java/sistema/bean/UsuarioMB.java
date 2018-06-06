@@ -10,6 +10,7 @@ import org.primefaces.event.RowEditEvent;
 import org.primefaces.model.UploadedFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import sistema.models.Tipo;
@@ -22,7 +23,7 @@ public class UsuarioMB {
 
 	private Usuario usuario = new Usuario();
 	private List<Usuario> usuarios;
-	private List<Usuario> jogadores;
+	private List<Usuario> jogadores = new ArrayList<Usuario>();
 	private UsuarioService service = new UsuarioService();
 	private UploadedFile file;
 
@@ -65,7 +66,6 @@ public class UsuarioMB {
 			this.usuarios.add(this.usuario);
 
 		this.usuario = new Usuario();
-		System.out.println(this.usuario);
 	}
 
 	public String onFlowProcess(FlowEvent event) {
