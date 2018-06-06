@@ -29,26 +29,26 @@
 			<p:growl id="growl" sticky="true" showDetail="true" />
 	
 			<p:wizard flowListener="#{categoriaMB.onFlowProcess}">
-				<p:tab title="Informações">
+				<p:tab title="#{msg['informacoes']}">
 					<p:panel>
 						<p:messages />
 						<h:panelGrid columns="2" columnClasses="label, value">
-							<h:outputText value="Nome: *" />
+							<h:outputText value="#{msg['pages.cadastroUsuario.nome']}: *" />
 							<p:inputText value="#{categoriaMB.categoria.nome}" required="true"
 								         label="Nome Completo" />
 								         
-							<h:outputText value="Taxa de inscrição: *" />
+							<h:outputText value="#{msg['taxa_de_inscricao']}: *" />
 							<p:inputText value="#{campeonatoMB.campeonato.valorTaxa}"
 									     required="true" label="Taxa de inscrição" />
 	
-							<p:outputLabel for="sexo" value="Sexo: *" />
+							<p:outputLabel for="sexo" value="#{msg['sexo']}: *" />
 							<p:selectOneMenu id="sexo" value="#{categoriaMB.categoria.sexo}">
-								<f:selectItem itemLabel="Selecione..." noSelectionOption="true" />
-								<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
-								<f:selectItem itemLabel="Feminino" itemValue="Feminino" />
+								<f:selectItem itemLabel="#{msg['Selecione']}..." noSelectionOption="true" />
+								<f:selectItem itemLabel="#{msg['masculino']}" itemValue="Masculino" />
+								<f:selectItem itemLabel="#{msg['feminino']}" itemValue="Feminino" />
 							</p:selectOneMenu>
 							
-							<h:outputText value="Nascidos a partir do ano: *" />
+							<h:outputText value="#{msg['nascido_apartir_do_ano']}: *" />
 							<p:inputText value="#{categoriaMB.categoria.nascidosApartirDe}" required="true"
 									   	 label="Ano de nascimento" maxlength="4" maxvalue="99" />
 						</h:panelGrid>
