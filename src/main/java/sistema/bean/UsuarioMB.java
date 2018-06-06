@@ -15,7 +15,6 @@ import java.util.List;
 
 import sistema.models.Tipo;
 import sistema.models.Usuario;
-import sistema.service.CurrentUserService;
 import sistema.service.UsuarioService;
 
 @ManagedBean
@@ -26,7 +25,6 @@ public class UsuarioMB {
 	private List<Usuario> usuarios;
 	private List<Usuario> jogadores = new ArrayList<Usuario>();
 	private UsuarioService service = new UsuarioService();
-	private CurrentUserService current = new CurrentUserService();
 	private UploadedFile file;
 
 	public void onRowEdition(RowEditEvent event) {
@@ -35,7 +33,6 @@ public class UsuarioMB {
 	}
 
 	public Usuario getUsuario() {
-		this.usuario = current.getCurrentUser();
 		return this.usuario;
 	}
 
