@@ -55,6 +55,8 @@ public class CampeonatoMB {
 	}
 
 	// Service communication
+	
+	// Salvar local
 	public void salvarLocal() {
 		if (this.getLocal().getEndereco() == "") {
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro! O campo de local está inválido.", null);
@@ -68,12 +70,14 @@ public class CampeonatoMB {
 		}
 	}
 
+	// Remover local
 	public void removerLocal(Local local) {
 		if(local.getEndereco() != "") {
 			campeonato.getLocais().remove(local);
 		}
 	}
 	
+	// Salvar categoria
 	public void salvarCategoria() {						
 		if(this.getCategoria().getNome() == "") {
 			FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro! O campo de categoria está inválido.", null);
@@ -87,12 +91,14 @@ public class CampeonatoMB {
 		}
 	}
 	
+	// Salvar categoria
 	public void removerCategoria(Categoria categoria) {
 		if(categoria.getNome() != "") {
 			campeonato.getCategorias().remove(categoria);
 		}
 	}
 	
+	// Salvar campeonato
 	public void salvarCampeonato() {	
 		this.campeonatoService.salvar(this.getCampeonato());
 		FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso! O campeonato foi criado", null);
@@ -100,6 +106,7 @@ public class CampeonatoMB {
 		campeonato = new Campeonato();
 	}
 	
+	// Remover campeonato
 	public void removerCampeonato(Campeonato campeonato) {
 		this.campeonatoService.remove(campeonato);
 	}

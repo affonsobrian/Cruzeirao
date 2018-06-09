@@ -51,6 +51,11 @@
 								<p:column headerText="Endereço(s)">
 									<h:outputText value="#{loc.endereco}" />
 								</p:column>
+								<p:column headerText="Excluir"
+									style="width:50px; text-align: center">
+									<p:commandButton icon="ui-icon-trash" style="height: 30px;"
+										action="#{campeonatoMB.removerLocal(loc)}" />
+								</p:column>
 							</p:dataTable>				
 						</h:panelGrid>
 					</p:panel>
