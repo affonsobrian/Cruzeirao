@@ -1,4 +1,4 @@
-<ui:composition template="./indexDiretor.xhtml"
+<ui:composition template="./indexAdmin.xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -60,6 +60,18 @@ form {
 
 			<p:growl id="msgs" showDetail="true" />
 
+			<p:panel style="margin-bottom:10px;">
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="user" value="Usuario: " />
+				<p:selectOneMenu id="user" converter="usuarioConverter" value="#{aceiteMB.currentaceite}" style="width:150px" filter="true" filterMatchMode="startsWith" effect="fade">
+						<f:selectItems value="#{usuarioMB.usuarios}" var="usuario" id="item" itemLabel="#{usuario.nome}"/>
+					</p:selectOneMenu>
+				</h:panelGrid>
+				<p:commandButton value="Atualizar" update="infoForm"
+					
+					icon="ui-icon-check" />
+			</p:panel>
+
 			<p:panelGrid columns="2">
 
 				<f:facet name="header">
@@ -68,28 +80,28 @@ form {
 				</f:facet>
 
 				<h:outputText value="Nome:" />
-				<h:outputText value="#{usuarioMB.usuario.nome}" />
+				<h:outputText value="#{aceiteMB.currentaceite.nome}" />
 
 				<h:outputText value="CPF: " />
-				<h:outputText value="#{usuarioMB.usuario.cpf}" />
+				<h:outputText value="#{aceiteMB.currentaceite.cpf}" />
 				
 				<h:outputText value="RG: " />
-				<h:outputText value="#{usuarioMB.usuario.rg}" />
+				<h:outputText value="#{aceiteMB.currentaceite.rg}" />
 				
 				<h:outputText value="Telefone Fixo: " />
-				<h:outputText value="#{usuarioMB.usuario.telefoneFixo}" />
+				<h:outputText value="#{aceiteMB.currentaceite.telefoneFixo}" />
 				
 				<h:outputText value="Telefone Móvel: " />
-				<h:outputText value="#{usuarioMB.usuario.telefoneMovel}" />
+				<h:outputText value="#{aceiteMB.currentaceite.telefoneMovel}" />
 				
 				<h:outputText value="Endereço: " />
-				<h:outputText value="#{usuarioMB.usuario.endereco}" />
+				<h:outputText value="#{aceiteMB.currentaceite.endereco}" />
 
 				<h:outputText value="Tipo:" />
-				<h:outputText value="#{usuarioMB.usuario.tipo}" />
+				<h:outputText value="#{aceiteMB.currentaceite.tipo}" />
 
 				<h:outputText value="Equipes:" />
-				<h:outputText value="#{usuarioMB.usuario.equipes}" />
+				<h:outputText value="#{aceiteMB.currentaceite.equipes}" />
 
 			</p:panelGrid>
 		</h:form>

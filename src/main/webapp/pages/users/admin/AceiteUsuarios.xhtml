@@ -56,21 +56,19 @@ form {
 
 		</h:head>
 
-		<h:form>
+		<h:form id="aceiteForm">
 
 			<p:growl id="msgs" showDetail="true" />
 
 			<p:panel style="margin-bottom:10px;">
 				<h:panelGrid columns="2" cellpadding="5">
 					<p:outputLabel for="user" value="Usuario: " />
-					<p:selectOneMenu id="user" value="0" style="width:150px">
-						<f:selectItem itemLabel="Selecione" itemValue=""
-							noSelectionOption="true" />
-						<f:selectItems value="#{dropdownView.pendentes}" />
+				<p:selectOneMenu id="user" converter="usuarioConverter" value="#{aceiteMB.currentaceite}" style="width:150px" filter="true" filterMatchMode="startsWith" effect="fade">
+						<f:selectItems value="#{aceiteMB.aceiteList()}" var="usuario" id="item" itemLabel="#{usuario.nome}"/>
 					</p:selectOneMenu>
 				</h:panelGrid>
-				<p:commandButton value="Atualizar" update="msgs"
-					actionListener="#{dropdownView.displayLocation}"
+				<p:commandButton value="Atualizar" update="aceiteForm"
+					
 					icon="ui-icon-check" />
 			</p:panel>
 
@@ -82,24 +80,20 @@ form {
 				</f:facet>
 
 				<h:outputText value="Nome:" />
-				<h:outputText value="xxxxxxx" />
+				<h:outputText value="#{aceiteMB.currentaceite.nome}" />
 
 				<h:outputText value="CPF: " />
-				<h:outputText value="xxx.xxx.xxx-xx" />
+				<h:outputText value="#{aceiteMB.currentaceite.cpf}" />
 
 				<h:outputText value="Tipo:" />
-				<h:outputText value="xxxxxxx" />
+				<h:outputText value="#{aceiteMB.currentaceite.tipo}" />
 
 				<h:outputText value="Equipe:" />
-				<h:outputText value="xxxxxxx" />
+				<h:outputText value="#{aceiteMB.currentaceite.equipes}" />
 
-				<p:button value="Aceitar" icon="ui-icon-check">
-					<f:param name="productId" value="10" />
-				</p:button>
+				<h:commandButton value="Aceitar" action="#{aceiteMB.aceitarUsuario}" icon="ui-icon-check" />
 
-				<p:button value="Recusar" icon="ui-icon-closethick">
-					<f:param name="productId" value="10" />
-				</p:button>
+				<h:commandButton value="Recusar" action="#{aceiteMB.recusarUsuasio}" icon="ui-icon-closethick" />
 
 			</p:panelGrid>
 		</h:form>

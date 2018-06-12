@@ -33,61 +33,60 @@
 <!-- MegaMenu -->
 <p:megaMenu orientation="horizontal"
 	style="margin-top:-8px; background: white;">
-	<p:menuitem value="Home" url="./indexAdmin.xhtml" icon="ui-icon-home" />
+	<p:menuitem value="#{msg['pages.Menus.home']}" url="./indexAdmin.xhtml" />
 
-	<p:submenu label="Usuarios" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.Menus.usuarios']}">
 		<p:column style="background: white;">
-			<p:submenu label="Usuarios">
-				<p:menuitem value="Criar Usuário" url="./cadastroUsuario.xhtml" />
-				<p:menuitem value="Usuários inscritos" url="./info.xhtml" />
-				<p:menuitem value="Aceite de Usuários" url="./AceiteUsuarios.xhtml" />
+			<p:submenu label="#{msg['pages.Menus.usuarios']}">
+				<p:menuitem value="#{msg['pages.users.admin.adminMenu.usuarios.inscritos']}" url="./usuariosCadastrados.xhtml" />
+				<p:menuitem value="#{msg['pages.users.admin.adminMenu.usuarios.aceite']}" url="./AceiteUsuarios.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
 
-	<p:submenu label="Equipes" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.Menus.equipes']}">
 		<p:column style="background: white;">
-			<p:submenu label="Equipes">
-				<p:menuitem value="Inscrição" url="./cadastroEquipes.xhtml" />
-				<p:menuitem value="Equipes inscritas" url="../../tabelas/equipes.xhtml" />
-				<p:menuitem value="Escalar equipe" url="./registroIntegrantesEquipe.xhtml" />
-				<p:menuitem value="Aceite de Equipes" url="./AceiteEquipes.xhtml" />
+			<p:submenu label="#{msg['pages.Menus.equipes']}">
+				<p:menuitem value="#{msg['pages.users.admin.adminMenu.times.inscricao']}" url="./cadastroEquipes.xhtml" />
+				<p:menuitem value="#{msg['pages.users.admin.adminMenu.times.incritas']}" url="./equipesCadastradas.xhtml" />
+				<p:menuitem value="#{msg['pages.users.admin.adminMenu.times.escalar']}" url="./registroIntegrantesEquipe.xhtml" />
+				<p:menuitem value="#{msg['pages.users.admin.adminMenu.times.aceite']}" url="./AceiteEquipes.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
 
-	<p:submenu label="Campeonatos" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.Menus.campeonatos']}">
 		<p:column style="background: white;">
-			<p:submenu label="Campeonatos">
-				<p:menuitem value="Criar Campeonato"
+			<p:submenu label="#{msg['pages.Menus.campeonatos']}">
+				<p:menuitem value="#{msg['pages.users.admin.adminMenu.campeonatos.criar']}"
 					url="./cadastroCampeonato.xhtml" />
-				<p:menuitem value="Campeonatos Criados"
-					url="./cadastroCampeonato.xhtml" />
+				<p:menuitem value="#{msg['pages.users.admin.adminMenu.campeonatos.criados']}"
+					url="./campeonatosCadastrados.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
 
-	<p:submenu label="Partidas" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.Menus.partidas']}">
 		<p:column style="background: white;">
-			<p:submenu label="Partidas">
-				<p:menuitem value="Adicionar Partida" url="./cadastroPartida.xhtml" />
-				<p:menuitem value="Partidas Adicionadas"
+			<p:submenu label="#{msg['pages.Menus.partidas']}">
+				<p:menuitem value="#{msg['pages.users.admin.adminMenu.partidas.adicionar']}" url="./cadastroPartida.xhtml" />
+				<p:menuitem value="#{msg['pages.users.admin.adminMenu.partidas.adicionadas']}"
 					url="./cadastroPartida.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
 
-	<p:submenu label="Chaveameno" icon="ui-icon-note">
+	<p:submenu label="#{msg['pages.Menus.chaveamento']}">
 		<p:column style="background: white;">
-			<p:submenu label="Partidas">
-				<p:menuitem value="Criar Chaveamento" url="./criarChaves.xhtml" />
-				<p:menuitem value="Editar Chaveamento" url="./verChaves.xhtml" />
+			<p:submenu label="#{msg['pages.Menus.chaveamento']}">
+				<p:menuitem value="#{msg['pages.users.admin.adminMenu.chaves.criar']}" url="./criarChaves.xhtml" />
+				<p:menuitem value="#{msg['pages.users.admin.adminMenu.chaves.editar']}" url="./verChaves.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
 	
-	<p:menuitem value="Configurações" url="./info.xhtml" icon="ui-icon-home" />
-	<p:menuitem value="Sair" url="./../../index.xhtml" icon="ui-icon-home" />
+	<p:menuitem value="#{msg['pages.Menus.perfil']}" url="./info.xhtml"/>
+	<p:menuitem value="#{msg['pages.Menus.sair']}" url="./../../logout.xhtml"/>
 </p:megaMenu>
 
 </h:html>

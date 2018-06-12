@@ -15,7 +15,7 @@ public class EquipeConverter implements Converter {
 	@Override
 	public Object getAsObject(FacesContext fc, UIComponent uic, String value) {
 		if (value != null && value.trim().length() > 0) {
-			for (Equipe equipe : equipeMB.getEquipes()) {
+			for (Equipe equipe : equipeMB.buscaEquipes()) {
 				if (equipe.getNome().equals(value)) {
 					return equipe;
 				}

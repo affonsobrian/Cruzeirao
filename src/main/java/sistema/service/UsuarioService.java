@@ -1,21 +1,26 @@
 package sistema.service;
 
 import java.io.IOException;
+import java.security.Provider.Service;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 import sistema.dao.UsuarioDAO;
-import sistema.models.CurrentUser;
+import sistema.models.Tipo;
 import sistema.models.Usuario;
 
 public class UsuarioService {
 
 	UsuarioDAO usuarioDAO = new UsuarioDAO();
-	CurrentUserService usuarioAtual = new CurrentUserService();
 
 	public Usuario salvar(Usuario usuario) {
 		System.out.println("Saving user...");
+		if(usuario.getTipo() == Tipo.Admin || usuario.getTipo() == Tipo.Organizador)
+			usuario.setAceite(false);
 		usuario = usuarioDAO.save(usuario);
 		usuarioDAO.closeEntityManager();
 		System.out.println("User saved successfully");
@@ -40,17 +45,36 @@ public class UsuarioService {
 	}
 	
 	public Usuario validate(Usuario usuario) throws IOException {
-				
+		boolean validated = false;				
 		for (Usuario u : this.getUsuarios()) {
-			if(u.getSenha().equals(usuario.getSenha()))
-			{			
-				System.out.println("Logging in");
-				this.usuarioAtual.setCurrentUser(new CurrentUser(u));
-				return u;
+			if(u.getEmail().equals(usuario.getEmail()) && u.getSenha().equals(usuario.getSenha()))
+			{
+				validated = true;
+				if(u.isAceite()) {
+					System.out.println("Logging in");
+					return u;
+				}
+				else
+				{
+					if (FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage() == "pt")
+						FacesContext.getCurrentInstance().addMessage(null,
+								new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Usuário precisa ser validado!"));
+					else
+						FacesContext.getCurrentInstance().addMessage(null,
+								new FacesMessage(FacesMessage.SEVERITY_ERROR, "Warn", "User needs validation!"));
+				}
 			}
 		}
 		System.out.println("Failed Logging in");
-		return usuario;
+		if(!validated) {
+			if (FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage() == "pt")
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Usuário ou senha incorreto!"));
+			else
+				FacesContext.getCurrentInstance().addMessage(null,
+						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Warn", "User or password is incorrect!"));
+		}
+		return null;
 	}
 	
 	public void redirect(Usuario usuario) throws IOException {
@@ -73,7 +97,7 @@ public class UsuarioService {
 				break;
 			case Massagista:
 				System.out.println("Redirecting to Masseur");
-				FacesContext.getCurrentInstance().getExternalContext().redirect("./users/massagista/indexMassagista.xhtml");
+				FacesContext.getCurrentInstance().getExternalContext().redirect("./users/jogador/indexJogador.xhtml");
 				break;
 			case Organizador:
 				System.out.println("Redirecting to Organizer");
@@ -90,4 +114,46 @@ public class UsuarioService {
 		}
 	}
 
+	public List<Usuario> getAceiteList() {
+		
+		List<Usuario> aceites = new ArrayList<Usuario>();
+		for(Usuario u : this.usuarioDAO.getAll(Usuario.class)) {
+			if(!u.isAceite())
+				aceites.add(u);
+		}
+		return aceites;
+		
+	}
+	
+	public void aceitarUsuario(Usuario u) {
+		try {
+			for(Usuario x : this.getAceiteList()) {
+				if(x.getCodUsuario() == u.getCodUsuario()) {
+					System.out.println("Aeeeeee");
+					System.out.println(u.isAceite());
+					u.setAceite(true);
+					System.out.println(u.isAceite());
+					break;
+				}
+			}
+			System.out.println(u.isAceite());
+			this.alterar(u);
+		}catch (Exception e) {
+			if(FacesContext.getCurrentInstance().getViewRoot().getLocale() == Locale.ENGLISH)
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error on validation!"));
+			else
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erro ao fazer aceite!"));
+		}
+	}
+	
+	public void recusarUsuario(Usuario u) {
+		try {
+			this.remove(u);
+		}catch (Exception e) {
+			if(FacesContext.getCurrentInstance().getViewRoot().getLocale() == Locale.ENGLISH)
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Error on validation!"));
+			else
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Erro ao fazer aceite!"));
+		}
+	}
 }

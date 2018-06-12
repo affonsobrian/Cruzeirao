@@ -22,24 +22,29 @@
 	color: white;
 	font-weight: 100;
 }
+
+.ui-megamenu .ui-widget-header span {
+	color: #fff;
+	font-weight: normal;
+	text-shadow: none;
+}
 </style>
 </h:head>
 <!-- MegaMenu -->
 <p:megaMenu orientation="horizontal"
 	style="margin-top:-8px; background: white;">
-	<p:menuitem value="Home" url="./indexTorcedor.xhtml"
-		icon="ui-icon-home" />
+	<p:menuitem value="Home" url="./indexTorcedor.xhtml"/>
 
-	<p:submenu label="Partidas" icon="ui-icon-note">
+	<p:submenu label="Partidas">
 		<p:column style="background: white;">
-			<p:submenu label="Partidas">
-				<p:menuitem value="Chaveamento" url="verChaves.xhtml" />
+			<p:submenu label="#{msg['pages.users.diretor.diretorMenu.partidas']}">
+				<p:menuitem value="#{msg['pages.Menus.chaveamento']}" url="verChaves.xhtml" />
 			</p:submenu>
 		</p:column>
 	</p:submenu>
 	
-	<p:menuitem value="Configurações" url="./info.xhtml" icon="ui-icon-home" />
-	<p:menuitem value="Sair" url="./../../index.xhtml" icon="ui-icon-home" />
+	<p:menuitem value="#{msg['pages.Menus.menu']}" url="./info.xhtml"/>
+	<p:menuitem value="#{msg['pages.Menus.sair']}" url="./../../logout.xhtml"/>
 </p:megaMenu>
 
 </h:html>

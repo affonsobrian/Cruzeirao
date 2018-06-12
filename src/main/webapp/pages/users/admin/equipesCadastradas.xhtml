@@ -1,20 +1,14 @@
-<h:html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition template="./indexAdmin.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui" lang="#{localeBean.language}">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui2="http://java.sun.com/jsf/facelets"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
 
-<f:view locale="#{localeBean.locale}">
-	<h:body>
-		<p:layout>
-			<ui:include src="../layout/banner.xhtml"></ui:include>
-
-			<ui:include src="../layout/menus/AdminMenu.xhtml"></ui:include>
-
-			<br />
-			<ui:insert name="principal" />
-
-			<p:dataTable var="equipe" value="#{equipeMB.buscaEquipes()}">
+	<ui:define name="principal">
+			<p:dataTable var="equipe" value="#{equipeMB.equipes}">
 				<p:column headerText="Nome">
 					<h:outputText value="#{equipe.nome}" />
 				</p:column>
@@ -29,9 +23,10 @@
 					<h:outputText value="#{equipe.cidade}" />
 				</p:column>
 
-			</p:dataTable>
+				<p:column headerText="Integrantes">
+					<h:outputText value="#{equipe.cidade}" />
+				</p:column>
 
-		</p:layout>
-	</h:body>
-</f:view>
-</h:html>
+			</p:dataTable>
+	</ui:define>
+</ui:composition>

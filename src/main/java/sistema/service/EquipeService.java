@@ -11,11 +11,9 @@ public class EquipeService {
 	EquipeDAO equipeDAO = new EquipeDAO();
 
 	public Equipe salvar(Equipe equipe) {
-		System.out.println("Saving team...");
 		equipe = equipeDAO.save(equipe);
 		equipeDAO.closeEntityManager();
-		System.out.println("Team saved successfully");
-
+		
 		return equipe;
 	}
 
@@ -35,9 +33,5 @@ public class EquipeService {
 		equipe = equipeDAO.getById(Equipe.class, equipe.getCodEquipe());
 		equipeDAO.remove(equipe);
 		equipeDAO.closeEntityManager();
-	}
-	
-	public void registrarIntegranteEquipe(Equipe equipe, List<Usuario> jogadores) {
-		//TODO: Implementar DAO para salvar na entidade de relacionamento de jogador/equipe
 	}
 }

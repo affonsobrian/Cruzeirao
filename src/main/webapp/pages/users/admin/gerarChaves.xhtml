@@ -1,4 +1,4 @@
-<ui:composition template="./indexMassagista.xhtml"
+<ui:composition template="./indexAdmin.xhtml"
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -28,7 +28,21 @@
 			</style>
 		</h:head>
 		
-		<h:form>
+		<h:form id="gerarChaves">
+
+			<p:growl id="msgs" showDetail="true" />
+
+			<p:panel style="margin-bottom:10px;">
+				<h:panelGrid columns="2" cellpadding="5">
+					<p:outputLabel for="user" value="Usuario: " />
+				<p:selectOneMenu id="user" converter="usuarioConverter" value="#{aceiteMB.currentaceite}" style="width:150px" filter="true" filterMatchMode="startsWith" effect="fade">
+						<f:selectItems value="#{chaveamentoMB.campeonatos()}" var="campeonato" id="item" itemLabel="#{campeonato}"/>
+					</p:selectOneMenu>
+				</h:panelGrid>
+				<p:commandButton value="Atualizar" update="gerarChaves"
+					
+					icon="ui-icon-check" />
+			</p:panel>
 			<h1 style="margin-top: 0">Chaveamento</h1>
 			<p:tree value="#{treeBasicView.root}" var="node"
 				orientation="horizontal">

@@ -2,7 +2,7 @@ package sistema.bean;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import org.primefaces.event.FlowEvent;
@@ -10,22 +10,21 @@ import org.primefaces.event.RowEditEvent;
 import org.primefaces.model.UploadedFile;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import sistema.models.Tipo;
 import sistema.models.Usuario;
-import sistema.service.CurrentUserService;
 import sistema.service.UsuarioService;
 
 @ManagedBean
-@ViewScoped
+@SessionScoped
 public class UsuarioMB {
 
 	private Usuario usuario = new Usuario();
 	private List<Usuario> usuarios;
-	private List<Usuario> jogadores;
+	private List<Usuario> jogadores = new ArrayList<Usuario>();
 	private UsuarioService service = new UsuarioService();
-	private CurrentUserService current = new CurrentUserService();
 	private UploadedFile file;
 
 	public void onRowEdition(RowEditEvent event) {
@@ -34,7 +33,6 @@ public class UsuarioMB {
 	}
 
 	public Usuario getUsuario() {
-		this.usuario = current.getCurrentUser();
 		return this.usuario;
 	}
 
@@ -61,14 +59,13 @@ public class UsuarioMB {
 
 	public void save() {
 		System.out.println("Sending request...");
-		usuario = service.salvar(usuario);
+		this.usuario = service.salvar(this.usuario);
 		System.out.println("Success!");
 
-		if (usuario != null)
-			usuarios.add(usuario);
+		if (this.usuario != null)
+			this.usuarios.add(this.usuario);
 
-		usuario = new Usuario();
-
+		this.usuario = new Usuario();
 	}
 
 	public String onFlowProcess(FlowEvent event) {
@@ -92,14 +89,7 @@ public class UsuarioMB {
 	public void validate() throws IOException {
 
 		Usuario u = this.service.validate(this.usuario);
-		if (u.equals(this.usuario)) {
-			if (FacesContext.getCurrentInstance().getViewRoot().getLocale().getLanguage() == "pt")
-				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Usuário ou senha incorreto!"));
-			else
-				FacesContext.getCurrentInstance().addMessage(null,
-						new FacesMessage(FacesMessage.SEVERITY_ERROR, "Warn", "User or password is incorrect!"));
-		} else {
+		if (u != null) {
 			this.usuario = u;
 			service.redirect(this.usuario);
 		}
@@ -109,10 +99,8 @@ public class UsuarioMB {
 		service.getUsuarios()
 		.stream()
 		.filter(usuario -> usuario.getTipo() == Tipo.Jogador)
-		.forEach(usuario -> {
-			this.jogadores = null;
-			
-			if (!usuario.equals(null))
+		.forEach(usuario -> {			
+			if (usuario != null)
 				this.jogadores.add(usuario);
 		});
 		
@@ -122,4 +110,13 @@ public class UsuarioMB {
 	public void setJogadores(List<Usuario> jogadores) {
 		this.jogadores = jogadores;
 	}
+	
+	public String logout() throws IOException {
+		this.usuario = new Usuario();
+		System.out.println(this.usuario);
+		FacesContext.getCurrentInstance().getExternalContext().redirect("./index.xhtml");
+		return "sohvai";
+	}
+	
+
 }

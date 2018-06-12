@@ -1,5 +1,6 @@
 package sistema.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
@@ -24,7 +25,7 @@ public class Usuario {
     @JoinTable(name="Usuario_Equipe",
     joinColumns = {@JoinColumn(name="CodUsuario")},
     inverseJoinColumns = {@JoinColumn(name="CodEquipe")})
-	private List<Equipe> equipes;
+	private List<Equipe> equipes = new ArrayList<Equipe>();
 	
 	private List<Inscrito> inscricoes;
 	@ManyToMany(mappedBy = "juizes")
@@ -40,13 +41,14 @@ public class Usuario {
 	private String cref;
 	private Sexo sexo;
 	private Byte[] foto;
+	private boolean aceite = true;
 	
 	//Constutores
 	public Usuario() {
 	}
 	public Usuario(String email, String nome, Date dataNascimento, List<Equipe> equipes, List<Inscrito> inscricoes,
 			List<Campeonato> campeonatos, Tipo tipo, String telefoneFixo, String telefoneMovel, String endereco,
-			String rg, String cpf, String cref, Sexo sexo, Byte[] foto) {
+			String rg, String cpf, String cref, Sexo sexo, Byte[] foto, boolean aceite) {
 		super();
 		this.email = email;
 		this.nome = nome;
@@ -63,6 +65,7 @@ public class Usuario {
 		this.cref = cref;
 		this.sexo = sexo;
 		this.foto = foto;
+		this.aceite = aceite;
 	}
 	
 	//Getters and Setters
@@ -165,7 +168,12 @@ public class Usuario {
 	public void setFoto(Byte [] foto) {
 		this.foto = foto;
 	}
-	
+	public boolean isAceite() {
+		return aceite;
+	}
+	public void setAceite(boolean aceite) {
+		this.aceite = aceite;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -212,7 +220,7 @@ public class Usuario {
 				+ ", dataNascimento=" + dataNascimento + ", equipes=" + equipes + ", inscricoes=" + inscricoes
 				+ ", campeonatos=" + campeonatos + ", tipo=" + tipo + ", telefoneFixo=" + telefoneFixo
 				+ ", telefoneMovel=" + telefoneMovel + ", endereco=" + endereco + ", rg=" + rg + ", cpf=" + cpf
-				+ ", cref=" + cref + ", sexo=" + sexo + ", foto=" + foto + "]";
+				+ ", cref=" + cref + ", sexo=" + sexo + ", foto=" + foto + "aceite=" + aceite +"]";
 	}
 	
 }

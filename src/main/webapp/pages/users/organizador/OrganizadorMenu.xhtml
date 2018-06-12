@@ -22,42 +22,47 @@
 	color: white;
 	font-weight: 100;
 }
+
+.ui-megamenu .ui-widget-header span {
+	color: #fff;
+	font-weight: normal;
+	text-shadow: none;
+}
 </style>
 </h:head>
 <!-- MegaMenu -->
 <p:megaMenu orientation="horizontal"
 	style="margin-top:-8px; background: white;">
-	<p:menuitem value="Home" url="./indexOrganizador.xhtml"
-		icon="ui-icon-home" />
+	<p:menuitem value="#{msg['pages.Menus.home']}" url="./indexOrganizador.xhtml"/>
 
-		<p:submenu label="Equipes" icon="ui-icon-note">
+		<p:submenu label="#{msg['pages.Menus.equipes']}">
 			<p:column style="background: white;">
-				<p:submenu label="Equipes">
+				<p:submenu label="#{msg['pages.Menus.equipes']}">
 					<p:menuitem value="Aceite de Equipes" url="./indexOrganizador.xhtml" />
 				</p:submenu>
 			</p:column>
 		</p:submenu>
 
-		<p:submenu label="Membros" icon="ui-icon-note">
+		<p:submenu label="#{msg['pages.Menus.membros']}">
 			<p:column style="background: white;">
 				<p:submenu label="Membros da equipe">
 					<p:menuitem value="Aceite de Membros" url="./usuarios.xhtml" />
-					<p:menuitem value="Campeonatos Criados"	url="./cadastroCampeonato.xhtml" />
+					<p:menuitem value="Campeonatos Criados"	url="./verCampeonatos.xhtml" />
 				</p:submenu>
 			</p:column>
 		</p:submenu>
 
-		<p:submenu label="Campeonatos" icon="ui-icon-note">
+		<p:submenu label="#{msg['pages.Menus.campeonatos']}">
 			<p:column style="background: white;">
-				<p:submenu label="Campeonatos">
+				<p:submenu label="#{msg['pages.Menus.campeonatos']}">
 					<p:menuitem value="Criar Campeonato" url="./cadastroCampeonato.xhtml" />
 					<p:menuitem value="Grenciar Campeonatos" url="./cadastroCampeonato.xhtml" />
 				</p:submenu>
 			</p:column>
 		</p:submenu>
 		
-		<p:menuitem value="Configurações" url="./info.xhtml" icon="ui-icon-home" />
-		<p:menuitem value="Sair" url="./../../index.xhtml" icon="ui-icon-home" />
+		<p:menuitem value="#{msg['pages.Menus.perfil']}" url="./info.xhtml"/>
+		<p:menuitem value="#{msg['pages.Menus.sair']}" url="./../../logout.xhtml"/>
 </p:megaMenu>
 
 </h:html>

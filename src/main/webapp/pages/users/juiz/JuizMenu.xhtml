@@ -6,34 +6,53 @@
 	lang="#{localeBean.language}">
 			
 			<h:head>
-				<style> .ui-datagrid-no-border .ui-datagrid-content { border: none; } 
-						.ui-menu, .ui-menu .ui-menu-child { background: white; }
-						.ui-menu .ui-menu-list .ui-widget-header { background: #1E344B; }
-						.ui-widget-header { color: white; font-weight: 100; }
+				<style> 
+.ui-datagrid-no-border .ui-datagrid-content {
+	border: none;
+}
+
+.ui-menu, .ui-menu .ui-menu-child {
+	background: white;
+}
+
+.ui-menu .ui-menu-list .ui-widget-header {
+	background: #1E344B;
+}
+
+.ui-widget-header {
+	color: white;
+	font-weight: 100;
+}
+
+.ui-megamenu .ui-widget-header span {
+	color: #fff;
+	font-weight: normal;
+	text-shadow: none;
+}
 				</style>
 			</h:head>
 			<!-- MegaMenu -->
 			<p:megaMenu orientation="horizontal" style="margin-top:-8px; background: white;">
-				<p:menuitem value="Home" url="./indexJuiz.xhtml" icon="ui-icon-home"/>
+				<p:menuitem value="#{msg['pages.Menus.home']}" url="./indexJuiz.xhtml"/>
 				
-				<p:submenu label="Campeonatos" icon="ui-icon-note">
+				<p:submenu label="#{msg['pages.Menus.campeonatos']}">
 					<p:column style="background: white;">
-					<p:submenu label="Campeonatos">
+					<p:submenu label="#{msg['pages.Menus.campeonatos']}">
 							<p:menuitem value="Adicionar Partida" url="./cadastroPartida.xhtml" />
 						</p:submenu>
 					</p:column>
 				</p:submenu>
 
-				<p:submenu label="Partidas" icon="ui-icon-note">
+				<p:submenu label="#{msg['pages.Menus.partidas']}">
 					<p:column style="background: white;">
-					<p:submenu label="Partidas">
-							<p:menuitem value="Chaveamento" url="./verChaves.xhtml" />
+					<p:submenu label="#{msg['pages.Menus.partidas']}">
+							<p:menuitem value="#{msg['pages.Menus.chaveamento']}" url="./verChaves.xhtml" />
 						</p:submenu>
 					</p:column>
 				</p:submenu>
 				
-				<p:menuitem value="Configurações" url="./info.xhtml" icon="ui-icon-home" />
-				<p:menuitem value="Sair" url="./../../index.xhtml" icon="ui-icon-home" />
+				<p:menuitem value="#{msg['pages.Menus.perfil']}" url="./info.xhtml"/>
+				<p:menuitem value="#{msg['pages.Menus.sair']}" url="./../../logout.xhtml"/>
 				
 			</p:megaMenu>
 			

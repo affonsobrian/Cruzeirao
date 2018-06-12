@@ -16,7 +16,7 @@
 									
 						}
 						.bandeira-en {    
-										background-image: url(../../resources/sistema/1_0/imagens/en-us.png) !important;
+										background-image: url(../../../../resources/sistema/1_0/imagens/en-us.png) !important;
 									    background-size: cover !important;
 									    background-repeat: no-repeat;
 									    position: absolute;
@@ -28,7 +28,7 @@
 									    border: none;
 						}
 						.bandeira-br {
-									    background-image: url(../../resources/sistema/1_0/imagens/pt-br.png) !important;
+									    background-image: url(../../../../resources/sistema/1_0/imagens/pt-br.png) !important;
 									    background-size: cover !important;
 									    background-repeat: no-repeat;
 									    position: absolute;
@@ -42,11 +42,9 @@
 				</style>
 				
 			</h:head>
-			<!-- MegaMenu -->
-			<p:megaMenu orientation="horizontal" style="margin-top:-8px; background: white;">
-				<p:menuitem value="#{msg['pages.Menus.home']}" url="./index.xhtml"/>
-				<p:menuitem value="#{msg['pages.Menus.login']}" url="./login.xhtml"/>
-				<p:menuitem value="#{msg['pages.Menus.cadastro']}" url="./cadastroUsuario.xhtml"/>
-			</p:megaMenu>
+			<h:form id="bandeiraForm">
+				<h:commandButton rendered="#{localeBean.language == 'en'}" actionListener="#{localeBean.setPortuguese()}" value="" styleClass="bandeira-en"/>
+				<h:commandButton rendered="#{localeBean.language == 'pt'}" update="bandeiraForm" actionListener="#{localeBean.setEnglish()}" value="" styleClass="bandeira-br"/>
+			</h:form>
 			
 </h:html>
