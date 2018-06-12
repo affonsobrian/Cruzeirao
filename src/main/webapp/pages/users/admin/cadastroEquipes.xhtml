@@ -88,27 +88,27 @@ tr {
 		<h:body>
 			<h:form id="equipeForm">
 				<p:wizard flowListener="#{equipeMB.onFlowProcess}" widgetVar="wiz">
-					<p:tab id="equipe" title="Cadastro de Equipe">
-						<p:panel header="Informações">
+					<p:tab id="equipe" title="#{msg['cadastro_equipe']}">
+						<p:panel header="#{msg['informacoes']}">
 							<p:messages />
 							<h:panelGrid columns="2" columnClasses="label, value">
-								<h:outputText value="Nome: *" />
+								<h:outputText value="#{msg['pages.cadastroUsuario.nome']}: *" />
 								<p:inputText value="#{equipeMB.equipe.nome}" required="true"
 									label="Nome" />
 
-								<h:outputText value="Data de fundação: *" />
+								<h:outputText value="#{msg['data_fundacao']}: *" />
 								<p:calendar value="#{equipeMB.equipe.dataFundacao}"
 									label="Data de Fundação" pattern="dd/MM/yyyy" mask="true"
 									required="true" />
 
-								<h:outputText value="Cidade: *" />
+								<h:outputText value="#{msg['cidade']}: *" />
 								<p:inputText value="#{equipeMB.equipe.cidade}" label="Cidade"
 									required="true" />
 							</h:panelGrid>
 						</p:panel>
 					</p:tab>
 
-					<p:tab id="confirm" title="Confirmação">
+					<p:tab id="confirm" title="#{msg['confirmacao']}">
 						<p:panel header="Confirmação">
 							<p:messages />
 							<h:panelGrid id="confirmation" columns="2"
